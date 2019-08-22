@@ -17,7 +17,7 @@ function App() {
       
       </header>
       <Route exact={true} path="/" component={Homepage} />
-      <Route exact={true} path="/Quizzes" component={Quizpage} />
+      <Route path="/Quizzes" component={Quizpage} />
     </div>
     </Router>
   );
