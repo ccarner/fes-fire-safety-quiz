@@ -16,23 +16,8 @@ function App() {
         <p>FS-Quoll</p>
       
       </header>
-        <Route exact={true} path="/" component={Homepage} />
-        <Route exact={true} path="/Quizzes" component={Quizpage} />
-      <Route exact={true} path="/" render={() => (
-      <button className="square" onClick={function() { alert('click'); }}> 
-      <Route exact={true} path="/"/>
-      checklist
-      </button>
-      )}/>
-      <Route exact={true} path="/" render={() => (
-      <button>
-      
-      more info
-      </button>
-      )}/>
-      <Button variant="contained" color="primary" component = {Link} to="./Quizzes">
-       test quizzes
-      </Button>
+      <Route exact={true} path="/" component={Homepage} />
+      <Route exact={true} path="/Quizzes" component={Quizpage} />
     </div>
     </Router>
   );
