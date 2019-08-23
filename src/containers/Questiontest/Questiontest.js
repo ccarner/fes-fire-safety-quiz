@@ -1,4 +1,4 @@
-const questions = [{question: "test question",
+const questions = [{question: "test question, choose correct answer",
 answers: ["correct answer", "wrong answer", "another wrong"],
 correct: "correct answer"}];
 
