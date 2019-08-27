@@ -1,6 +1,6 @@
-import React, {Component} from "react";
+import React, { Component } from "react";
 import ReactDom from "react-dom";
-import Button from '@material-ui/core/Button';
+import Button from "@material-ui/core/Button";
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Questiontest from "./Questiontest/Questiontest";
 
@@ -9,42 +9,57 @@ class Quiz extends Component {
     questions: []
   };
   getQuest = () => {
-    Questiontest().then(question =>
-      {this.setState({
-        questions : question
+    Questiontest().then(question => {
+      this.setState({
+        questions: question
       });
     });
   };
-  componentDidMount(){
+  componentDidMount() {
     this.getQuest();
   }
-  render(){
+  render() {
     return (
-    <div className="container">
-      <div className="title">QUEEZ</div>
-      {this.state.questions.length > 0 && 
-      this.state.questions.map(({question, answers, correct}) => <h4>{question}</h4>)}
-    </div>)
+      <div className="container">
+        <div className="title">QUEEZ</div>
+        {this.state.questions.length > 0 &&
+          this.state.questions.map(({ question, answers, correct }) => (
+            <h4>{question}</h4>
+          ))}
+      </div>
+    );
   }
 }
 
 const Quizpage = () => {
   return (
-  <div>
-    <h1>Quizzes go here</h1>
-  
-  <Button variant="contained" color="primary" component = {Link} to="/">
-       home
-  </Button>
-  <div>
-  <Route exact={true} path="/Quizzes" render={() =>(
-  <Button variant="contained" color="secondary" component = {Link} to="/Quizzes/quiz1">
-  quiz1
-  </Button> )}>
-  </Route>
-  </div>
-  <Route  path="/Quizzes/quiz1" component={Quiz} />
-  </div>
+    <div>
+      <h1>Quizzes go here</h1>
+
+      <Button variant="contained" color="primary" component={Link} to="/">
+        home
+      </Button>
+      <Button variant="contained" color="primary" component={Link} to="/">
+        Separate Quiz Service
+      </Button>
+      <div>
+        <Route
+          exact={true}
+          path="/Quizzes"
+          render={() => (
+            <Button
+              variant="contained"
+              color="secondary"
+              component={Link}
+              to="/Quizzes/quiz1"
+            >
+              quiz1
+            </Button>
+          )}
+        ></Route>
+      </div>
+      <Route path="/Quizzes/quiz1" component={Quiz} />
+    </div>
   );
 };
 
