@@ -19,6 +19,7 @@ function App() {
     <Router>
       <div className="App">
         <NavBar />
+
         <Switch>
           {/* use a switch so we only render max of ONE of these pages */}
           <Route path="/" exact component={HomePage} />
