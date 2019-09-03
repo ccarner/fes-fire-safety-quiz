@@ -1,5 +1,5 @@
 import React from "react";
-import logo from "./logo.svg";
+//import logo from "./logo.svg";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import InformationPage from "./components/information";
@@ -19,6 +19,7 @@ function App() {
     <Router>
       <div className="App">
         <NavBar />
+
         <Switch>
           {/* use a switch so we only render max of ONE of these pages */}
           <Route path="/" exact component={HomePage} />
