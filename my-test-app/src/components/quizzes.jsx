@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import QuizBee from "./quiz/quiz";
+import QuizBee from "./quiz/quizComponent";
 
 class QuizPage extends Component {
   state = {};
