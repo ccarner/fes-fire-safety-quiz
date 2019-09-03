@@ -28,7 +28,9 @@ function Quiz(props) {
           total={props.questionTotal}
         />
         <div className = "Media">
-          <p>"template"</p>
+          {props.media === "text"?<div></div>:(props.media === "img"?<div className="media"><img 
+            src={props.media_src} alt="picture" width="200" height="200" className ="quizImage"/></div>:
+            <div><video src={props.media_src} type="video/mp4" controls/></div>)}
         </div>
         <Question  content={props.question} />
         <ul className="answerOptions">

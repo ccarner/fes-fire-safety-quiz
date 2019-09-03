@@ -33,7 +33,9 @@
 .result-link {
   float: right;
     /* background-color: green; */
-  color: #000000;
+  color: #1bbb43;
+  font-size: 25px;
+  
 }
 .correct-status{
   color: green;
@@ -204,4 +206,11 @@ button {
 .fade-appear.fade-appear-active {
   opacity: 1;
   transition: opacity 0.5s ease-in-out;
+}
+
+.quizImage{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 40%;
 }

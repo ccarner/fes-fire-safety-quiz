@@ -20,6 +20,8 @@ class App extends Component {
       answer: '',
       selectedAnswers : {},
       result: '',
+      media:"",
+      media_src:"",
       questionTotal: QuizAPI.length
     };
     this.setNextQuestion = this.setNextQuestion.bind(this);
@@ -53,6 +55,8 @@ class App extends Component {
     this.setState({
       question: this.quizQuestions[0].question,
       answerOptions : this.quizQuestions[0].answers,
+      media: this.quizQuestions[0].media,
+      media_src: this.quizQuestions[0].media_src,
       allQuestions : this.quizQuestions
     });
   }
@@ -67,6 +71,8 @@ class App extends Component {
       questionId: questionId,
       question: this.quizQuestions[counter].question,
       answerOptions: this.quizQuestions[counter].answers,
+      media: this.quizQuestions[counter].media,
+      media_src: this.quizQuestions[counter].media_src,
       answer: ''
     });
   }
@@ -79,6 +85,8 @@ class App extends Component {
       questionId: questionId,
       question: this.quizQuestions[counter].question,
       answerOptions: this.quizQuestions[counter].answers,
+      media: this.quizQuestions[counter].media,
+      media_src: this.quizQuestions[counter].media_src,
       answer: ''
     });
   }
@@ -114,6 +122,8 @@ class App extends Component {
         question={this.state.question}
         questionTotal = {this.state.questionTotal}
         onAnswerSelected = {this.handleAnswerSelected}
+        media = {this.state.media}
+        media_src = {this.state.media_src}
       />
     );
   }
