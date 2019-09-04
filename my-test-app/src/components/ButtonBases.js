@@ -5,24 +5,6 @@ import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 
-const images = [
-    {
-      url: 'my-test-app\src\resources\qustionmarks.jpg',
-      title: 'Quiz',
-      width: '40%',
-    },
-    {
-      url: 'my-test-app\src\resources\building.jpg',
-      title: 'Checklist',
-      width: '30%',
-    },
-    {
-      url: 'my-test-app\src\resources\FESlogo.jpg',
-      title: 'Info',
-      width: '30%',
-    },
-  ];
-
 const useStyles = makeStyles(theme => ({
   root: {
     display: 'flex',
