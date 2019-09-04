@@ -96,7 +96,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-function ButtonBases(name, link, image) {
+function ButtonBases(name, link, url) {
   
     const classes = useStyles();
 
@@ -116,7 +116,7 @@ function ButtonBases(name, link, image) {
           <span
             className={classes.imageSrc}
             style={{
-              backgroundImage: `url(${image})`,
+              backgroundImage: `url(${url})`,
             }}
           />
           <span className={classes.imageBackdrop} />

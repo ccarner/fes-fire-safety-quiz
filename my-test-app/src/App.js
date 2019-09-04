@@ -6,6 +6,7 @@ import InformationPage from "./components/information";
 import NavBar from "./components/navbar";
 import QuizPage from "./components/quizzes";
 import HomePage from "./components/home";
+import background1 from "./components/pictures/questionmarks.png"
 
 // this is the basic component that's responsible for rendering the default
 // starting view with the spinning react logo

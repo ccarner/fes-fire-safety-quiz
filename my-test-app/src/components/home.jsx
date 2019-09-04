@@ -21,9 +21,9 @@ const useStyles = makeStyles(theme => ({
 function HomePage(props)   {
   const [mainMenu, setMenu] = useState(
     [
-      { name: "Quizzes", link: "/quizzes", image: '../resources/qustionmarks.png' },
-      { name: "More about FES", link: "/information", image: 'my-test-app\src\resources\FESlogo.jpg' },
-      { name: "Review Knowledge", link: "/review", image: 'my-test-app\src\resources\building.jpg' }
+      { name: "Quizzes", link: "/quizzes", url: '/pictures/qustionmarks.png' },
+      { name: "More about FES", link: "/information", url: '/picturesFESlogo.jpg' },
+      { name: "Review Knowledge", link: "/review", url: '/picturesbuilding.jpg' }
     ]
   );
   const [imageURL, setURL] = useState("");
@@ -44,7 +44,7 @@ function HomePage(props)   {
         <img alt="" src={`data:image/jpeg;base64,${imageURL}`} />
         <h1>Home</h1>
         {mainMenu.map(option =>
-          ButtonBases(option.name, option.link, option.image)
+          ButtonBases(option.name, option.link, option.url)
         )}
         <div>{ButtonBases()}</div>
       </React.Fragment>
