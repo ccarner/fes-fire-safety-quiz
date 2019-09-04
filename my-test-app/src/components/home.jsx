@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
@@ -23,6 +23,7 @@ const images = [
     width: '30%',
   },
 ];
+
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -97,51 +98,93 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+// const testThing = () => {
+//   const classes = useStyles();
+//   return <Button variant="contained" color="secondary"/>
+// }
 
+function ButtonBases() {
+  const classes = useStyles();
 
-class HomePage extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      mainMenu: [
-        { name: "Quizzes", link: "/quizzes" },
-        { name: "More about FES", link: "/information" },
-        { name: "Review Knowledge", link: "/review" }
-      ],
-      imageURL: ""
-      
-    };
-  }
+  return (
+    <div className={classes.root}>
+      {images.map(image => (
+        <ButtonBase
+          focusRipple
+          key={image.title}
+          className={classes.image}
+          focusVisibleClassName={classes.focusVisible}
+          style={{
+            width: image.width,
+          }}
+        >
+          <span
+            className={classes.imageSrc}
+            style={{
+              backgroundImage: `url(${image.url})`,
+            }}
+          />
+          <span className={classes.imageBackdrop} />
+          <span className={classes.imageButton}>
+            <Typography
+              component="span"
+              variant="subtitle1"
+              color="inherit"
+              className={classes.imageTitle}
+            >
+              {image.title}
+              <span className={classes.imageMarked} />
+            </Typography>
+          </span>
+        </ButtonBase>
+      ))}
+    </div>
+  );
+}
+
+function HomePage(props)   {
+  const [mainMenu, setMenu] = useState(
+    [
+      { name: "Quizzes", link: "/quizzes" },
+      { name: "More about FES", link: "/information" },
+      { name: "Review Knowledge", link: "/review" }
+    ]
+  );
+  const [imageURL, setURL] = useState("");
   
 
-  componentDidMount() {
+ //  function useEffect() {
     // NOTE had to use arrow function to ensure that 'this' binding was still to
     // the outer class...
+     useEffect(() => {
     ImageDatabase.getImage("https://picsum.photos/200").then(imageString => {
-      this.setState({ imageURL: imageString });
+      setURL( imageString );
     });
-  }
-
-  render() {
+  }, [])
+  
+  
     return (
       <React.Fragment>
-        <img alt="" src={`data:image/jpeg;base64,${this.state.imageURL}`} />
+        <img alt="" src={`data:image/jpeg;base64,${imageURL}`} />
         <h1>Home</h1>
-        {this.state.mainMenu.map(option =>
-          this.renderMenuOption(option.name, option.link)
+        {mainMenu.map(option =>
+          renderMenuOption(option.name, option.link)
+        )}
+         {mainMenu.map(option =>
+          <Button variant="contained" color="secondary" component = {Link} to={`${option.link}`}>{option.name}</Button>
         )}
       </React.Fragment>
     );
-  }
 
-  renderMenuOption(name, link) {
+  
+
+}
+ function renderMenuOption(name, link) {
     return (
       <div>
+        {/* <Button variant="contained" color="secondary" component = {Link} to={`${link}`}>{name}</Button> */}
           <Link to={`${link}`}>{name}</Link>
       </div>
     );
   }
-
-}
-
 export default HomePage;
