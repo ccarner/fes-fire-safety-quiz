@@ -4,6 +4,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 import ImageDatabase from "../db.js";
+import Button from '@material-ui/core/Button'; 
 
 const images = [
   {
@@ -96,44 +97,7 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
- function ButtonBases() {
-  const classes = useStyles();
 
-  return (
-    <div className={classes.root}>
-      {images.map(image => (
-        <ButtonBase
-          focusRipple
-          key={image.title}
-          className={classes.image}
-          focusVisibleClassName={classes.focusVisible}
-          style={{
-            width: image.width,
-          }}
-        >
-          <span
-            className={classes.imageSrc}
-            style={{
-              backgroundImage: `url(${image.url})`,
-            }}
-          />
-          <span className={classes.imageBackdrop} />
-          <span className={classes.imageButton}>
-            <Typography
-              component="span"
-              variant="subtitle1"
-              color="inherit"
-              className={classes.imageTitle}
-            >
-              {image.title}
-              <span className={classes.imageMarked} />
-            </Typography>
-          </span>
-        </ButtonBase>
-      ))}
-    </div>
-  );
-}
 
 class HomePage extends Component {
   constructor(props) {
@@ -145,6 +109,7 @@ class HomePage extends Component {
         { name: "Review Knowledge", link: "/review" }
       ],
       imageURL: ""
+      
     };
   }
   
@@ -165,56 +130,18 @@ class HomePage extends Component {
         {this.state.mainMenu.map(option =>
           this.renderMenuOption(option.name, option.link)
         )}
-        {this.state.mainMenu}
       </React.Fragment>
+    );
   }
 
   renderMenuOption(name, link) {
     return (
       <div>
-        <Link to={`${link}`}>{name}</Link>
+          <Link to={`${link}`}>{name}</Link>
       </div>
     );
   }
 
-  ButtonBases() {
-    const classes = useStyles();
-  
-    return (
-      <div className={classes.root}>
-        {images.map(image => (
-          <ButtonBase
-            focusRipple
-            key={image.title}
-            className={classes.image}
-            focusVisibleClassName={classes.focusVisible}
-            style={{
-              width: image.width,
-            }}
-          >
-            <span
-              className={classes.imageSrc}
-              style={{
-                backgroundImage: `url(${image.url})`,
-              }}
-            />
-            <span className={classes.imageBackdrop} />
-            <span className={classes.imageButton}>
-              <Typography
-                component="span"
-                variant="subtitle1"
-                color="inherit"
-                className={classes.imageTitle}
-              >
-                {image.title}
-                <span className={classes.imageMarked} />
-              </Typography>
-            </span>
-          </ButtonBase>
-        ))}
-      </div>
-    );
-  }
 }
 
 export default HomePage;
