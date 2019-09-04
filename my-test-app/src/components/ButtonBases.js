@@ -1,11 +1,13 @@
 import React from 'react';
+import { Link } from "react-router-dom";
+
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
 
 const images = [
     {
-      url: 'my-test-app\src\resources\FESlogo.jpg',
+      url: 'my-test-app\src\resources\qustionmarks.jpg',
       title: 'Quiz',
       width: '40%',
     },
@@ -94,26 +96,27 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-const ButtonBases = () => {
+function ButtonBases(name, link, image) {
   
     const classes = useStyles();
 
   return (
     <div className={classes.root}>
-      {images.map(image => (
         <ButtonBase
           focusRipple
-          key={image.title}
+          key={name}
+          component = {Link} to={`${link}`}
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
           style={{
-            width: image.width,
+            width: '100%',
           }}
+          
         >
           <span
             className={classes.imageSrc}
             style={{
-              backgroundImage: `url(${image.url})`,
+              backgroundImage: `url(${image})`,
             }}
           />
           <span className={classes.imageBackdrop} />
@@ -124,18 +127,14 @@ const ButtonBases = () => {
               color="inherit"
               className={classes.imageTitle}np
             >
-              {image.title}
+              {name}
               <span className={classes.imageMarked} />
             </Typography>
           </span>
         </ButtonBase>
-      ))}
     </div>
   );
 }
 
-const welcome = () => {
-    return ButtonBases;
-}
 
 export default ButtonBases;

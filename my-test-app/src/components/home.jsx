@@ -21,9 +21,9 @@ const useStyles = makeStyles(theme => ({
 function HomePage(props)   {
   const [mainMenu, setMenu] = useState(
     [
-      { name: "Quizzes", link: "/quizzes" },
-      { name: "More about FES", link: "/information" },
-      { name: "Review Knowledge", link: "/review" }
+      { name: "Quizzes", link: "/quizzes", image: '../resources/qustionmarks.png' },
+      { name: "More about FES", link: "/information", image: 'my-test-app\src\resources\FESlogo.jpg' },
+      { name: "Review Knowledge", link: "/review", image: 'my-test-app\src\resources\building.jpg' }
     ]
   );
   const [imageURL, setURL] = useState("");
@@ -44,9 +44,9 @@ function HomePage(props)   {
         <img alt="" src={`data:image/jpeg;base64,${imageURL}`} />
         <h1>Home</h1>
         {mainMenu.map(option =>
-          renderMenuOption(option.name, option.link)
+          ButtonBases(option.name, option.link, option.image)
         )}
-        <div>{ButtonBases}</div>
+        <div>{ButtonBases()}</div>
       </React.Fragment>
     );
 
@@ -56,7 +56,6 @@ function HomePage(props)   {
  function renderMenuOption(name, link) {
     return (
       <div>
-        {/* <Button variant="contained" color="secondary" component = {Link} to={`${link}`}>{name}</Button> */}
           <Link to={`${link}`}>{name}</Link>
       </div>
     );
