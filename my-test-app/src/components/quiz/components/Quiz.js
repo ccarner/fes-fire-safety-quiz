@@ -28,14 +28,16 @@ function Quiz(props) {
           total={props.questionTotal}
         />
         <div className = "Media">
-          {props.media === "text"?<div></div>:(props.media === "img"?<div className="media"><img 
+          {props.media === "text"?<br/>:(props.media === "img"?<div className="media"><img 
             src={props.media_src} alt="picture" width="200" height="200" className ="quizImage"/></div>:
             <div><video src={props.media_src} type="video/mp4" controls/></div>)}
         </div>
         <Question  content={props.question} />
+        <div>
         <ul className="answerOptions">
           {props.answerOptions.map(renderAnswerOptions)}
         </ul>
+        </div>
         <div className="bottom-footer" >
           {props.counter > 0 ? (<button className="Previous-btn" onClick={props.setPreviousQuestion} >Previous</button>) : (<div></div>)}
 

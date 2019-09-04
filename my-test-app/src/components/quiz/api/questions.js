@@ -20,7 +20,7 @@ const quizQuestions = [
     {
     question: "Should you use the extinguisher when the arrow is not inside the green section of the dial?",
     answerindex : 1,
-    media: "video",
+    media: "text",
     media_src: "",
     answers: [
       "yes", "no"

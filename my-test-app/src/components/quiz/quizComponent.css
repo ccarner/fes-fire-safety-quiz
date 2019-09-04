@@ -106,9 +106,8 @@ button {
 
 /* Quiz Component */
 .answerOptions {
-  width: 700px;
-  margin: auto;
-  min-height: 200px;
+  display: flex;
+  justify-content: center;
 }
 
 /* QuestionCount Component */
