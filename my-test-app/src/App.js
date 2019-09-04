@@ -22,12 +22,13 @@ function App() {
 
         <Switch>
           {/* use a switch so we only render max of ONE of these pages */}
-          <Route path="/" exact component={HomePage} />
+          <Route path="/" exact function={HomePage} />
           <Route path="/information" component={InformationPage} />
           <Route path="/quizzes" component={QuizPage} />
         </Switch>
       </div>
     </Router>
+    
   );
 }
 
