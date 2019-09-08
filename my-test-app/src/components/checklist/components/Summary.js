@@ -39,6 +39,8 @@ class Summary extends React.Component {
         <div>
           <h1>Summary</h1>
           <div>{this.renderSummary()}</div>
+          <button className="FES_CALL-btn">Call FES</button>
+          <button className="FES_INFO -btn">MORE ABOUT FES</button>
         </div>
       </div>
     );

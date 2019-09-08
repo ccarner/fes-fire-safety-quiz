@@ -128,7 +128,7 @@ function SafetyPage(props) {
   const [mainMenu, setMenu] = useState([
     {
       name: "Information Modules",
-      link: "/checklist/infoModule",
+      link: "/infoModule",
       url: background1
     },
     {

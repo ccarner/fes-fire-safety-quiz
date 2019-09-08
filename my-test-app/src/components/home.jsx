@@ -126,9 +126,9 @@ function ButtonBases(name, link, url) {
 
 function HomePage(props) {
   const [mainMenu, setMenu] = useState([
+    { name: "Fire Safety Information", link: "/safetyHome", url: background3 },
     { name: "Quizzes", link: "/quizzes", url: background1 },
-    { name: "More about FES", link: "/information", url: background2 },
-    { name: "Fire Safety Information", link: "/safetyHome", url: background3 }
+    { name: "About FES", link: "/information", url: background2 }
   ]);
   const [imageURL, setURL] = useState("");
   const classes = useStyles();
