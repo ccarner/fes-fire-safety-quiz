@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import QuizAPI from "./api/questions";
 import Quiz from "./components/Quiz";
-import Result from "./components/Result";
+import Summary from "./components/Summary";
 import ReactDOM from "react-dom";
 import "./checkComponent.css";
 
@@ -130,7 +130,7 @@ class App extends Component {
 
   renderResult() {
     return (
-      <Result
+      <Summary
         quizQuestions={this.state.allQuestions}
         answers={this.state.selectedAnswers}
       />
