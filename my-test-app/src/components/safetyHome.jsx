@@ -124,11 +124,18 @@ function ButtonBases(name, link, url) {
   );
 }
 
-function HomePage(props) {
+function SafetyPage(props) {
   const [mainMenu, setMenu] = useState([
-    { name: "Quizzes", link: "/quizzes", url: background1 },
-    { name: "More about FES", link: "/information", url: background2 },
-    { name: "Fire Safety Information", link: "/safetyHome", url: background3 }
+    {
+      name: "Information Modules",
+      link: "/checklist/infoModule",
+      url: background1
+    },
+    {
+      name: "Building Safety Checklist",
+      link: "/buildingCheck",
+      url: background3
+    }
   ]);
   const [imageURL, setURL] = useState("");
   const classes = useStyles();
@@ -145,7 +152,7 @@ function HomePage(props) {
   return (
     <React.Fragment>
       <img alt="" src={`data:image/jpeg;base64,${imageURL}`} />
-      <h1>Home</h1>
+      <h1>Safety</h1>
       {mainMenu.map(option =>
         ButtonBases(option.name, option.link, option.url)
       )}
@@ -159,4 +166,4 @@ function renderMenuOption(name, link) {
     </div>
   );
 }
-export default HomePage;
+export default SafetyPage;

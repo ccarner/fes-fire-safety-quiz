@@ -6,7 +6,9 @@ import InformationPage from "./components/information";
 import NavBar from "./components/navbar";
 import QuizPage from "./components/quizzes";
 import HomePage from "./components/home";
-import background1 from "./components/pictures/questionmarks.png"
+import SafetyPage from "./components/safetyHome";
+import CheckListPage from "./components/buildingCheck";
+import background1 from "./components/pictures/questionmarks.png";
 
 // this is the basic component that's responsible for rendering the default
 // starting view with the spinning react logo
@@ -26,10 +28,11 @@ function App() {
           <Route path="/" exact component={HomePage} />
           <Route path="/information" component={InformationPage} />
           <Route path="/quizzes" component={QuizPage} />
+          <Route path="/safetyHome" component={SafetyPage} />
+          <Route path="/buildingCheck" component={CheckListPage} />
         </Switch>
       </div>
     </Router>
-    
   );
 }
 
