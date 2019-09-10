@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
-import QuizAPI from './api/questions';
+
+import QuizAPI from './api/questions.json'
 import Quiz from './components/Quiz';
 import Result from './components/Result';
 import ReactDOM from "react-dom";
 import './quizComponent.css';
+
 
 class App extends Component {
 
