@@ -9,6 +9,7 @@ const NavBar = props => {
       <Link className="navbar-brand" to="/">
         Home{" "}
       </Link>
+      <img alt="" width="75" src={"https://www.fes.com.au/www/wp-content/uploads/2012/08/logo.jpg"} />
     </nav>
   );
 };
