@@ -11,7 +11,7 @@ import background2 from "./pictures/FESlogo.jpg";
 import background3 from "./pictures/Man-filling-up-checklist.jpg";
 
 
-function SafetyPage(props) {
+function QuizPage(props) {
   const [mainMenu, setMenu] = useState([
     {
       name: "Information Modules",
@@ -53,4 +53,4 @@ function renderMenuOption(name, link) {
     </div>
   );
 }
-export default SafetyPage;
+export default QuizPage;
