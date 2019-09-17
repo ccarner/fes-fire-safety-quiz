@@ -24,7 +24,7 @@
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject",
-    "postinstall": "cd my-test-app && npm install"
+    "postinstall": "cd my-test-app"
   },
   "eslintConfig": {
     "extends": "react-app"
