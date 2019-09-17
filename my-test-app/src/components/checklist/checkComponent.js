@@ -1,18 +1,9 @@
-<<<<<<< HEAD
-import React, { Component } from 'react';
-
-import QuizAPI from './api/questions.json'
-import Quiz from './components/Quiz';
-import Result from './components/Result';
-=======
 import React, { Component } from "react";
 import QuizAPI from "./api/questions";
 import Quiz from "./components/Quiz";
-import Result from "./components/Result";
->>>>>>> master
+import Summary from "./components/Summary";
 import ReactDOM from "react-dom";
-import "./quizComponent.css";
-
+import "./checkComponent.css";
 
 class App extends Component {
   constructor(props) {
@@ -37,7 +28,6 @@ class App extends Component {
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
     this.viewreults = this.viewreults.bind(this);
   }
-
   handleAnswerSelected(e) {
     var _self = this;
     var obj = _self.state.selectedAnswers;
@@ -140,7 +130,7 @@ class App extends Component {
 
   renderResult() {
     return (
-      <Result
+      <Summary
         quizQuestions={this.state.allQuestions}
         answers={this.state.selectedAnswers}
       />
