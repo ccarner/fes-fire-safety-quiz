@@ -27,11 +27,11 @@ function App() {
         <Switch>
           {/* use a switch so we only render max of ONE of these pages */}
           <Route path="/" exact component={HomePage} />
-          <Route path="/information" component={InformationPage} />
-          <Route path="/quizzes" component={QuizPage} />
-          <Route path="/safetyHome" component={SafetyPage} />
-          <Route path="/buildingCheck" component={CheckListPage} />
-          <Route path="/infoModule" component={InfoModulePage} />
+          <Route path="/information" exact component={InformationPage} />
+          <Route path="/quizzes" exact component={QuizPage} />
+          <Route path="/safetyHome" exact component={SafetyPage} />
+          <Route path="/buildingCheck" exact component={CheckListPage} />
+          <Route path="/infoModule" exact component={InfoModulePage} />
         </Switch>
       </div>
     </Router>

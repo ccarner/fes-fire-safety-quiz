@@ -1,0 +1,37 @@
+{
+  "quizzes": [
+    {
+      "name": "Testquiz1",
+      "questions": [
+        {
+          "image": "NULL",
+          "text": "how many fire extinguishes should you own?",
+          "answers": ["3", "4", "500+"]
+        },
+        {
+          "image": "NULL",
+          "text": "Why might you not want to light yourself on fire?",
+          "answers": ["sounds painful", "don't have any matches on me"]
+        }
+      ]
+    },
+    {
+      "name": "Testquiz2",
+      "questions": [
+        {
+          "image": "NULL",
+          "text": "When should you jump out of a burning building?",
+          "answers": ["<3 storys up", ">3 storys up"]
+        },
+        {
+          "image": "NULL",
+          "text": "Why are fire blankets a good idea to have around?",
+          "answers": [
+            "They suffocate flames",
+            "the fire has trouble sleeping without one"
+          ]
+        }
+      ]
+    }
+  ]
+}
