@@ -77,9 +77,9 @@ const useStyles = makeStyles(theme => ({
     transition: theme.transitions.create('opacity'),
   },
 }));
-function ttt(thing){
-  return window.location = thing; 
-}
+// function ttt(thing){
+//   return window.location = thing; 
+// }
 
 function ButtonBases(name, link, url, callback) {
   

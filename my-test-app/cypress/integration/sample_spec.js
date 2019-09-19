@@ -11,6 +11,10 @@ describe('My First Test', function() {
       cy.url().should('include', '/quizzes')
       cy.contains('Next').click()
       cy.get('video').click()
+      cy.wait('while')
+      cy.contains('Next').click()
+      cy.contains('Results').click()
+
     })
    // expect(true).to.equal(true)
     it('has working home button', function() {

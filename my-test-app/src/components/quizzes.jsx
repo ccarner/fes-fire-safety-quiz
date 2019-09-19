@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import QuizBee from "./quiz/quizComponent";
+import test from './quiz/api/newquestions.json';
 import quizList from "./quiz/api/quizList";
 import ButtonBases from "./ButtonBases";
  
@@ -31,13 +32,31 @@ function listQuizzes(){
   }
 function dothing(thing){
   // return new QuizBee();
-  return (
-    alert('asdf'),
-  <React.Fragment>
-    thing
-     <QuizBee/>;
-  </React.Fragment>
-  );
+  var jsondata = require(`${thing}`);
+  // alert(`${thing}`);
+  // fetch(thing)
+  // .then(function(response) {
+  //   alert(response)
+  //   return response.json();
+  // })
+  // .then(function(myJson) {
+  //   stri = JSON.stringify(myJson);
+  //   alert(stri);
+  // });
+  var str = JSON.stringify(jsondata);
+  alert(str);
+  //alert(stri);
+  // alert(thing);
+  // alert(JSON.stringify(test));
+  // return (
+  //   alert(str),
+  //   //alert('asdf'),
+  //   str,
+  // <React.Fragment>
+  //   thing
+  //    <QuizBee/>;
+  // </React.Fragment>
+  // );
   //alert('asdf');
 }
 function QuizPage(props){
