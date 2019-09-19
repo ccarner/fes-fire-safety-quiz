@@ -1,6 +1,6 @@
-import React, { Component } from "react";
+import React, { Component, useState } from "react";
 import QuizBee from "./quiz/quizComponent";
-import test from './quiz/api/newquestions.json';
+//import test from './quiz/api/newquestions.json';
 import quizList from "./quiz/api/quizList";
 import ButtonBases from "./ButtonBases";
  
@@ -33,6 +33,7 @@ function listQuizzes(){
 function dothing(thing){
   // return new QuizBee();
   var jsondata = require(`${thing}`);
+ // setQuiz(thing);
   // alert(`${thing}`);
   // fetch(thing)
   // .then(function(response) {
@@ -59,18 +60,30 @@ function dothing(thing){
   // );
   //alert('asdf');
 }
+
 function QuizPage(props){
-  
-  
-   
+  const [quiz, setQuiz] = useState("");
+  alert(quiz);
+   if(quiz == ""){
     return (
       <React.Fragment>
         
         <h1>Quiz page</h1>
-        {listQuizzes().map(option=>ButtonBases(option.quizname, option.quizfile, "", dothing))}
-        <QuizBee />
+        {listQuizzes().map(option=>ButtonBases(option.quizname, option.quizfile, "", setQuiz))}
+        {/* <QuizBee /> */}
       </React.Fragment>
     );
+   } else {
+     //setQuiz("test");
+    return (
+      alert(quiz),
+      <React.Fragment>
+        <h1>asdf</h1>
+        <QuizBee />
+      </React.Fragment>
+      //try using useEffect
+    );
+   }
   
 }
 
