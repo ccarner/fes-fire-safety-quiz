@@ -1,0 +1,12 @@
+
+[
+    {
+        "quizname": "quiz 1",
+        "quizfile": "./questions.json"
+      },
+      {
+        "quizname": "quiz 2",
+        "quizfile": "./newquestions.json"
+      }
+]
+    
