@@ -21,7 +21,7 @@
   },
   "scripts": {
     "heroku-prebuild": "cd my-test-app && npm install",
-    "start": "cd my-test-app && npm start"
+    "start": "cd my-test-app && npm run build && serve -s build"
   },
   "eslintConfig": {
     "extends": "react-app"
