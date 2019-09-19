@@ -3,7 +3,7 @@ import QuizAPI from "./api/questions";
 import Quiz from "./components/Quiz";
 import Summary from "./components/Summary";
 import ReactDOM from "react-dom";
-import "./checkComponent.css";
+import "./../quiz/quizComponent.css";
 
 class App extends Component {
   constructor(props) {

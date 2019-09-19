@@ -21,7 +21,7 @@
 .answerOption {
   /*width: 150px;*/
   display: inherit;
-  margin: 2%
+  margin: 2%;
 
 }
 
@@ -47,9 +47,6 @@
 .quiz-story{
   padding: 5%;
   width: 90%;
-  background-color: #ccc;
-  
-
   background-color: #e8e5e5;
   margin: auto;
   /*min-height: 400px;*/
@@ -73,6 +70,7 @@ body {
   padding: 0;
   background: #eee;
   font-family: sans-serif;
+
 }
 
 .container {
