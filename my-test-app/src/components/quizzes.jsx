@@ -1,4 +1,4 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect } from "react";
 import QuizBee from "./quiz/quizComponent";
 //import test from './quiz/api/newquestions.json';
 import quizList from "./quiz/api/quizList";
@@ -63,8 +63,19 @@ function dothing(thing){
 
 function QuizPage(props){
   const [quiz, setQuiz] = useState("");
-  alert(quiz);
-   if(quiz == ""){
+  useEffect(() => {
+    //if(quiz != ""){
+      return (
+            alert(quiz),
+            <React.Fragment>
+              <h1>{quiz}</h1>
+              <QuizBee />
+            </React.Fragment>
+      )
+   // }
+  }, [quiz]);
+  //alert(quiz);
+   //if(quiz == ""){
     return (
       <React.Fragment>
         
@@ -73,17 +84,18 @@ function QuizPage(props){
         {/* <QuizBee /> */}
       </React.Fragment>
     );
-   } else {
-     //setQuiz("test");
-    return (
-      alert(quiz),
-      <React.Fragment>
-        <h1>asdf</h1>
-        <QuizBee />
-      </React.Fragment>
-      //try using useEffect
-    );
-   }
+    
+  //  } else {
+  //    //setQuiz("test");
+  //   return (
+  //     alert(quiz),
+  //     <React.Fragment>
+  //       <h1>asdf</h1>
+  //       <QuizBee />
+  //     </React.Fragment>
+  //     //try using useEffect
+  //   );
+  //  }
   
 }
 
