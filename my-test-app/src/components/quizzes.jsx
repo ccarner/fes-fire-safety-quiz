@@ -8,80 +8,37 @@ import ButtonBases from "./ButtonBases";
 
 function listQuizzes(){
   const path = require('path');
-  //const fs = require('fs');
-  //joining path of directory 
   const directoryPath = path.join(__dirname);
-  //passsing directoryPath and callback function
-  // fs.readdir(directoryPath, function (err, files) {
-  //   //handling error
-  //   if (err) {
-  //       return console.log('Unable to scan directory: ' + err);
-  //   } 
-  //   //listing all files using forEach
-  //   files.forEach(function (file) {
-  //       // Do whatever you want to do with the file
-  //       console.log(file); 
-  //   });
-  // });
-
-  // fs.readdirSync(directoryPath).forEach(file => {
-  //   console.log(file);
-  // });
-  // listRactFiles(__dirname).then(files => console.log(files))
   return (quizList);
   }
 function dothing(thing){
-  // return new QuizBee();
   var jsondata = require(`${thing}`);
- // setQuiz(thing);
-  // alert(`${thing}`);
-  // fetch(thing)
-  // .then(function(response) {
-  //   alert(response)
-  //   return response.json();
-  // })
-  // .then(function(myJson) {
-  //   stri = JSON.stringify(myJson);
-  //   alert(stri);
-  // });
+  alert(thing);
   var str = JSON.stringify(jsondata);
   alert(str);
-  //alert(stri);
-  // alert(thing);
-  // alert(JSON.stringify(test));
-  // return (
-  //   alert(str),
-  //   //alert('asdf'),
-  //   str,
-  // <React.Fragment>
-  //   thing
-  //    <QuizBee/>;
-  // </React.Fragment>
-  // );
-  //alert('asdf');
 }
 
 function QuizPage(props){
   const [quiz, setQuiz] = useState("");
-  useEffect(() => {
-    //if(quiz != ""){
-      return (
-            alert(quiz),
-            <React.Fragment>
-              <h1>{quiz}</h1>
-              <QuizBee />
-            </React.Fragment>
-      )
-   // }
-  }, [quiz]);
-  //alert(quiz);
+  // useEffect(() => {
+  //   //if(quiz != ""){
+  //     return (
+  //           alert(quiz),
+  //           <React.Fragment>
+  //             <h1>{quiz}</h1>
+  //             <QuizBee />
+  //           </React.Fragment>
+  //     )
+  //  // }
+  // }, [quiz]);
+  // alert(quiz);
    //if(quiz == ""){
     return (
       <React.Fragment>
         
         <h1>Quiz page</h1>
-        {listQuizzes().map(option=>ButtonBases(option.quizname, option.quizfile, "", setQuiz))}
-        {/* <QuizBee /> */}
+        {listQuizzes().map(option=>ButtonBases(option.quizname, option.quizfile, "", dothing))}
+        <QuizBee />
       </React.Fragment>
     );
     
