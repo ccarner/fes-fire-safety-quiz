@@ -40,7 +40,7 @@ function HomePage(props) {
       {mainMenu.map(option =>
         ButtonBases(option.name, option.link, option.url, doLink)
       )}
-      <button onClick={function() { doLink('./thing'); }} >asdf</button>
+      {/* <button onClick={function() { doLink('./thing'); }} >asdf</button> */}
     </React.Fragment>
   );
 }

@@ -34,12 +34,16 @@ class App extends Component {
 
 
   }
-  handleAnswerSelected(e){
+  handleAnswerSelected(first, value){
     var _self = this;
     var obj = _self.state.selectedAnswers;
-    var index = parseInt(e.target.value);
+    console.log(value);
+    //console.log(e.currentTarget.value);
+    var index = parseInt(value);
+    
     console.log("for selected question number " + (_self.state.counter + 1) +  " answer is " + index + " selected");
     var Qindex = (_self.state.counter )
+    //alert("dingdingding")
     // create map and store all selecred answers with quiz Questions
     obj[Qindex] = index;
     _self.setState({selectedAnswers : obj})
