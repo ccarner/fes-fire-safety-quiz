@@ -63,27 +63,29 @@ function dothing(thing){
 
 function QuizPage(props){
   const [quiz, setQuiz] = useState("");
+  const menu = listQuizzes().map(option=>ButtonBases(option.quizname, option.quizfile, "", setQuiz))
   //alert(quiz);
-  // if(quiz == ""){
+  if(quiz === ""){
     return (
       <React.Fragment>
         
         <h1>Quiz page</h1>
-        {listQuizzes().map(option=>ButtonBases(option.quizname, option.quizfile, "", setQuiz))}
-        <QuizBee />
+        {menu}
+        
       </React.Fragment>
     );
-  //  } else {
-  //    //setQuiz("test");
-  //   return (
-  //     alert(quiz),
-  //     <React.Fragment>
-  //       <h1>asdf</h1>
-  //       <QuizBee />
-  //     </React.Fragment>
-  //     //try using useEffect
-  //   );
-  //  }
+   } else {
+     //setQuiz("test");
+     //alert('beep')
+      return (
+      //alert(quiz),
+      <React.Fragment>
+        <h1>asdf</h1>
+        <QuizBee />
+      </React.Fragment>
+      //try using useEffect
+    );
+   }
   
 }
 

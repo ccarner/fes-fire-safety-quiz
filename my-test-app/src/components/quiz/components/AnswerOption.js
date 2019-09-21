@@ -1,7 +1,10 @@
 import React from 'react';
-import { makeStyles, withStyles } from '@material-ui/core/styles';
+import { makeStyles, withStyles, createMuiTheme} from '@material-ui/core/styles';
 import Button from "@material-ui/core/Button";
+import { purple, green } from '@material-ui/core/colors';
 import ToggleButton from "@material-ui/lab/ToggleButton";
+import { ThemeProvider } from '@material-ui/styles';
+//import { createMuiTheme } from '@material-ui/core/styles';
 
 
 const BootstrapButton = withStyles({
@@ -50,6 +53,13 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
+const theme = createMuiTheme({
+  palette: {
+    //primary: { main: purple[500] }, // Purple and green play nicely together.
+    secondary: { main: '#11cb5f' }, // This is just green.A700 as hex.
+  },
+});
+
 function AnswerOption(props) {
   const classes = useStyles();
   const [selected, setSelected] = React.useState(false);
@@ -62,9 +72,9 @@ function AnswerOption(props) {
         className={(props.selectedAnswer === props.index) ? 'selected-btn' : '' }
         onClick={props.onAnswerSelected.bind(props, '1')}
       >{props.answerContent}</button> */}
-      
-    <BootstrapButton 
-    color = {selected ? "primary" : "secondary"}
+          <ThemeProvider theme={theme}>
+    <Button 
+    color = {(props.selectedAnswer === props.index) ? "secondary" : "primary"}
     variant="contained" 
     value={props.index}
     type="button"
@@ -75,17 +85,8 @@ function AnswerOption(props) {
     >
       {props.answerContent}
       {/* {props.index} */}
-    </BootstrapButton>
-    
-    {/* <ToggleButton
-      value={props.index}
-      selected={selected}
-      onChange={() => {
-        setSelected(!selected);
-      }}
-    >
-      {props.answerContent}
-    </ToggleButton> */}
+    </Button>
+    </ThemeProvider>
     </li>
     </React.Fragment>
     
