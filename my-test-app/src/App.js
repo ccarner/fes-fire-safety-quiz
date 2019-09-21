@@ -9,6 +9,7 @@ import HomePage from "./components/home";
 import SafetyPage from "./components/safetyHome";
 import CheckListPage from "./components/buildingCheck";
 import InfoModulePage from "./components/infoModule";
+
 import background1 from "./components/pictures/questionmarks.png";
 
 // this is the basic component that's responsible for rendering the default
@@ -32,6 +33,7 @@ function App() {
           <Route path="/safetyHome" component={SafetyPage} />
           <Route path="/buildingCheck" component={CheckListPage} />
           <Route path="/infoModule" component={InfoModulePage} />
+
         </Switch>
       </div>
     </Router>

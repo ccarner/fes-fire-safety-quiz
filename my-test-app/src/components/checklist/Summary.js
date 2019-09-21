@@ -21,18 +21,7 @@ class Summary extends React.Component {
   }
 
   render() {
-    var total = this.props.quizQuestions.length;
 
-    var score = 0;
-
-    for (var i = 0; i < total; i++) {
-      if (
-        this.props.answers[i] ==
-        this.props.quizQuestions[i].answerindex - 1
-      ) {
-        score += 1;
-      }
-    }
 
     return (
       <div className="quiz-story">
