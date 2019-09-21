@@ -40,8 +40,7 @@ function ChecklistMain(props) {
 
 
                 {/* {props.counter < props.questionTotal - 1 ? (<button className="next-btn" onClick={props.setNextQuestion} >Next</button>) : (<div></div>)} */}
-                {props.counter < props.questionTotal - 1 ? (<button className="next-btn" onClick={props.setNextQuestion} >Next</button>)
-                    : (<div></div>)}
+
 
             </div>
         </div>

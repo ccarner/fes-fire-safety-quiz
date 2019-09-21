@@ -1,13 +1,13 @@
-import React, { Component, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Typography from "@material-ui/core/Typography";
 import ImageDatabase from "../db.js";
-import Button from "@material-ui/core/Button";
+// import Button from "@material-ui/core/Button";
 //import ButtonBases from './ButtonBases';
 import background1 from "./pictures/questionmarks.png";
-import background2 from "./pictures/FESlogo.jpg";
+// import background2 from "./pictures/FESlogo.jpg";
 import background3 from "./pictures/building.jpg";
 
 const useStyles = makeStyles(theme => ({
