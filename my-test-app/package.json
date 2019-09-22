@@ -1,6 +1,6 @@
 {
   "name": "my-test-app",
-  "homepage": "/app",
+  "homepage": "https://fes-fire-safety-quiz.herokuapp.com/app",
   "version": "0.1.0",
   "private": true,
   "engines": {
