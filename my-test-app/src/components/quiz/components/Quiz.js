@@ -9,7 +9,7 @@ function Quiz(props) {
     return (
       <AnswerOption
         index ={index}
-        //key={key.content}
+        key={key.content}
         answerContent={key}
         //answerType={key.type}
         answer={props.answer}
