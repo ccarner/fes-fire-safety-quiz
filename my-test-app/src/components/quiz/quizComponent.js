@@ -42,10 +42,14 @@ class App extends Component {
     var _self = this;
     var obj = _self.state.selectedAnswers;
     var index = parseInt(e.target.value);
-    console.log("for selected question number " + (_self.state.counter + 1) +  " answer is " + index + " selected");
-    var Qindex = (_self.state.counter )
-    // create map and store all selecred answers with quiz Questions
-    obj[Qindex] = index;
+      console.log("for selected question number " + (_self.state.counter + 1) +  " answer is " + index + " selected");
+      var Qindex = (_self.state.counter )
+      // create map and store all selecred answers with quiz Questions
+      if (obj[Qindex] === undefined){
+      obj[Qindex] = index;
+    }else{
+      obj[Qindex] = undefined;
+    }
     _self.setState({selectedAnswers : obj})
 
   }
