@@ -1,7 +1,4 @@
 
-
-
-
 .App-intro {
   font-size: large;
 }
@@ -19,19 +16,13 @@
   line-height: 1.5;
 }
 .answerOption {
-  width: 150px;
-  float: left;
-  display: inherit;
-  margin-right: 10px;
+  width: 100px; height: 100px;
+  /*display: inherit;*/
+  margin: 2%;
 }
-.next-btn{
 
-}
-.Previous-btn{
-
-}
 .result-link {
-  float: right;
+  float: none;
     /* background-color: green; */
   color: #1bbb43;
   font-size: 25px;
@@ -44,19 +35,20 @@
   color: rgba(194, 27, 5, 0.795);
 }
 .list-grp {
-  text-align: left;
+  text-align: center;
     line-height: 1.5;
     padding: 10px;
     background: #ccc;
 }
 .quiz-story{
-  padding: 30px;
-  width: 70%;
+  padding: 5%;
+  width: 90%;
   background-color: #ccc;
-  /* padding-left: 10px; */
+  
+
   background-color: #e8e5e5;
   margin: auto;
-  min-height: 400px;
+  /*min-height: 400px;*/
   text-align: center;
   border-radius: 10px;
 }
@@ -88,9 +80,9 @@ body {
 }
 
 button {
-  width: 150px;
-  padding: 20px;
-  border-radius: 8px;
+  /* width: 75px; */
+  /*padding: 20px;*/
+  /*border-radius: 8px;*/
   background-color: #ffffff;
 }
 @media (min-width: 769px) {
@@ -108,6 +100,9 @@ button {
 .answerOptions {
   display: flex;
   justify-content: center;
+  text-align:center
+  
+
 }
 
 /* QuestionCount Component */
@@ -123,9 +118,7 @@ button {
   text-align: center;
 }
 
-/* AnswerOption Component */
-.answerOption {
-}
+
 
 .answerOption:hover {
   background-color: #eefbfe;
@@ -211,5 +204,12 @@ button {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 40%;
-}
+  width: 80%;
+  }
+
+.quizVideo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 80%;
+  }

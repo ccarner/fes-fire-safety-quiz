@@ -6,7 +6,6 @@ function AnswerOption(props) {
     <li className="answerOption">
       <button id="horizontal-list"
         type="button"
-        id={props.answerType}
         value={props.index}
         className={(props.selectedAnswer === props.index) ? 'selected-btn' : '' }
         onClick={props.onAnswerSelected}
