@@ -16,9 +16,16 @@
   line-height: 1.5;
 }
 .answerOption {
+<<<<<<< HEAD
   width: 100px; height: 100px;
   /*display: inherit;*/
   margin: 2%;
+=======
+  /*width: 150px;*/
+  display: inherit;
+  margin: 2%;
+
+>>>>>>> master
 }
 
 .result-link {
@@ -43,9 +50,6 @@
 .quiz-story{
   padding: 5%;
   width: 90%;
-  background-color: #ccc;
-  
-
   background-color: #e8e5e5;
   margin: auto;
   /*min-height: 400px;*/
@@ -69,6 +73,7 @@ body {
   padding: 0;
   background: #eee;
   font-family: sans-serif;
+
 }
 
 .container {

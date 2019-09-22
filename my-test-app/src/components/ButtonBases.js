@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
@@ -77,8 +77,11 @@ const useStyles = makeStyles(theme => ({
     transition: theme.transitions.create('opacity'),
   },
 }));
+// function ttt(thing){
+//   return window.location = thing; 
+// }
 
-function ButtonBases(name, link, url) {
+function ButtonBases(name, link, url, callback) {
   
     const classes = useStyles();
 
@@ -87,12 +90,15 @@ function ButtonBases(name, link, url) {
         <ButtonBase
           focusRipple
           key={name}
-          component = {Link} to={`${link}`}
+          //component = {Link} to={`${link}`}
+          onClick={function() { callback(link);}}
+         // onClick={(link) => { callback(link) }}
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
           style={{
             width: '100%',
           }}
+          
           
         >
           <span
