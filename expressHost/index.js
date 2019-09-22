@@ -4,13 +4,12 @@ const fs = require("fs");
 const appBuildFolder = "/my-test-app/build";
 // gets the dir string to ROOT of project (ie up one folder)
 const rootProjectFolder = path.dirname(__dirname);
-const buildFolder = path.parse("/client/build");
 const clientBuildFolder = path.join(rootProjectFolder, appBuildFolder);
 
 const app = express();
 
 // Serve static files from the React app
-app.use(express.static(clientBuildFolder));
+app.use("/app", express.static(clientBuildFolder));
 
 // Put all API endpoints under '/api'
 app.get("/api/quizzes", (req, res) => {
@@ -37,9 +36,10 @@ console.log(
 
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
-app.get("*", (req, res) => {
-  res.sendFile(path.join(clientBuildFolder, "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.join(clientBuildFolder, "index.html"));
+//   console.log("sent homepage");
+// });
 
 const port = process.env.PORT || 5000;
 app.listen(port);

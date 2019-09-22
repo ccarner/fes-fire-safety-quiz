@@ -20,10 +20,9 @@ import background1 from "./components/pictures/questionmarks.png";
 
 function App() {
   return (
-    <Router>
+    <Router basename="/app">
       <div className="App">
         <NavBar />
-
         <Switch>
           {/* use a switch so we only render max of ONE of these pages */}
           <Route path="/" exact component={HomePage} />
@@ -32,6 +31,10 @@ function App() {
           <Route path="/safetyHome" exact component={SafetyPage} />
           <Route path="/buildingCheck" exact component={CheckListPage} />
           <Route path="/infoModule" exact component={InfoModulePage} />
+          {/* <Route
+            path="/api/quizzes"
+            component={() => (window.location = "localhost:5000/api/quizzes")}
+          /> */}
         </Switch>
       </div>
     </Router>
