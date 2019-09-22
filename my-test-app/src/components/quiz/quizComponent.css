@@ -1,7 +1,4 @@
 
-
-
-
 .App-intro {
   font-size: large;
 }
@@ -19,10 +16,9 @@
   line-height: 1.5;
 }
 .answerOption {
-  /*width: 150px;*/
-  display: inherit;
-  margin: 2%
-
+  width: 100px; height: 100px;
+  /*display: inherit;*/
+  margin: 2%;
 }
 
 .result-link {
@@ -84,7 +80,7 @@ body {
 }
 
 button {
-  /*width: 150px;*/
+  /* width: 75px; */
   /*padding: 20px;*/
   /*border-radius: 8px;*/
   background-color: #ffffff;
