@@ -4,7 +4,7 @@ import Check_Format from "./check_list_format";
 import Summary from "./Summary";
 
 import ReactDOM from "react-dom";
-import "./checkComponent.css";
+// import "./checkComponent.css";
 
 
 class App extends Component {
@@ -62,5 +62,5 @@ class App extends Component {
   }
 }
 
-ReactDOM.render(<App />, document.getElementById("root"));
+// ReactDOM.render(<App />, document.getElementById("root"));
 export default App;

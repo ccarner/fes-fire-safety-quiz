@@ -1,31 +1,22 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
 
-import CheckSelectionFormat from './checklist/checklist_selection_format';
-
+import InfoModuleMain from "./infoModules/infoModuling";
 
 
 class InfoModulePage extends Component {
 
 
-
-
-
   state = {};
   render() {
     return (
-
       <React.Fragment>
-        <h1>Fire Safty Checklist</h1>
-
-        <CheckSelectionFormat />
-
-
+        <h1></h1>
+        <InfoModuleMain />
       </React.Fragment>
-
     );
   }
 }
 
-ReactDOM.render(<InfoModulePage />, document.getElementById("root"));
+// ReactDOM.render(<InfoModulePage />, document.getElementById("root"));
 export default InfoModulePage;
