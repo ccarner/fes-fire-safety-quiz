@@ -46,9 +46,17 @@ class App extends Component {
       var Qindex = (_self.state.counter )
       // create map and store all selecred answers with quiz Questions
       if (obj[Qindex] === undefined){
-      obj[Qindex] = index;
-    }else{
-      obj[Qindex] = undefined;
+        var answerSet =  new Set();
+        answerSet.add(index);
+        obj[Qindex] = answerSet;
+    } else{
+          if(obj[Qindex].has(index)){
+            obj[Qindex].delete(index);
+     
+          }else{
+            obj[Qindex].add(index)
+        }
+ 
     }
     _self.setState({selectedAnswers : obj})
 
