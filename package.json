@@ -1,6 +1,5 @@
 {
   "name": "my-test-app",
-  "homepage": "http://localhost:3000/app",
   "version": "0.1.0",
   "private": true,
   "engines": {
@@ -13,23 +12,18 @@
     "axios": "^0.19.0",
     "bootstrap": "^4.3.1",
     "create-react-app": "^3.1.1",
-    "cypress": "^3.4.1",
     "idb": "^4.0.4",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "^3.1.1",
-    "serve": "^11.1.0",
-    "workbox-build": "^4.3.1"
+    "react-scripts": "^3.1.1"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build-service-worker": "node ./src/sw-build.js",
-    "clean-cra-service-worker": "rm -f build/precache-manifest.*.js && rm -f build/service-worker.js",
-    "build": "react-scripts build && npm run build-service-worker",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "heroku-prebuild": "cd my-test-app && npm install",
+    "start": "cd my-test-app && npm run build && cd .. && npm run start-express",
+    "build-app": "cd my-test-app && npm run build",
+    "start-express": "cd expressHost && node index.js"
   },
   "eslintConfig": {
     "extends": "react-app"
