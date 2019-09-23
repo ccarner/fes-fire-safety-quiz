@@ -13,6 +13,9 @@ const useStyles = makeStyles(theme => ({
   input: {
     display: 'none',
   },
+  label: {
+    textTransform: 'capitalize',
+  },
 }));
 
 const theme = createMuiTheme({
@@ -45,10 +48,14 @@ function AnswerOption(props) {
         <Button 
         color = {(selected) ? "secondary" : "primary"}
         variant="contained" 
+        text_transform= "none"
         //value={props.index}
         type="button"
         component="span" 
         disableRipple
+        classes = {{
+          label: classes.label,
+        }}
         //className={(props.selectedAnswer === props.index) ? 'selected-btn' : ''}
         onClick={()=>props.onAnswerSelected(props, props.index)}
         >
