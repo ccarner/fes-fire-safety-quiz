@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles, withStyles, createMuiTheme} from '@material-ui/core/styles';
 import Button from "@material-ui/core/Button";
-//import { purple, green } from '@material-ui/core/colors';
+import { purple, green } from '@material-ui/core/colors';
 import { ThemeProvider } from '@material-ui/styles';
 //import { createMuiTheme } from '@material-ui/core/styles';
 
