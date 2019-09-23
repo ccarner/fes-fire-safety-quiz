@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, Redirect} from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Typography from "@material-ui/core/Typography";
@@ -11,12 +11,15 @@ import background2 from "./pictures/FESlogo.jpg";
 import background3 from "./pictures/building.jpg";
 
 
-
+function doLink(thing){
+  return window.location = thing;
+ //return <Redirect to={`${thing}`} />
+}
 function HomePage(props) {
   const [mainMenu, setMenu] = useState([
-    { name: "Fire Safety Information", link: "/safetyHome", url: background3 },
-    { name: "Quizzes", link: "/quizzes", url: background1 },
-    { name: "About FES", link: "/information", url: background2 }
+    { name: "Fire Safety Information", link: "./safetyHome", url: background3 },
+    { name: "Quizzes", link: "./quizzes", url: background1 },
+    { name: "About FES", link: "./information", url: background2 }
   ]);
   const [imageURL, setURL] = useState("");
   //const classes = useStyles();
@@ -35,8 +38,9 @@ function HomePage(props) {
       <img alt="" src={`data:image/jpeg;base64,${imageURL}`} />
       <h1>Home</h1>
       {mainMenu.map(option =>
-        ButtonBases(option.name, option.link, option.url)
+        ButtonBases(option.name, option.link, option.url, doLink)
       )}
+      {/* <button onClick={function() { doLink('./thing'); }} >asdf</button> */}
     </React.Fragment>
   );
 }
