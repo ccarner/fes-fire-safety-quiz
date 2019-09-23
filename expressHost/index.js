@@ -1,4 +1,7 @@
 const express = require("express");
+// logging
+const morgan = require("morgan");
+
 const path = require("path");
 const fs = require("fs");
 const appBuildFolder = "/my-test-app/build";
@@ -7,6 +10,7 @@ const rootProjectFolder = path.dirname(__dirname);
 const clientBuildFolder = path.join(rootProjectFolder, appBuildFolder);
 
 const app = express();
+app.use(morgan("tiny"));
 
 // Serve static files from the React app
 app.use("/app", express.static(clientBuildFolder));
@@ -24,12 +28,22 @@ app.get("/api/quizzes", (req, res) => {
   });
 });
 
-
 // The "catchall" handler: for any request that doesn't
 // match one above, send back React's index.html file.
-app.get(["*"], (req, res) => {
-  console.log("inside catchall" + req.url);
-  res.sendFile(path.join(clientBuildFolder,'/index.html'));
+
+// app.get("*", (req, res) => {
+//   console.log(
+//     "inside catchall 2" +
+//       req.url +
+//       " new url -app =:" +
+//       req.url.replace("/app", "")
+//   );
+//   res.sendFile(path.join(clientBuildFolder, req.url.replace("/app", "")));
+// });
+
+app.get("*", (req, res) => {
+  console.log("inside catchall " + req.url);
+  res.sendFile(path.join(clientBuildFolder, "/index.html"));
 });
 
 console.log(

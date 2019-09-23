@@ -28,9 +28,7 @@
   },
   "scripts": {
     "start": "react-scripts start",
-    "build-service-worker": "node ./src/sw-build.js",
-    "clean-cra-service-worker": "rm -f build/precache-manifest.*.js && rm -f build/service-worker.js",
-    "build": "react-scripts build && npm run build-service-worker",
+    "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },

@@ -1,7 +1,7 @@
 import React from "react";
 //import logo from "./logo.svg";
 import "./App.css";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { BrowserRouter, Switch, Route } from "react-router-dom";
 import InformationPage from "./components/information";
 import NavBar from "./components/navbar";
 import QuizPage from "./components/quizzes";
@@ -21,7 +21,7 @@ import InfoModulePage from "./components/infoModule";
 
 function App() {
   return (
-    <Router basename="/app">
+    <BrowserRouter basename="/app">
       <div className="App">
         <NavBar />
         <Switch>
@@ -38,7 +38,7 @@ function App() {
           /> */}
         </Switch>
       </div>
-    </Router>
+    </BrowserRouter>
   );
 }
 
