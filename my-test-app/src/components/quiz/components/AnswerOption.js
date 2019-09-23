@@ -17,18 +17,23 @@ const useStyles = makeStyles(theme => ({
 
 const theme = createMuiTheme({
   palette: {
-    //primary: { main: purple[500] }, // Purple and green play nicely together.
-    secondary: { main: '#11cb5f' }, // This is just green.A700 as hex.
+    primary: { main: purple[500] }, // Purple and green play nicely together.
+    secondary: { main: '#fcfc4c' }, // This is just green.A700 as hex.
   },
 });
 
 function AnswerOption(props) {
+  const classes = useStyles();
+
   var selected = false;
   if(!(typeof props.selectedAnswer == 'undefined')){
      selected = props.selectedAnswer.has(props.index);
   }
 
   return (
+    
+    <React.Fragment>
+
     <li className="answerOption">
       {/* <button id="horizontal-list"
         type="button"
@@ -37,21 +42,23 @@ function AnswerOption(props) {
         onClick={props.onAnswerSelected}
       >{props.answerContent}</button> */}
       <ThemeProvider theme={theme}>
-    <Button 
-    color = {(selected) ? "secondary" : "primary"}
-    variant="contained" 
-    //value={props.index}
-    type="button"
-    component="span" 
-    disableRipple
-    //className={(props.selectedAnswer === props.index) ? 'selected-btn' : ''}
-    onClick={()=>props.onAnswerSelected(props, props.index)}
-    >
-      {props.answerContent}
-      {/* {props.index} */}
-    </Button>
-    </ThemeProvider>
+        <Button 
+        color = {(selected) ? "secondary" : "primary"}
+        variant="contained" 
+        //value={props.index}
+        type="button"
+        component="span" 
+        disableRipple
+        //className={(props.selectedAnswer === props.index) ? 'selected-btn' : ''}
+        onClick={()=>props.onAnswerSelected(props, props.index)}
+        >
+          {props.answerContent}
+          {/* {props.index} */}
+        </Button>
+      </ThemeProvider>
     </li>
+    </React.Fragment>
+
   );
 
 }
