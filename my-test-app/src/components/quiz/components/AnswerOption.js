@@ -1,5 +1,5 @@
 import React from 'react';
-import { makeStyles, withStyles, createMuiTheme} from '@material-ui/core/styles';
+import { makeStyles, withStyles, createMuiTheme } from '@material-ui/core/styles';
 import Button from "@material-ui/core/Button";
 //import { purple, green } from '@material-ui/core/colors';
 import { ThemeProvider } from '@material-ui/styles';
@@ -64,31 +64,31 @@ function AnswerOption(props) {
   const [selected, setSelected] = React.useState(false);
   return (
     <React.Fragment>
-    <li className="answerOption">
-      {/* <button id="horizontal-list"
+      <li className="answerOption">
+        {/* <button id="horizontal-list"
         type="button"
         value={props.index}
         className={(props.selectedAnswer === props.index) ? 'selected-btn' : '' }
         onClick={props.onAnswerSelected.bind(props, '1')}
       >{props.answerContent}</button> */}
-          <ThemeProvider theme={theme}>
-    <Button 
-    color = {(props.selectedAnswer === props.index) ? "secondary" : "primary"}
-    variant="contained" 
-    value={props.index}
-    type="button"
-    component="span" 
-    disableRipple
-    className={(props.selectedAnswer === props.index) ? 'selected-btn' : ''}
-    onClick={()=>props.onAnswerSelected(props, props.index)}
-    >
-      {props.answerContent}
-      {/* {props.index} */}
-    </Button>
-    </ThemeProvider>
-    </li>
+        <ThemeProvider theme={theme}>
+          <Button
+            color={(props.selectedAnswer === props.index) ? "secondary" : "primary"}
+            variant="contained"
+            value={props.index}
+            type="button"
+            component="span"
+            disableRipple
+            className={(props.selectedAnswer === props.index) ? 'selected-btn' : ''}
+            onClick={() => props.onAnswerSelected(props, props.index)}
+          >
+            {props.answerContent}
+            {/* {props.index} */}
+          </Button>
+        </ThemeProvider>
+      </li>
     </React.Fragment>
-    
+
   );
 
 }

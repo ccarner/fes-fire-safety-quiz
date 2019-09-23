@@ -1,5 +1,6 @@
 import React, { Component } from "react";
-import CheckBee from "./checklist/checkComponent";
+// import CheckBewe from "./checklist/checkComponent";
+import CheckBewe from "./checklist/checklisting";
 
 class CheckListPage extends Component {
   state = {};
@@ -7,7 +8,7 @@ class CheckListPage extends Component {
     return (
       <React.Fragment>
         <h1>CheckList page</h1>
-        <CheckBee />
+        <CheckBewe />
       </React.Fragment>
     );
   }

@@ -1,4 +1,7 @@
 import React from "react";
+import PopUps from "./contact_FES_Popup";
+
+
 
 class Summary extends React.Component {
   constructor(props) {
@@ -21,28 +24,23 @@ class Summary extends React.Component {
   }
 
   render() {
-    var total = this.props.quizQuestions.length;
 
-    var score = 0;
-
-    for (var i = 0; i < total; i++) {
-      if (
-        this.props.answers[i] ==
-        this.props.quizQuestions[i].answerindex - 1
-      ) {
-        score += 1;
-      }
-    }
 
     return (
       <div className="quiz-story">
         <div>
           <h1>Summary</h1>
           <div>{this.renderSummary()}</div>
-          <button className="FES_CALL-btn">Call FES</button>
-          <button className="FES_INFO -btn">MORE ABOUT FES</button>
+
+
+          < PopUps ></PopUps>
+
+
+
+
+
         </div>
-      </div>
+      </div >
     );
   }
 }
