@@ -17,7 +17,7 @@ const useStyles = makeStyles(theme => ({
 
 const theme = createMuiTheme({
   palette: {
-    primary: { main: purple[500] }, // Purple and green play nicely together.
+    //primary: { main: purple[500] }, // Purple and green play nicely together.
     secondary: { main: '#fcfc4c' }, // This is just green.A700 as hex.
   },
 });
