@@ -22,7 +22,7 @@
   },
   "scripts": {
     "heroku-prebuild": "cd my-test-app && npm install",
-    "start": "cd my-test-app && npm run build && cd .. && npm run start-express",
+    "start": "cd my-test-app && npm run build && cd .. && npm run start-express && echo testDeploymentNewHeroku",
     "build-app": "cd my-test-app && npm run build",
     "start-express": "cd expressHost && node index.js"
   },
