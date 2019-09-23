@@ -24,6 +24,14 @@ app.get("/api/quizzes", (req, res) => {
   });
 });
 
+
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+app.get(["*"], (req, res) => {
+  console.log("inside catchall" + req.url);
+  res.sendFile(path.join(clientBuildFolder,'/index.html'));
+});
+
 console.log(
   "dirname is",
   __dirname,
