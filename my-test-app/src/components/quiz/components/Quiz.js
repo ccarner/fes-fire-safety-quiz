@@ -1,5 +1,7 @@
 import React from 'react';
 import Question from '../components/Question';
+import Button from "@material-ui/core/Button";
+
 import QuestionCount from '../components/QuestionCount';
 import AnswerOption from '../components/AnswerOption';
 
@@ -39,9 +41,9 @@ function Quiz(props) {
         </div>
         </div>
         <div className="bottom-footer" >
-          {props.counter > 0 ? (<button className="Previous-btn" onClick={props.setPreviousQuestion} >Previous</button>) : (<div></div>)}
+          {props.counter > 0 ? (<Button variant='outlined' className="Previous-btn" onClick={props.setPreviousQuestion} >Previous</Button>) : (<div></div>)}
 
-          {props.counter < props.questionTotal-1 ? (<button className="next-btn" onClick={props.setNextQuestion} >Next</button>) : (<div></div>)}
+          {props.counter < props.questionTotal-1 ? (<Button variant='outlined' className="next-btn" onClick={props.setNextQuestion} >Next</Button>) : (<div></div>)}
 
       </div>
       </div>
