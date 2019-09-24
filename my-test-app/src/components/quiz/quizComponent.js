@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import QuizAPI from './api/questions.json';
+//import QuizAPI from './api/questions.json'
 import Quiz from './components/Quiz';
 import Result from './components/Result';
 import ReactDOM from "react-dom";
@@ -11,7 +11,6 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    
     this.state = {
       quizQuestions:[],
       counter: 0,
@@ -24,7 +23,9 @@ class App extends Component {
       result: '',
       media:"",
       media_src:"",
-      questionTotal: QuizAPI.length
+      questionTotal: 0,
+      rendered: false,
+
     };
     this.setNextQuestion = this.setNextQuestion.bind(this);
     this.setPreviousQuestion = this.setPreviousQuestion.bind(this);
@@ -32,39 +33,54 @@ class App extends Component {
     this.viewreults = this.viewreults.bind(this);
 
 
+    
+
+
 
   }
-  handleAnswerSelected(first, value){
+  handleAnswerSelected(e, value){
     var _self = this;
     var obj = _self.state.selectedAnswers;
-    console.log(value);
-    //console.log(e.currentTarget.value);
     var index = parseInt(value);
-    
-    console.log("for selected question number " + (_self.state.counter + 1) +  " answer is " + index + " selected");
-    var Qindex = (_self.state.counter )
-    //alert("dingdingding")
-    // create map and store all selecred answers with quiz Questions
-    obj[Qindex] = index;
+      console.log("for selected question number " + (_self.state.counter + 1) +  " answer is " + index + " selected");
+      var Qindex = (_self.state.counter )
+      // create map and store all selecred answers with quiz Questions
+      if (obj[Qindex] === undefined){
+        var answerSet =  new Set();
+        answerSet.add(index);
+        obj[Qindex] = answerSet;
+    } else{
+          if(obj[Qindex].has(index)){
+            obj[Qindex].delete(index);
+     
+          }else{
+            obj[Qindex].add(index)
+        }
+ 
+    }
     _self.setState({selectedAnswers : obj})
 
   }
-  getQuestions = ()=> {
+  /*getQuestions = ()=> {
     QuizAPI().then(question => {
         this.setState({
             quizQuestions: question
         });
     });
-  };
+  };*/
   componentDidMount() {
-    this.quizQuestions = QuizAPI;
-    this.setState({
-      question: this.quizQuestions[0].question,
-      answerOptions : this.quizQuestions[0].answers,
-      media: this.quizQuestions[0].media,
-      media_src: this.quizQuestions[0].media_src,
-      allQuestions : this.quizQuestions
-    });
+  
+    // this.quizQuestions =  require("./api/questions.json");
+
+    //this.quizQuestions = QuizAPI;
+    // this.setState({
+    //   question: this.quizQuestions[0].question,
+    //   answerOptions : this.quizQuestions[0].answers,
+    //   media: this.quizQuestions[0].media,
+    //   media_src: this.quizQuestions[0].media_src,
+    //   allQuestions : this.quizQuestions
+    // });
+    
   }
 
 
@@ -145,16 +161,34 @@ class App extends Component {
   }
  // decide to render result or quiz
   render() {
+    if (this.props.jsonURL !== undefined && this.state.rendered === false ) {
+       this.quizQuestions =  require(""+this.props.jsonURL);
+
+    //this.quizQuestions = QuizAPI;
+    this.setState({
+      question: this.quizQuestions[0].question,
+      answerOptions : this.quizQuestions[0].answers,
+      media: this.quizQuestions[0].media,
+      media_src: this.quizQuestions[0].media_src,
+      allQuestions : this.quizQuestions,
+      rendered: true,
+      questionTotal: this.quizQuestions.length
+    });
+    }
+      
+    
+   
     return (
       <div className="App">
         
         {this.state.result ? this.renderResult() : this.renderQuiz()}
-
+        
 
       </div>
 
     );
   }
+
 
 }
 

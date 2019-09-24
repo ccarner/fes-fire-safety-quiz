@@ -1,7 +1,8 @@
 import React from 'react';
 import Question from '../components/Question';
-import QuestionCount from '../components/QuestionCount';
 import Button from "@material-ui/core/Button";
+
+import QuestionCount from '../components/QuestionCount';
 
 import AnswerOption from '../components/AnswerOption';
 
@@ -11,7 +12,7 @@ function Quiz(props) {
     return (
       <AnswerOption
         index ={index}
-        //key={key.content}
+        key={key.content}
         answerContent={key}
         //answerType={key.type}
         answer={props.answer}

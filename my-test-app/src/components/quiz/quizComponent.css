@@ -29,6 +29,9 @@
   font-size: 25px;
   
 }
+.question-text{
+  font-weight: 600;
+}
 .correct-status{
   color: green;
 }

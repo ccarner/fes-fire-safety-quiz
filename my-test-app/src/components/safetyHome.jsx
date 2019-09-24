@@ -4,13 +4,13 @@ import { makeStyles } from "@material-ui/core/styles";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Typography from "@material-ui/core/Typography";
 import ImageDatabase from "../db.js";
-
 import Button from "@material-ui/core/Button";
-// import ButtonBases from './ButtonBases';
+import ButtonBases from './ButtonBases';
 import background1 from "./pictures/textbooks.jpg";
 import background2 from "./pictures/FESlogo.jpg";
 import background3 from "./pictures/Man-filling-up-checklist.jpg";
 
+<<<<<<< HEAD
 const useStyles = makeStyles(theme => ({
   root: {
     display: "flex",
@@ -129,6 +129,11 @@ function doLink(thing) {
   return (window.location = thing);
 }
 
+=======
+function doLink(thing){
+  return window.location = thing;
+ }
+>>>>>>> master
 function SafetyPage(props) {
   const [mainMenu, setMenu] = useState([
     {

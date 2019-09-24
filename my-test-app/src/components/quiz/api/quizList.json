@@ -2,11 +2,11 @@
 [
     {
         "quizname": "quiz 1",
-        "quizfile": "./quiz/api/questions.json"
+        "quizfile": "./api/questions.json"
       },
       {
         "quizname": "quiz 2",
-        "quizfile": "./quiz/api/newquestions.json"
+        "quizfile": "./api/newquestions.json"
       }
 ]
     
