@@ -3,7 +3,6 @@ import Question from '../components/Question';
 import Button from "@material-ui/core/Button";
 
 import QuestionCount from '../components/QuestionCount';
-import Button from "@material-ui/core/Button";
 
 import AnswerOption from '../components/AnswerOption';
 
