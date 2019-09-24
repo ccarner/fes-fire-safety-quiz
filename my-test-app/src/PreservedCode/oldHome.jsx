@@ -1,3 +1,5 @@
+// OLD VERSION OF HOME WHICH USED THE DB AND RENDERED AN IMAGE USING REACT HOOKS
+
 import React, { Component, useState, useEffect } from "react";
 import { Link, Redirect } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
@@ -21,10 +23,22 @@ function HomePage(props) {
     { name: "Quizzes", link: "./quizzes", url: background1 },
     { name: "About FES", link: "./information", url: background2 }
   ]);
+  const [imageURL, setURL] = useState("");
   //const classes = useStyles();
+
+  //  function useEffect() {
+  // NOTE had to use arrow function to ensure that 'this' binding was still to
+  // the outer class...
+  // Similar to componentDidMount and componentDidUpdate:
+  useEffect(() => {
+    ImageDatabase.getImage("https://picsum.photos/200").then(imageString => {
+      setURL(imageString);
+    });
+  }, []);
 
   return (
     <React.Fragment>
+      <img alt="" src={`data:image/jpeg;base64,${imageURL}`} />
       <h1>Home</h1>
       {mainMenu.map(option =>
         ButtonBases(option.name, option.link, option.url, doLink)
@@ -33,7 +47,6 @@ function HomePage(props) {
     </React.Fragment>
   );
 }
-
 function renderMenuOption(name, link) {
   return (
     <div>

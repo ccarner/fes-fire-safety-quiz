@@ -125,10 +125,10 @@ function ButtonBases(name, link, url) {
   );
 }
 
-
 function doLink(thing) {
-  return window.location = thing;
+  return (window.location = thing);
 }
+
 function SafetyPage(props) {
   const [mainMenu, setMenu] = useState([
     {
@@ -142,21 +142,9 @@ function SafetyPage(props) {
       url: background3
     }
   ]);
-  const [imageURL, setURL] = useState("");
-
-
-  //  function useEffect() {
-  // NOTE had to use arrow function to ensure that 'this' binding was still to
-  // the outer class...
-  useEffect(() => {
-    ImageDatabase.getImage("https://picsum.photos/200").then(imageString => {
-      setURL(imageString);
-    });
-  }, []);
 
   return (
     <React.Fragment>
-      <img alt="" src={`data:image/jpeg;base64,${imageURL}`} />
       <h1>Safety</h1>
       {mainMenu.map(option =>
         ButtonBases(option.name, option.link, option.url, doLink)
