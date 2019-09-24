@@ -75,13 +75,14 @@ function QuizPage(props){
       </React.Fragment>
     );
    } else {
+     console.log(quiz)
      //setQuiz("test");
      //alert('beep')
       return (
       //alert(quiz),
       <React.Fragment>
         <h1>asdf</h1>
-        <QuizBee />
+        <QuizBee jsonURL = {quiz}/>
       </React.Fragment>
       //try using useEffect
     );
