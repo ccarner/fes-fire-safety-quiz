@@ -62,10 +62,10 @@ function dothing(thing){
 }
 
 function QuizPage(props){
-  const [quiz, setQuiz] = useState("");
+  const [quiz, setQuiz] = useState(null);
   const menu = listQuizzes().map(option=>ButtonBases(option.quizname, option.quizfile, "", setQuiz))
   //alert(quiz);
-  if(quiz === ""){
+  if(quiz === null){
     return (
       <React.Fragment>
         
@@ -75,7 +75,7 @@ function QuizPage(props){
       </React.Fragment>
     );
    } else {
-     console.log(quiz)
+     console.log(JSON.stringify(quiz))
      //setQuiz("test");
      //alert('beep')
       return (
