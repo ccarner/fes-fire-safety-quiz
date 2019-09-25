@@ -38,7 +38,7 @@ function QuizPage(props){
   //   }
 
   // })
-  //useLayoutEffect(() => {
+  useLayoutEffect(() => {
     axios.get('https://fes-fire-safety-quiz.herokuapp.com/api/quizzes')
     .then(response => response.data).then((data) => {
       setOptions(data)
@@ -49,7 +49,7 @@ function QuizPage(props){
     // .catch((err) =>{console.log(err)});  
      
 
-  //});
+  });
   // if (loading) return <p>Loading...</p>
   // else if (error) return <p>Error!</p>
   // console.log(data);
