@@ -1,5 +1,6 @@
 import React, { Component, useState } from "react";
 import QuizBee from "./quiz/quizComponent";
+import axios from 'axios';
 //import test from './quiz/api/newquestions.json';
 import quizList from "./quiz/api/quizList";
 import ButtonBases from "./ButtonBases";
@@ -7,6 +8,13 @@ import ButtonBases from "./ButtonBases";
 //listReactFiles(__dirname).then(files => console.log(files))
 
 function listQuizzes(){
+  var data;
+  try {
+    axios.get('https://fes-fire-safety-quiz.herokuapp.com/api/quizzes').then(response => console.log(response));
+    //console.log(JSON.stringify(data)); // JSON-string from `response.json()` call
+  } catch (error) {
+    console.error(error);
+  }
   const path = require('path');
   //const fs = require('fs');
   //joining path of directory 
