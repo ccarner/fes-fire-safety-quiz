@@ -5,6 +5,7 @@ import quizList from "./quiz/api/quizList";
 import axios from 'axios';
 import useAxios from 'axios-hooks';
 import ButtonBases from "./ButtonBases";
+import Button from '@material-ui/core/Button'
  
 //listReactFiles(__dirname).then(files => console.log(files))
 
@@ -38,7 +39,7 @@ function QuizPage(props){
   //   }
 
   // })
-  useLayoutEffect(() => {
+  useEffect(() => {
     axios.get('https://fes-fire-safety-quiz.herokuapp.com/api/quizzes')
     .then(response => response.data).then((data) => {
       setOptions(data)
@@ -53,7 +54,7 @@ function QuizPage(props){
   // if (loading) return <p>Loading...</p>
   // else if (error) return <p>Error!</p>
   // console.log(data);
-  const menu = menuOptions.map(option=>ButtonBases(option.quizname, option.quizfile, "", setQuiz))
+  const menu = menuOptions.map(option=>quickmenu(option.question, option.quizfile, setQuiz))
   //listQuizzes().then(out => {console.log(out)});
   //const menu = quizList.map(option=>ButtonBases(option.quizname, option.quizfile, "", setQuiz))
   //alert(quiz);
@@ -80,6 +81,18 @@ function QuizPage(props){
     );
    }
   
+}
+
+function quickmenu(quizname, quizfile, setQuiz){
+  return (
+    <div>
+    <Button
+    variant = "contained"
+     onClick = {() => setQuiz(quizfile)}
+    > 
+    asdf{quizname}</Button>
+    </div>
+  )
 }
 
 export default QuizPage;
