@@ -1,71 +1,64 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect, useLayoutEffect } from "react";
 import QuizBee from "./quiz/quizComponent";
 //import test from './quiz/api/newquestions.json';
 import quizList from "./quiz/api/quizList";
+import axios from 'axios';
+//import useAxios from 'axios-hooks';
 import ButtonBases from "./ButtonBases";
+import Button from '@material-ui/core/Button'
  
 //listReactFiles(__dirname).then(files => console.log(files))
 
-function listQuizzes(){
-  const path = require('path');
-  //const fs = require('fs');
-  //joining path of directory 
-  const directoryPath = path.join(__dirname);
-  //passsing directoryPath and callback function
-  // fs.readdir(directoryPath, function (err, files) {
-  //   //handling error
-  //   if (err) {
-  //       return console.log('Unable to scan directory: ' + err);
-  //   } 
-  //   //listing all files using forEach
-  //   files.forEach(function (file) {
-  //       // Do whatever you want to do with the file
-  //       console.log(file); 
-  //   });
-  // });
+// async function listQuizzes(){
+  
+//   try {
+//     const response = await axios.get('https://fes-fire-safety-quiz.herokuapp.com/api/quizzes');
+//     //console.log(JSON.stringify(response));
+//     return response;
+//   }
+//   catch (error) {
+//     console.log(error);
+//   }
+ 
+//   }
 
-  // fs.readdirSync(directoryPath).forEach(file => {
-  //   console.log(file);
-  // });
-  // listRactFiles(__dirname).then(files => console.log(files))
-  return (quizList);
-  }
-function dothing(thing){
-  // return new QuizBee();
-  var jsondata = require(`${thing}`);
- // setQuiz(thing);
-  // alert(`${thing}`);
-  // fetch(thing)
-  // .then(function(response) {
-  //   alert(response)
-  //   return response.json();
-  // })
-  // .then(function(myJson) {
-  //   stri = JSON.stringify(myJson);
-  //   alert(stri);
-  // });
-  var str = JSON.stringify(jsondata);
-  alert(str);
-  //alert(stri);
-  // alert(thing);
-  // alert(JSON.stringify(test));
-  // return (
-  //   alert(str),
-  //   //alert('asdf'),
-  //   str,
-  // <React.Fragment>
-  //   thing
-  //    <QuizBee/>;
-  // </React.Fragment>
-  // );
-  //alert('asdf');
-}
 
 function QuizPage(props){
-  const [quiz, setQuiz] = useState("");
-  const menu = listQuizzes().map(option=>ButtonBases(option.quizname, option.quizfile, "", setQuiz))
+  const [quiz, setQuiz] = useState(null);
+  // const[{data, loading, error}, refetch] = useAxios(
+  //   'https://fes-fire-safety-quiz.herokuapp.com/api/quizzes'
+  // )
+  const [menuOptions, setOptions] = useState([]);
+  //const menu = axios.get('https://fes-fire-safety-quiz.herokuapp.com/api/quizzes').then(response => response.map(option=>ButtonBases(option.quizname, option.quizfile, "", setQuiz)));
+  // const menu = listQuizzes.then(function(resp) {
+  //   if (typeof resp == 'undefined'){
+  //     console.log("quizapi not loading");
+
+  //   } else {
+  //     console.log("success");
+  //   }
+
+  // })
+  useEffect(() => {
+    axios.get('https://fes-fire-safety-quiz.herokuapp.com/api/quizzes')
+    .then(response => response.data).then((data) => {
+      setOptions(data)
+      console.log(menuOptions)
+    })
+    //.then(
+    // (response) => {console.log(response.data);alert("success");setOptions(response.data)})
+    // .catch((err) =>{console.log(err)});  
+     
+
+  });
+  // if (loading) return <p>Loading...</p>
+  // else if (error) return <p>Error!</p>
+  // console.log(data);
+  const menu = menuOptions.map(option=>quickmenu(option.quizname, option.quizfile, setQuiz))
+  //listQuizzes().then(out => {console.log(out)});
+  //const menu = quizList.map(option=>ButtonBases(option.quizname, option.quizfile, "", setQuiz))
   //alert(quiz);
-  if(quiz === ""){
+  if(quiz === null){
     return (
       <React.Fragment>
         
@@ -75,7 +68,7 @@ function QuizPage(props){
       </React.Fragment>
     );
    } else {
-     console.log(quiz)
+     //console.log(JSON.stringify(quiz))
      //setQuiz("test");
      //alert('beep')
       return (
@@ -88,6 +81,18 @@ function QuizPage(props){
     );
    }
   
+}
+
+function quickmenu(quizname, quizfile, setQuiz){
+  return (
+    <div>
+    <Button
+    variant = "contained"
+     onClick = {() => setQuiz(quizfile)}
+    > 
+    {quizname}</Button>
+    </div>
+  )
 }
 
 export default QuizPage;
