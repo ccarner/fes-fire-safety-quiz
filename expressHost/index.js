@@ -13,7 +13,7 @@ const clientBuildFolder = path.join(rootProjectFolder, appBuildFolder);
 const app = express();
 app.use(morgan("tiny"));
 //set cors to allow all cross sites to use api (eg localhost:5000)
-app.use(cors);
+app.use(cors());
 
 // Serve static files from the React app
 app.use("/app", express.static(clientBuildFolder));
