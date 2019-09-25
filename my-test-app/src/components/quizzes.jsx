@@ -3,7 +3,7 @@ import QuizBee from "./quiz/quizComponent";
 //import test from './quiz/api/newquestions.json';
 import quizList from "./quiz/api/quizList";
 import axios from 'axios';
-import useAxios from 'axios-hooks';
+//import useAxios from 'axios-hooks';
 import ButtonBases from "./ButtonBases";
 import Button from '@material-ui/core/Button'
  
@@ -54,7 +54,7 @@ function QuizPage(props){
   // if (loading) return <p>Loading...</p>
   // else if (error) return <p>Error!</p>
   // console.log(data);
-  const menu = menuOptions.map(option=>quickmenu(option.question, option.quizfile, setQuiz))
+  const menu = menuOptions.map(option=>quickmenu(option.quizname, option.quizfile, setQuiz))
   //listQuizzes().then(out => {console.log(out)});
   //const menu = quizList.map(option=>ButtonBases(option.quizname, option.quizfile, "", setQuiz))
   //alert(quiz);
@@ -90,7 +90,7 @@ function quickmenu(quizname, quizfile, setQuiz){
     variant = "contained"
      onClick = {() => setQuiz(quizfile)}
     > 
-    asdf{quizname}</Button>
+    {quizname}</Button>
     </div>
   )
 }
