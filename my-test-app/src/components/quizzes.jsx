@@ -1,8 +1,9 @@
-import React, { Component, useState } from "react";
+import React, { Component, useState, useEffect, useLayoutEffect } from "react";
 import QuizBee from "./quiz/quizComponent";
 //import test from './quiz/api/newquestions.json';
 import quizList from "./quiz/api/quizList";
 import axios from 'axios';
+import useAxios from 'axios-hooks';
 import ButtonBases from "./ButtonBases";
  
 //listReactFiles(__dirname).then(files => console.log(files))
@@ -23,6 +24,9 @@ import ButtonBases from "./ButtonBases";
 
 function QuizPage(props){
   const [quiz, setQuiz] = useState(null);
+  // const[{data, loading, error}, refetch] = useAxios(
+  //   'https://fes-fire-safety-quiz.herokuapp.com/api/quizzes'
+  // )
   const [menuOptions, setOptions] = useState([]);
   //const menu = axios.get('https://fes-fire-safety-quiz.herokuapp.com/api/quizzes').then(response => response.map(option=>ButtonBases(option.quizname, option.quizfile, "", setQuiz)));
   // const menu = listQuizzes.then(function(resp) {
@@ -34,8 +38,21 @@ function QuizPage(props){
   //   }
 
   // })
-  axios.get('https://fes-fire-safety-quiz.herokuapp.com/api/quizzes').then(
-    (response) => {console.log(response.data);alert("success");setOptions(response.data)});
+  //useLayoutEffect(() => {
+    axios.get('https://fes-fire-safety-quiz.herokuapp.com/api/quizzes')
+    .then(response => response.data).then((data) => {
+      setOptions(data)
+      console.log(menuOptions)
+    })
+    //.then(
+    // (response) => {console.log(response.data);alert("success");setOptions(response.data)})
+    // .catch((err) =>{console.log(err)});  
+     
+
+  //});
+  // if (loading) return <p>Loading...</p>
+  // else if (error) return <p>Error!</p>
+  // console.log(data);
   const menu = menuOptions.map(option=>ButtonBases(option.quizname, option.quizfile, "", setQuiz))
   //listQuizzes().then(out => {console.log(out)});
   //const menu = quizList.map(option=>ButtonBases(option.quizname, option.quizfile, "", setQuiz))
