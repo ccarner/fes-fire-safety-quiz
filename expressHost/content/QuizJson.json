@@ -1,6 +1,6 @@
 [
   {
-    "quizname": "quiz 1",
+    "quizname": "General Fire Safety",
     "quizfile": [
       {
         "question": "What does the white band at the top of the extinghuisher signify?",
@@ -34,14 +34,14 @@
     "quizname": "quiz 2",
     "quizfile": [
       {
-        "question": "asdfjkl;asdf?",
+        "question": "General Quiz question",
         "answerindex": [2],
         "media": "img",
         "media_src": "https://fireandsafetywa.com.au/wp-content/uploads/2018/09/201008.jpg",
         "answers": ["Water-based", "Powder-based", "Extra heavy", "Foam-based"]
       },
       {
-        "question": "WWWWWWWWWWWWWWWWWWWWWW?",
+        "question": "WWWWWWWW?",
         "answerindex": [2],
         "media": "video",
         "media_src": "https://media.istockphoto.com/videos/seemless-and-loopable-flames-slow-motion-video-id493922248",
