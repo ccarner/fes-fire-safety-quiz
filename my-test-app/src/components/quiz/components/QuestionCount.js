@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types'
-
+// responsible for displaying the "show result" link at the end of the quiz
 function QuestionCount(props) {
 
   return (

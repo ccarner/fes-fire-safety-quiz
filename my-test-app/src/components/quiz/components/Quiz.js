@@ -5,7 +5,9 @@ import Button from "@material-ui/core/Button";
 import QuestionCount from '../components/QuestionCount';
 
 import AnswerOption from '../components/AnswerOption';
-
+/**
+ * renders the quiz component page when the user is answering a specific quiz question
+ */
 function Quiz(props) {
 
   function renderAnswerOptions(key,index) {

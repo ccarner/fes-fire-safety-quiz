@@ -6,7 +6,9 @@ import Result from './components/Result';
 import ReactDOM from "react-dom";
 import './quizComponent.css';
 
-
+/**
+ * responsible for rendering a quiz module when the user takes a quiz
+ */
 class App extends Component {
 
   constructor(props) {
