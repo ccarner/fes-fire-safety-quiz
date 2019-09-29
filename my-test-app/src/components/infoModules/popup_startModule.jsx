@@ -19,6 +19,22 @@ export default function AlertDialog() {
         setOpen(false);
     }
 
+    function myFunction() {
+        //alert("you just clicked start");
+        //window.location.href= '/intro_to_fire_safety.html' ;
+        window.location.href= '/informationModule' ;
+        //document.getElementById('body').innerHTML = 
+        //              loadPage('intro_to_fire_safety.html');
+    }
+
+    function loadPage(href)
+    {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.open("GET", href, false);
+        xmlhttp.send();
+        return xmlhttp.responseText;
+    }
+
     return (
         <div>
             <button className="FES_CALL-btn" onClick={handleClickOpen}>Start</button>
@@ -42,7 +58,7 @@ export default function AlertDialog() {
                     <Button onClick={handleClose} color="primary">
                         Close
           </Button>
-                    <Button onClick={handleClose} color="primary">
+                    <Button onClick={myFunction} color="primary">
                         Start Module
           </Button>
                 </DialogActions>
