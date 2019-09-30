@@ -1,13 +1,19 @@
+// commented.
+
+
+// import relevent modules
 import React, { Component, Fragment } from "react";
 import CheckListAPI from "./checklist_questions";
 import Check_Format from "./check_list_format";
 import Summary from "./Summary";
 
-import ReactDOM from "react-dom";
-// import "./checkComponent.css";
 
 
-class App extends Component {
+
+// Main class starts here
+class Checklisting extends Component {
+
+  // setting up the initial states, noting the summary mode is off initially
   constructor(props) {
     super(props);
     this.state = {
@@ -17,8 +23,13 @@ class App extends Component {
     };
   }
 
+
+  // ChecklistAPI() automatically formatted the checklists, so this function set the cheklistBank
+  // to the checklists we have in the database
   getQuestions = () => {
-    CheckListAPI().then(question => {
+
+    CheckListAPI().then((question) => {
+      console.log("checklisting 22", question);
       this.setState({
         checklistBank: question
       });
@@ -26,6 +37,8 @@ class App extends Component {
   };
 
 
+
+  // If the user choose to see the feedback, summary mode is turned on
   renderSummary() {
     this.setState(
       {
@@ -38,17 +51,23 @@ class App extends Component {
     this.getQuestions();
   }
 
+
+  // This function renders the checklist page, each checklist question is listed with three options to choose from
+  // and there is a button to view the result.
   render() {
     if (this.state.summaryOn === false) {
       return (
         <Fragment>
-          <div className="App">
+          <div className="Checklisting">
             {this.state.checklistBank.map(
-              ({ question, media, media_src }) => (
-                <Check_Format question={question} media={media} media_src={media_src} />
-              )
+              ({ question, media, media_src, questionID }) => {
+                return (
+                  <Check_Format questionID={questionID} question={question} media={media} media_src={media_src} />
+                )
+              }
             )}
           </div>
+
           <div>
             <button type="button" className="summary-btn" onClick={() => this.renderSummary()}>See Feedback</button>
           </div>
@@ -62,5 +81,5 @@ class App extends Component {
   }
 }
 
-// ReactDOM.render(<App />, document.getElementById("root"));
-export default App;
+
+export default Checklisting;

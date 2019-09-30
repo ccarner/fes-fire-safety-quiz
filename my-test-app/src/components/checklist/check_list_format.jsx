@@ -1,16 +1,19 @@
+// commented.
+
 import React, { Fragment } from 'react';
 import Question from './Question';
-
-
 import CheckSelectionFormat from './checklist_selection_format';
+import './checklistStyle.css';
 
+
+// This function returns one formatted checklist question.
 function ChecklistMain(props) {
 
 
     function renderAnswerOptions() {
         return (
             <Fragment>
-                < CheckSelectionFormat />
+                {< CheckSelectionFormat />}
             </Fragment>
         );
     }
@@ -18,32 +21,31 @@ function ChecklistMain(props) {
 
     return (
 
-        <div key={props.questionId} className="quiz-story">
-            <div className="Media">
-                {props.media === "text" ? <br /> : (props.media === "img" ? <div className="media"><img
-                    src={props.media_src} alt="picture" width="200" height="200" className="quizImage" /></div> :
-                    <div><video src={props.media_src} type="video/mp4" controls /></div>)}
+        <Fragment>
+            <div key={props.questionId} className="checklist_format">
+
+                {/* This division displays the media of the checklist question */}
+                <div className="Media">
+                    {props.media === "text" ? <br /> : (props.media === "img" ? <div className="media"><img
+                        src={props.media_src} alt="checklist_picture" className="checkImage" /></div> :
+                        <div><video src={props.media_src} type="video/mp4" controls /></div>)}
+                </div>
+
+                <div>
+                    {<Question content={props.question} />}
+                </div>
+
+                <div>
+                    <ul className="checklistAnswerOptions">
+                        {renderAnswerOptions()}
+                    </ul>
+                </div>
+
+                <div className="bottom-footer" >
+
+                </div>
             </div>
-
-            <Question content={props.question} />
-
-
-            <div>
-                <ul className="answerOptions">
-                    {renderAnswerOptions()}
-                </ul>
-            </div>
-
-
-
-            <div className="bottom-footer" >
-
-
-                {/* {props.counter < props.questionTotal - 1 ? (<button className="next-btn" onClick={props.setNextQuestion} >Next</button>) : (<div></div>)} */}
-
-
-            </div>
-        </div>
+        </Fragment>
     );
 }
 

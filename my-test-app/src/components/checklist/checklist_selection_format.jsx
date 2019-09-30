@@ -1,24 +1,18 @@
+// The base of this function is obtained from material-ui
+// This function is then modified to suit our app
+
 import React from 'react';
-import Radio from '@material-ui/core/Radio';
-import RadioGroup from '@material-ui/core/RadioGroup';
-import FormControlLabel from '@material-ui/core/FormControlLabel';
-import FormControl from '@material-ui/core/FormControl';
-import FormLabel from '@material-ui/core/FormLabel';
+import { Radio, RadioGroup, FormControl, FormControlLabel, FormLabel } from '@material-ui/core';
 
 export default function Checklist_Format() {
     const [value, setValue] = React.useState('female');
-
     function handleChange(event) {
         setValue(event.target.value);
     }
 
     return (
         <FormControl component="fieldset">
-
-
             <FormLabel component="legend"></FormLabel>
-
-
             <RadioGroup aria-label="position" name="position" value={value} onChange={handleChange} row>
 
                 <FormControlLabel
