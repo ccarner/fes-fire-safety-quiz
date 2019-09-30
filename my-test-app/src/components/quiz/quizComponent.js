@@ -162,7 +162,7 @@ class App extends Component {
  // decide to render result or quiz
   render() {
     if (this.props.jsonURL !== undefined && this.state.rendered === false ) {
-       this.quizQuestions =  require(""+this.props.jsonURL);
+       this.quizQuestions = this.props.jsonURL //require(""+this.props.jsonURL);
 
     //this.quizQuestions = QuizAPI;
     this.setState({
