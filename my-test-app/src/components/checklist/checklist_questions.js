@@ -1,3 +1,8 @@
+// commented.
+
+
+// This module stores all the checklist questions availible, user can modify questions here.
+// By default, at most 99 questions can be rendered at once.
 const checklistBank = [{
   question: "Do you have working smoke alarms in every room?",
   questionID: 1,
@@ -31,9 +36,6 @@ const checklistBank = [{
 }
 ];
 
-// export default checklistBank;
 
-
-export default (n = 99) =>
-  Promise.resolve(checklistBank.sort());
+export default (n = 99) => Promise.resolve(checklistBank.sort());
 
