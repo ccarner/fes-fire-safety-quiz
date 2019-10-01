@@ -29,7 +29,7 @@ export default function AlertDialog() {
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
                         Phone:      1300 855 163
-                        <h3></h3>
+                        <h3> </h3>
                         Address:    2/5 Lakeside Dr, Burwood East VIC 3151
                     </DialogContentText>
 

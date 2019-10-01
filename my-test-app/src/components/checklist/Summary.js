@@ -1,13 +1,11 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component } from 'react';
 import PopUps from "./contact_FES_Popup";
 import PropTypes from 'prop-types';
 
 
 
 class Summary extends Component {
-  constructor(props) {
-    super(props);
-  }
+
 
 
   renderSummary() {
@@ -20,7 +18,7 @@ class Summary extends Component {
           building and personell fire safe.
         </h5>
         <h5> </h5>
-        <img style={{ width: 150, height: 100 }} src="https://bit.ly/2lEO3o5" />
+        <img style={{ width: 150, height: 100 }} src="https://bit.ly/2lEO3o5" alt='FES_LOGO' />
         <h5>Find out more about FES </h5>
         <h5>services: </h5>
       </div>
@@ -38,7 +36,7 @@ class Summary extends Component {
           However, Fire Equipment Services (FES) are still able to make your building safer.
         </h5>
         <h5> </h5>
-        <img style={{ width: 150, height: 100 }} src="https://bit.ly/2lEO3o5" />
+        <img style={{ width: 150, height: 100 }} src="https://bit.ly/2lEO3o5" alt='FES_LOGO' />
         <h5>Find out more about FES </h5>
         <h5>services: </h5>
       </div>

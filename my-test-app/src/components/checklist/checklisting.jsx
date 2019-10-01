@@ -4,13 +4,8 @@
 // import relevent modules
 import React, { Component, Fragment } from "react";
 import CheckListAPI from "./checklist_questions";
-import Check_Format from "./check_list_format";
 import Summary from "./Summary";
-
 import OneChecklist from './eachChecklist';
-
-import CheckSelectionFormat from './checklist_selection_format';
-
 import PropTypes from 'prop-types';
 
 

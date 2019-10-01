@@ -1,7 +1,7 @@
 // The base of this function is obtained from material-ui
 // This function is then modified to suit our app
 
-import React, { Fragment, component } from 'react';
+import React from 'react';
 import { Radio, RadioGroup, FormControl, FormControlLabel, FormLabel } from '@material-ui/core';
 import PropTypes from 'prop-types';
 

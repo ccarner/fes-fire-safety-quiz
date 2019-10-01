@@ -1,9 +1,9 @@
 import React, { Component, Fragment } from "react";
 import infoModuleAPI from "./module_questions";
-import InfoModule_Format from "./infoModule_format";
+import InfoModuleFormat from "./infoModule_format";
 
 
-import ReactDOM from "react-dom";
+// import ReactDOM from "react-dom";
 // import "./checkComponent.css";
 
 
@@ -45,7 +45,7 @@ class App extends Component {
                 <div className="App">
                     {this.state.moduleBank.map(
                         ({ question }) => (
-                            <InfoModule_Format question={question} />
+                            <InfoModuleFormat question={question} />
                         )
                     )}
                 </div>
