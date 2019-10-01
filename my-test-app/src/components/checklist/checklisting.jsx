@@ -7,7 +7,11 @@ import CheckListAPI from "./checklist_questions";
 import Check_Format from "./check_list_format";
 import Summary from "./Summary";
 
+import OneChecklist from './eachChecklist';
 
+import CheckSelectionFormat from './checklist_selection_format';
+
+import PropTypes from 'prop-types';
 
 
 // Main class starts here
@@ -18,9 +22,14 @@ class Checklisting extends Component {
     super(props);
     this.state = {
       checklistBank: [],
-      questionTotal: CheckListAPI.length,
-      summaryOn: false
+
+      summaryOn: false,
+      isSafe: false,
+      safety: 1
+
     };
+    this.handleAnswerFeedback = this.handleAnswerFeedback.bind(this);
+
   }
 
 
@@ -36,6 +45,9 @@ class Checklisting extends Component {
     });
   };
 
+  handleAnswerFeedback(e, selectionValue) {
+    console.log(selectionValue);
+  }
 
 
   // If the user choose to see the feedback, summary mode is turned on
@@ -52,6 +64,38 @@ class Checklisting extends Component {
   }
 
 
+  increseSafety = () => {
+    this.setState(
+      {
+        safety: this.state.safety + 1,
+        isSafe: this.state.safety >= this.state.checklistBank.length
+      }
+
+    );
+
+
+
+    // console.log("reach increse", this.state.safety, this.state.checklistBank.length, this.state.safety >= this.state.checklistBank.length);
+
+  }
+
+
+
+  decreseSafety = () => {
+
+    this.setState(
+      {
+        safety: this.state.safety - 1,
+        isSafe: this.state.safety >= this.state.checklistBank.length
+      }
+    );
+
+    // console.log("reach decrese", this.state.safety);
+
+  }
+
+
+
   // This function renders the checklist page, each checklist question is listed with three options to choose from
   // and there is a button to view the result.
   render() {
@@ -60,10 +104,15 @@ class Checklisting extends Component {
         <Fragment>
           <div className="Checklisting">
             {this.state.checklistBank.map(
-              ({ question, media, media_src, questionID }) => {
+              (singleCh) => {
                 return (
-                  <Check_Format questionID={questionID} question={question} media={media} media_src={media_src} />
-                )
+                  <OneChecklist key={singleCh.questionID} current={singleCh}
+                    increseSafety={this.increseSafety} decreseSafety={this.decreseSafety} />
+
+                  // <Check_Format questionID={singleCh.questionID} question={singleCh.question}
+                  //  media={singleCh.media} media_src={singleCh.media_src} answerFeedback={this.handleAnswerFeedback} />
+
+                );
               }
             )}
           </div>
@@ -71,14 +120,29 @@ class Checklisting extends Component {
           <div>
             <button type="button" className="summary-btn" onClick={() => this.renderSummary()}>See Feedback</button>
           </div>
+
+
         </Fragment>
       );
     } else {
+
+
+
+
       return (
-        < Summary />
+
+        < Summary isSafe={this.state.isSafe} />
+
       );
     }
   }
+}
+
+// PropTypes to complete the structure
+Checklisting.propTypes = {
+
+  checklistBank: PropTypes.array.isRequired
+
 }
 
 
