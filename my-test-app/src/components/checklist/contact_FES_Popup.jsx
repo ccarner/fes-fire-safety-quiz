@@ -4,6 +4,9 @@
 import React from 'react';
 import { Button, Dialog, DialogActions, DialogContent, DialogContentText, DialogTitle } from '@material-ui/core';
 
+
+// When this pop-up function is triggered, a pop-up window will be displayed, which has information
+//      about FES's location and phone number. The user can then choose to "call" or "direct to there"
 export default function AlertDialog() {
     const [open, setOpen] = React.useState(false);
 
@@ -18,7 +21,6 @@ export default function AlertDialog() {
     return (
         <div>
             <button className="FES_CALL-btn" onClick={handleClickOpen}>Contact FES</button>
-
             <Dialog
                 open={open}
                 onClose={handleClose}

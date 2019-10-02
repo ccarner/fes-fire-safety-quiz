@@ -5,14 +5,13 @@ import React from 'react';
 import { Radio, RadioGroup, FormControl, FormControlLabel, FormLabel } from '@material-ui/core';
 import PropTypes from 'prop-types';
 
+
+// Three buttons are displayed, each has a corresponding value.
+// When a user makes a selection, the value will be passed to the parent class.
 function Checklist_Format(props) {
 
-
     const [value, setValue] = React.useState('female');
-
     function handleChange(event) {
-        // console.log(event.target.value);
-        // props.answerFeedback(event.target.value);
         props.answerFeedback(event.target.value);
         setValue(event.target.value);
     }
@@ -46,10 +45,10 @@ function Checklist_Format(props) {
 
 }
 
+// To ensure the correct props are passed
 Checklist_Format.propTypes = {
     answerFeedback: PropTypes.object.isRequired,
     value: PropTypes.object.isRequired,
 };
-
 
 export default Checklist_Format;

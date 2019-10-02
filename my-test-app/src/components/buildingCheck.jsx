@@ -1,14 +1,15 @@
 import React, { Component } from "react";
-// import CheckBewe from "./checklist/checkComponent";
-import CheckBewe from "./checklist/checklisting";
+import AllChecklists from "./checklist/checklisting";
 
+
+// This class simply renders all  checklists
 class CheckListPage extends Component {
   state = {};
   render() {
     return (
       <React.Fragment>
-        <h1>CheckList page</h1>
-        <CheckBewe />
+        <h1> </h1>
+        <AllChecklists />
       </React.Fragment>
     );
   }

@@ -3,16 +3,16 @@ import PopUps from "./contact_FES_Popup";
 import PropTypes from 'prop-types';
 
 
-
+// This class displaye the checklist outcome depending on whether the building meets the safety standards
 class Summary extends Component {
 
 
 
+  // If the building fails to meet the safety standars, alert the user
   renderSummary() {
     return (
       <div>
-        <h3>Your building might not be completely fire safe!</h3>
-
+        <h2 style={{ color: 'red' }}>Your building might not be completely fire safe!!!</h2>
         <h5>
           Fortunately, Fire Equipment Services (FES) are capable of getting your
           building and personell fire safe.
@@ -26,7 +26,7 @@ class Summary extends Component {
   }
 
 
-
+  // If the building meets the safety standars, also provides the user with additional help
   renderSafe() {
     return (
       <div>
@@ -44,13 +44,11 @@ class Summary extends Component {
   }
 
   render() {
-
-
     if (this.props.isSafe) {
       return (
         <div>
           <div>
-            <h1>Congradulations!</h1>
+            <h1 style={{ color: 'green' }}>Congradulations!</h1>
             <div>{this.renderSafe()}</div>
             < PopUps ></PopUps>
           </div>

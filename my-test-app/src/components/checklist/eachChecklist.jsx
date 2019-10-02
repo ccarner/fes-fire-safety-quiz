@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import './checklistStyle.css';
 import { Divider } from '@material-ui/core';
 
+// This class is for the format of every single checklist question
 export class eachChecklist extends Component {
 
     // setting up the initial states
@@ -13,14 +14,14 @@ export class eachChecklist extends Component {
             isChecked: false,
             redAlert: false
         };
-
-
     }
 
+    //If the user selects option1("Yes"), the safety score increase by 1
+    // On the other hand, if the user de-selects option1("Yes"), the safety score decreaseby 1
+    // Noting safety score can be adjustable to each question, and
+    // if the safety score is larger or equal to the total number of questions, the building is classfied as safe
     handleSelection = (selected) => {
-
         if (selected === 'option1') {
-
             this.props.increseSafety();
             this.setState(
                 {
@@ -29,11 +30,9 @@ export class eachChecklist extends Component {
                 }
             );
         } else {
-
             if (this.state.isChecked) {
                 this.props.decreseSafety();
             }
-
             this.setState(
                 {
                     isChecked: false,
@@ -41,9 +40,11 @@ export class eachChecklist extends Component {
                 }
             );
         }
-
     }
 
+
+    // If a checklist question is completed, this question is crossed out,
+    // If the user fails to meet the expection of one question, this question is highlighed by red color
     getStyle1 = () => {
         if (this.state.isChecked) {
             return { textDecoration: 'line-through' }
@@ -55,7 +56,6 @@ export class eachChecklist extends Component {
     }
 
     render() {
-
         return (
             <Fragment>
                 <div key={this.props.current.questionId} className="checklist_keyID"></div>
@@ -88,7 +88,7 @@ export class eachChecklist extends Component {
 }
 
 
-// PropTypes to complete the structure
+// PropTypes to ensure this class has the right props
 eachChecklist.propTypes = {
     current: PropTypes.object.isRequired
 }

@@ -3,6 +3,7 @@
 
 // This module stores all the checklist questions availible, user can modify questions here.
 // By default, at most 99 questions can be rendered at once.
+// Each euqstion consists an unique ID, the question and the media type.
 const checklistBank = [{
   question: "Do you have working smoke alarms in every room?",
   questionID: 1,
