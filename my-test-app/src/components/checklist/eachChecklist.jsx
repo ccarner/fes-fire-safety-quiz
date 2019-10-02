@@ -1,3 +1,5 @@
+// commented.
+
 import React, { Component, Fragment } from 'react';
 import CheckSelectionFormat from './checklist_selection_format';
 import PropTypes from 'prop-types';

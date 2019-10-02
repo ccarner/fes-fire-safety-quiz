@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import AllChecklists from "./checklist/checklisting";
 
 
-// This class simply renders all  checklists
+// This class simply renders all checklists
 class CheckListPage extends Component {
   state = {};
   render() {
