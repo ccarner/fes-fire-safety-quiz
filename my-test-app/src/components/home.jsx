@@ -23,10 +23,10 @@ const useStyles = makeStyles(theme => ({
   },
   image: {
     position: 'relative',
-    height: 300,
+    minHeight: 100,
     [theme.breakpoints.down('xs')]: {
       width: '100% !important', // Overrides inline-style
-      minHeight: 100,
+      height: '30vh',
       //height: '25%',
     },
     '&:hover, &$focusVisible': {

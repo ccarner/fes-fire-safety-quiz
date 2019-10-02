@@ -8,7 +8,7 @@ class InformationPage extends Component {
       <h1>information page</h1>
       <div><b>Click this button to be redirected to the FES website!</b></div>
       <Button variant="contained"
-        onClick={window.location.assign('https://www.fes.com.au/www/')}>TO FES</Button>
+        onClick={() => window.location.assign('https://www.fes.com.au/www/')}>TO FES</Button>
     </React.Fragment>
     )
   }
