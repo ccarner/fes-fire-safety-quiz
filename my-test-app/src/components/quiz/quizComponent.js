@@ -6,7 +6,9 @@ import Result from './components/Result';
 import ReactDOM from "react-dom";
 import './quizComponent.css';
 
-
+/**
+ * responsible for rendering a quiz module when the user takes a quiz
+ */
 class App extends Component {
 
   constructor(props) {
@@ -24,6 +26,7 @@ class App extends Component {
       media:"",
       media_src:"",
       questionTotal: 0,
+      maxChoices:100 ,
       rendered: false,
 
     };
@@ -53,8 +56,19 @@ class App extends Component {
           if(obj[Qindex].has(index)){
             obj[Qindex].delete(index);
      
+          }else{if(obj[Qindex].size === this.state.maxChoices){
+            if(this.state.maxChoices==1){
+              var answerSet =  new Set();
+              answerSet.add(index);
+              obj[Qindex] = answerSet;
+            }else{
+              
+            }
+
           }else{
-            obj[Qindex].add(index)
+            obj[Qindex].add(index);
+           
+          }
         }
  
     }
@@ -87,6 +101,11 @@ class App extends Component {
   setNextQuestion() {
     const counter = this.state.counter + 1;
     const questionId = this.state.questionId + 1;
+    var maxChoices = 100;
+    if (this.quizQuestions[counter].max_choices !== undefined){
+      maxChoices = this.quizQuestions[counter].max_choices;
+ 
+    }
 
     this.setState({
       counter: counter,
@@ -95,12 +114,17 @@ class App extends Component {
       answerOptions: this.quizQuestions[counter].answers,
       media: this.quizQuestions[counter].media,
       media_src: this.quizQuestions[counter].media_src,
-      answer: ''
+      answer: '',
+      maxChoices: maxChoices
     });
   }
   setPreviousQuestion() {
     const counter = this.state.counter - 1;
     const questionId = this.state.questionId - 1;
+    const maxChoices = 100;
+    if (this.quizQuestions[counter].max_choices!== undefined){
+      maxChoices = this.quizQuestions[counter].max_choices;
+    }
 
     this.setState({
       counter: counter,
@@ -109,7 +133,9 @@ class App extends Component {
       answerOptions: this.quizQuestions[counter].answers,
       media: this.quizQuestions[counter].media,
       media_src: this.quizQuestions[counter].media_src,
-      answer: ''
+      answer: '',
+      maxChoices: maxChoices
+
     });
   }
 
@@ -162,9 +188,14 @@ class App extends Component {
  // decide to render result or quiz
   render() {
     if (this.props.jsonURL !== undefined && this.state.rendered === false ) {
-       this.quizQuestions = this.props.jsonURL //require(""+this.props.jsonURL);
+      //this.quizQuestions = QuizAPI;
+      this.quizQuestions = this.props.jsonURL //require(""+this.props.jsonURL);
 
     //this.quizQuestions = QuizAPI;
+    var maxChoices = 100;
+    if (this.quizQuestions[0].max_choices !== undefined){
+      maxChoices = this.quizQuestions[0].max_choices;
+    }
     this.setState({
       question: this.quizQuestions[0].question,
       answerOptions : this.quizQuestions[0].answers,
@@ -172,7 +203,9 @@ class App extends Component {
       media_src: this.quizQuestions[0].media_src,
       allQuestions : this.quizQuestions,
       rendered: true,
-      questionTotal: this.quizQuestions.length
+      questionTotal: this.quizQuestions.length,
+      maxChoices: maxChoices
+      
     });
     }
       

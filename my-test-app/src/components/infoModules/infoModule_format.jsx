@@ -22,8 +22,8 @@ function ChecklistMain(props) {
 
         <div key={props.questionId} className="quiz-story">
 
-            <div className="media"><img
-                src={FESLogo} alt="picture" style={{ width: 200, height: 100, position: 'relative', top: 0, left: 50 }} />
+            <div className="media"><img alt="infModulePicture"
+                src={FESLogo} style={{ width: 200, height: 100, position: 'relative', top: 0, left: 50 }} />
 
             </div>
 

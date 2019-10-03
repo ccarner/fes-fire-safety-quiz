@@ -9,7 +9,6 @@ import HomePage from "./components/home";
 import SafetyPage from "./components/safetyHome";
 import CheckListPage from "./components/buildingCheck";
 import InfoModulePage from "./components/infoModule";
-import Module from "./components/infoModules/module";
 import helpPage from "./components/helpPage";
 
 
@@ -35,7 +34,6 @@ function App() {
           <Route path="/safetyHome" exact component={SafetyPage} />
           <Route path="/buildingCheck" exact component={CheckListPage} />
           <Route path="/infoModule" exact component={InfoModulePage} />
-          <Route path="/informationModule" exact component={Module} />
           <Route path="/helppage" exact component={helpPage} />
 
           {/* <Route

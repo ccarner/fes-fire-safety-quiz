@@ -1,5 +1,8 @@
 import React from 'react';
-
+/**
+ * renders elements on the result page consisting of all questions in the quiz,
+ *  the user's answers vs the correct answers and the user's overall score .
+ */
 class Result extends React.Component {
   constructor(props){
     super(props);
@@ -27,7 +30,6 @@ class Result extends React.Component {
         correct = true;
       }
     
-        // return <div className="list-grp">{_data.question} <br/>Correct answer: {_data.answers[_data.answerindex[0]-1]}. &nbsp; Your answer: {_data.answers[this.props.answers[index][0]]}. &nbsp;&nbsp;&nbsp;  { ((this.props.answers[index][0]+1) === _data.answerindex[0]) ? (<span className="correct-status">Correct</span>) : (<span className="incorrect-status">Incorrect</span>)}</div>
         return <div className="list-grp"><span className="question-text">{_data.question}</span><br/><span className ="correct-status">Correct answer: {solutionmessage} </span><br/><span className = {correct?"correct-status":"incorrect-status"}>Your answer: {answermessage}</span>
            &nbsp; </div>
 
@@ -42,7 +44,7 @@ class Result extends React.Component {
     var total = this.props.quizQuestions.length;
     var ticks = [];
 
-    
+    // compares 2 sets for equality
     function eqSet(as, bs){
       if ((as === undefined || bs ===undefined) || as.size !== bs.size) return false;
       for (var a of as) if (!bs.has(a)) return false;
@@ -50,12 +52,13 @@ class Result extends React.Component {
     }
     
     for (var i = 0; i < total; i++) { 
-      //var solutions = [...this.props.quizQuestions[i].answerindex];
+      // indices of actual solutions (they start at 1 rather than 0)
       var solutions = (this.props.quizQuestions[i].answerindex).slice(0);
       for (var j = 0; j<solutions.length; j++){
         solutions[j]-=1;
       }
       var solution_set =  new Set(solutions);
+      // compares the user's answers against the solutions
       if (eqSet(this.props.answers[i], solution_set) ){
         ticks.push(1);
         
@@ -70,7 +73,6 @@ class Result extends React.Component {
       <div>
         <b>Results</b>
         <div>{this.renderQuestions(ticks)}</div>
-        {/* <div>{display_arr}</div> */}
       <div>Your overall score: {ticks.reduce((a, b) => a + b, 0)}/{total}</div>
 
 

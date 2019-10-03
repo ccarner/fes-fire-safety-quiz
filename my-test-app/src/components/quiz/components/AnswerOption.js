@@ -25,6 +25,9 @@ const theme = createMuiTheme({
   },
 });
 
+/**
+ * responsible for displaying the answer options for a particular quiz question
+ */
 function AnswerOption(props) {
   const classes = useStyles();
 

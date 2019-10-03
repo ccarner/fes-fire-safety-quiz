@@ -7,7 +7,8 @@
         "answerindex": [2],
         "media": "img",
         "media_src": "https://fireandsafetywa.com.au/wp-content/uploads/2018/09/201008.jpg",
-        "answers": ["Water-based", "Powder-based", "Extra heavy", "Foam-based"]
+        "answers": ["Water-based", "Powder-based", "Extra heavy", "Foam-based"],
+        "max_choices": 1
       },
       {
         "question": "Where should you point at the fire extinguisher?",
@@ -19,7 +20,8 @@
           "bottom of flame",
           "over the top of flame",
           "on the floor"
-        ]
+        ],
+        "max_choices": 2
       },
       {
         "question": "Should you use the extinguisher when the arrow is not inside the green section of the dial?",
