@@ -12,7 +12,6 @@ import InfoModulePage from "./components/infoModule";
 import Module from "./components/infoModules/module";
 import helpPage from "./components/helpPage";
 
->>>>>>> master
 
 // import background1 from "./components/pictures/questionmarks.png";
 
