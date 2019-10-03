@@ -121,7 +121,7 @@ class App extends Component {
   setPreviousQuestion() {
     const counter = this.state.counter - 1;
     const questionId = this.state.questionId - 1;
-    const maxChoices = 100;
+    var maxChoices = 100;
     if (this.quizQuestions[counter].max_choices!== undefined){
       maxChoices = this.quizQuestions[counter].max_choices;
     }
