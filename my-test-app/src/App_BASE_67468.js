@@ -9,10 +9,6 @@ import HomePage from "./components/home";
 import SafetyPage from "./components/safetyHome";
 import CheckListPage from "./components/buildingCheck";
 import InfoModulePage from "./components/infoModule";
-import Module from "./components/infoModules/module";
-import helpPage from "./components/helpPage";
-
->>>>>>> master
 
 // import background1 from "./components/pictures/questionmarks.png";
 
@@ -36,9 +32,6 @@ function App() {
           <Route path="/safetyHome" exact component={SafetyPage} />
           <Route path="/buildingCheck" exact component={CheckListPage} />
           <Route path="/infoModule" exact component={InfoModulePage} />
-          <Route path="/informationModule" exact component={Module} />
-          <Route path="/helppage" exact component={helpPage} />
-
           {/* <Route
             path="/api/quizzes"
             component={() => (window.location = "localhost:5000/api/quizzes")}

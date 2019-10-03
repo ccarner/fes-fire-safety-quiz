@@ -81,9 +81,9 @@ const useStyles = makeStyles(theme => ({
 //   return window.location = thing; 
 // }
 
-function ButtonBases(name, link, url, callback) {
+function ButtonBases(name, link, url, callback, classes) {
   
-    const classes = useStyles();
+    //const classes = useStyles();
 
   return (
     <div className={classes.root}>
