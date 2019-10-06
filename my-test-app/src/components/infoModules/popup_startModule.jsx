@@ -1,12 +1,27 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
+import { makeStyles, withStyles, createMuiTheme} from '@material-ui/core/styles';
+
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
+const useStyles = makeStyles(theme => ({
+    button: {
+      margin: theme.spacing(1),
+    },
+    input: {
+      display: 'none',
+    },
+    label: {
+      textTransform: 'capitalize',
+    },
+  }));
+
 export default function AlertDialog() {
+    const classes = useStyles();
     const [open, setOpen] = React.useState(false);
 
     function handleClickOpen() {
@@ -55,10 +70,16 @@ export default function AlertDialog() {
 
                 </DialogContent>
                 <DialogActions>
-                    <Button onClick={handleClose} color="primary">
+                    <Button onClick={handleClose} variant= 'contained' color="primary" text_transform = "none"
+                    classes = {{
+                        label: classes.label,
+                      }}>
                         Close
           </Button>
-                    <Button onClick={myFunction} color="primary">
+                    <Button onClick={myFunction} variant= 'contained' color="primary" text_transform = "none"
+                    classes = {{
+                        label: classes.label,
+                      }}>
                         Start Module
           </Button>
                 </DialogActions>
