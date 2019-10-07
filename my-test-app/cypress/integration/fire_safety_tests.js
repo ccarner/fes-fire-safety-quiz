@@ -38,8 +38,8 @@ it('has information about FES and redirects to fes webpage', function() {
   cy.contains('About FES').click()
   cy.url().should('include', '/information')
   expect(cy.contains('Phone'))
-  //cy.contains('TO FES').click()
-  //cy.url().should('include', 'fes.com')
+  cy.contains('TO FES').click()
+  cy.url().should('include', 'fes.com')
 
 
 })
