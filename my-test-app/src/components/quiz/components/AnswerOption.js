@@ -35,12 +35,12 @@ function AnswerOption(props) {
   if(!(typeof props.selectedAnswer == 'undefined')){
      selected = props.selectedAnswer.has(props.index);
   }
-
+  const style = {display: "block"};
   return (
     
     <React.Fragment>
 
-    <li className="answerOption">
+    <div className="answerOption">
       {/* <button id="horizontal-list"
         type="button"
         value={props.index}
@@ -54,6 +54,7 @@ function AnswerOption(props) {
         text_transform= "none"
         //value={props.index}
         type="button"
+        style = {style}
         component="span" 
         disableRipple
         classes = {{
@@ -66,7 +67,7 @@ function AnswerOption(props) {
           {/* {props.index} */}
         </Button>
       </ThemeProvider>
-    </li>
+    </div>
     </React.Fragment>
 
   );
