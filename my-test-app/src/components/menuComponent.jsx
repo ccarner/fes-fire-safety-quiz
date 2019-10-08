@@ -8,24 +8,23 @@ import axios from 'axios';
 //import useAxios from 'axios-hooks';
 import ButtonBases from "./ButtonBases";
 import Button from '@material-ui/core/Button'
-import ModuleStart from './popupComponent';
+ 
+//listReactFiles(__dirname).then(files => console.log(files))
 
-import Dialog from '@material-ui/core/Dialog';
-import DialogActions from '@material-ui/core/DialogActions';
-import DialogContent from '@material-ui/core/DialogContent';
-import DialogContentText from '@material-ui/core/DialogContentText';
-import DialogTitle from '@material-ui/core/DialogTitle';
+// async function listQuizzes(){
+  
+//   try {
+//     const response = await axios.get('https://fes-fire-safety-quiz.herokuapp.com/api/quizzes');
+//     //console.log(JSON.stringify(response));
+//     return response;
+//   }
+//   catch (error) {
+//     console.log(error);
+//   }
+ 
+//   }
 
 const useStyles = makeStyles(theme => ({
-  button: {
-    margin: theme.spacing(1),
-  },
-  input: {
-    display: 'none',
-  },
-  label: {
-    textTransform: 'capitalize',
-  },
   root: {
     display: 'flex',
     flexWrap: 'wrap',
@@ -98,100 +97,25 @@ const useStyles = makeStyles(theme => ({
   },
 }));
 
-
-function AlertDialog(popuptext, buttonfunc) {
-  const classes = useStyles();
-  const [open, setOpen] = React.useState(false);
-  var text = "Click the start module button to proceed"
-  if(popuptext!=""){
-      text = popuptext;
-  }
-
-  function handleClickOpen() {
-      setOpen(true);
-  }
-
-
-
-  function handleClose() {
-      setOpen(false);
-  }
-
-
-  return (
-      <div>
-          {/* <button className="FES_CALL-btn" onClick={handleClickOpen}>Start</button> */}
-
-          <Dialog
-              open={open}
-              onClose={handleClose}
-              aria-labelledby="alert-dialog-title"
-              aria-describedby="alert-dialog-description"
-          >
-              <DialogTitle id="alert-dialog-title">{"Intro to Fire Safety"}</DialogTitle>
-              <DialogContent>
-                  <DialogContentText id="alert-dialog-description">
-                      {text}
-                  </DialogContentText>
-
-              </DialogContent>
-              <DialogActions>
-                  <Button onClick={handleClose} variant= 'contained' color="primary" text_transform = "none"
-                  classes = {{
-                      label: classes.label,
-                    }}>
-                      Close
-        </Button>
-                  <Button onClick={buttonfunc} variant= 'contained' color="primary" text_transform = "none"
-                  classes = {{
-                      label: classes.label,
-                    }}>
-                      Start Module
-        </Button>
-              </DialogActions>
-          </Dialog>
-      </div>
-  );
-}
-
-
 function QuizPage(props){
   const classes = useStyles();
 
   const [quiz, setQuiz] = useState(null);
-  // const[{data, loading, error}, refetch] = useAxios(
-  //   'https://fes-fire-safety-quiz.herokuapp.com/api/quizzes'
-  // )
   const [menuOptions, setOptions] = useState([]);
-  //const menu = axios.get('https://fes-fire-safety-quiz.herokuapp.com/api/quizzes').then(response => response.map(option=>ButtonBases(option.quizname, option.quizfile, "", setQuiz)));
-  // const menu = listQuizzes.then(function(resp) {
-  //   if (typeof resp == 'undefined'){
-  //     console.log("quizapi not loading");
-
-  //   } else {
-  //     console.log("success");
-  //   }
-
-  // })
+  
   useEffect(() => {
     axios.get('http://fes-fire-safety-quiz-api-dev.ap-southeast-2.elasticbeanstalk.com/content/quizzes/index.json')
     .then(response => {
       setOptions(response.data)
       console.log(menuOptions)
     })
-    //.then(
-    // (response) => {console.log(response.data);alert("success");setOptions(response.data)})
-    // .catch((err) =>{console.log(err)});  
-     
 
   },[]);
   // if (loading) return <p>Loading...</p>
   // else if (error) return <p>Error!</p>
   // console.log(data);
-  const menu = menuOptions.map(option=>ButtonBases(option.filename, option.quizfile,"", AlertDialog, classes))
-  //listQuizzes().then(out => {console.log(out)});
-  //const menu = quizList.map(option=>ButtonBases(option.quizname, option.quizfile, "", setQuiz))
-  //alert(quiz);
+  const menu = menuOptions.map(option=>ButtonBases(option.quizname, option.quizfile,"", setQuiz, classes))
+  
   if(quiz === null){
     return (
       <React.Fragment>

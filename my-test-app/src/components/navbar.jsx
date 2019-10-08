@@ -17,10 +17,10 @@ const NavBar = props => {
       <Link className="navbar-brand" to="/">
         Home{" "}
       </Link>
-      <Link className="navbar-brand" to={("/helppage#"+page)}>
+      {/* <Link className="navbar-brand" to={("/helppage#"+page)}>
         Help{" "}
-      </Link>
-      {/* <a href={("/app/helppage#"+page)}>help</a> */}
+      </Link> */}
+      <a href={("/app/helppage#"+page)}>help</a>
       <img alt="" width="75" src={"https://www.fes.com.au/www/wp-content/uploads/2012/08/logo.jpg"} />
     </nav>
   );
