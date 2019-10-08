@@ -8,7 +8,7 @@ class CheckListPage extends Component {
   render() {
     return (
       <React.Fragment>
-        <a href="/app/helppage#S2">Not sure how to use this?</a>
+        {/* <a href="/app/helppage#S2">Not sure how to use this?</a> */}
 
         <h1> </h1>
         <AllChecklists />

@@ -14,7 +14,7 @@ class InformationPage extends Component {
     onClick = {() => window.location.assign('https://www.fes.com.au/www/')}>TO FES</Button> */}
     <h1 id="S1">HOMEPAGE</h1>
     <img src= {homepage} alt="Fire" class="quizImage"/>
-    <h1 id="S2">CHECKLIST</h1>
+    <h1 id="buildingCheck">CHECKLIST</h1>
     <img src= {check1} alt="Fire" class="quizImage"/>
 
     </React.Fragment>
