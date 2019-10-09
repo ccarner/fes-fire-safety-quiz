@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link, Redirect } from "react-router-dom";
+import Button from '@material-ui/core/Button'
 
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
@@ -11,22 +12,26 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-function ButtonBases(name, link, url, callback, classes) {
-    const [open, setOpen] = React.useState(false);
+function popup(popuptext, buttonfunc, classes){
+
+}
+
+function ButtonBases(name, link, url, callback, classes, popuptext, handleClickOpen, handleClose, selected) {
+    //const [open, setOpen] = React.useState(false);
     var text = "Click the start module button to proceed"
-    if(popuptext!=""){
+    if(popuptext!==""){
         text = popuptext;
     }
 
-    function handleClickOpen() {
-        setOpen(true);
-    }
+    // function handleClickOpen() {
+    //     setOpen(true);
+    // }
 
 
 
-    function handleClose() {
-        setOpen(false);
-    }
+    // function handleClose() {
+    //     setOpen(false);
+    // }
   
   return (
     <div className={classes.root}>
@@ -34,7 +39,8 @@ function ButtonBases(name, link, url, callback, classes) {
           focusRipple
           key={name}
           //component = {Link} to={`${link}`}
-          onClick={function() { callback(link);}}
+          onClick={function() {handleClickOpen(name)}}
+          //onClick={function() { callback(link);}}
          // onClick={(link) => { callback(link) }}
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
@@ -64,12 +70,12 @@ function ButtonBases(name, link, url, callback, classes) {
           </span>
         </ButtonBase>
         <Dialog
-                open={open}
+                open={selected==name}
                 onClose={handleClose}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
             >
-                <DialogTitle id="alert-dialog-title">{"Intro to Fire Safety"}</DialogTitle>
+                <DialogTitle id={name}>{"test"}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
                         {text}
@@ -83,7 +89,7 @@ function ButtonBases(name, link, url, callback, classes) {
                       }}>
                         Close
           </Button>
-                    <Button onClick={buttonfunc} variant= 'contained' color="primary" text_transform = "none"
+                    <Button onClick={function() {callback(link)}} variant= 'contained' color="primary" text_transform = "none"
                     classes = {{
                         label: classes.label,
                       }}>

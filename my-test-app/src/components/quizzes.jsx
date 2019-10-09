@@ -6,7 +6,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import quizList from "./quiz/api/quizList";
 import axios from 'axios';
 //import useAxios from 'axios-hooks';
-import ButtonBases from "./ButtonBases";
+import ButtonBases from "./newMenu";
 import Button from '@material-ui/core/Button'
 import ModuleStart from './popupComponent';
 
@@ -99,8 +99,8 @@ const useStyles = makeStyles(theme => ({
 }));
 
 
-function AlertDialog(popuptext, buttonfunc) {
-  const classes = useStyles();
+function AlertDialog(popuptext, buttonfunc, classes) {
+  //const classes = useStyles();
   const [open, setOpen] = React.useState(false);
   var text = "Click the start module button to proceed"
   if(popuptext!=""){
@@ -157,6 +157,14 @@ function AlertDialog(popuptext, buttonfunc) {
 
 function QuizPage(props){
   const classes = useStyles();
+  const [selected, setselected] = useState(null);
+
+  function handleClickOpen(name){
+    setselected(name)
+  }
+  function handleClose(){
+    setselected(null);
+  }
 
   const [quiz, setQuiz] = useState(null);
   // const[{data, loading, error}, refetch] = useAxios(
@@ -188,7 +196,7 @@ function QuizPage(props){
   // if (loading) return <p>Loading...</p>
   // else if (error) return <p>Error!</p>
   // console.log(data);
-  const menu = menuOptions.map(option=>ButtonBases(option.filename, option.quizfile,"", AlertDialog, classes))
+  const menu = menuOptions.map(option=>ButtonBases(option.filename, option.quizfile,"", setQuiz, classes, "", handleClickOpen, handleClose, selected))
   //listQuizzes().then(out => {console.log(out)});
   //const menu = quizList.map(option=>ButtonBases(option.quizname, option.quizfile, "", setQuiz))
   //alert(quiz);
