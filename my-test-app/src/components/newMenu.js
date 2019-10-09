@@ -18,7 +18,8 @@ function popup(popuptext, buttonfunc, classes){
 
 function ButtonBases(name, link, url, callback, classes, popuptext, handleClickOpen, handleClose, selected) {
     //const [open, setOpen] = React.useState(false);
-    var text = "Click the start module button to proceed"
+    var text = "Click the start module button to begin"
+    var stripped = (name.split(".")[0]).split("-")[1];
     if(popuptext!==""){
         text = popuptext;
     }
@@ -78,7 +79,7 @@ function ButtonBases(name, link, url, callback, classes, popuptext, handleClickO
                 <DialogTitle id={name}>{"test"}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        {text} {name}
+                        {text} {stripped}
                     </DialogContentText>
 
                 </DialogContent>
