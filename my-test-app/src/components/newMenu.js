@@ -89,7 +89,9 @@ function ButtonBases(name, link, url, callback, classes, popuptext, handleClickO
                       }}>
                         Close
           </Button>
-                    <Button onClick={function() {callback(link)}} variant= 'contained' color="primary" text_transform = "none"
+                    <Button onClick={function() {callback(link)}
+                     //() => {alert(link)}
+                    } variant= 'contained' color="primary" text_transform = "none"
                     classes = {{
                         label: classes.label,
                       }}>

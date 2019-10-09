@@ -158,6 +158,7 @@ function AlertDialog(popuptext, buttonfunc, classes) {
 function QuizPage(props){
   const classes = useStyles();
   const [selected, setselected] = useState(null);
+  const apiurl = 'http://fes-fire-safety-quiz-api-dev.ap-southeast-2.elasticbeanstalk.com/content/quizzes/';
 
   function handleClickOpen(name){
     setselected(name)
@@ -167,6 +168,7 @@ function QuizPage(props){
   }
 
   const [quiz, setQuiz] = useState(null);
+  const [quizdata, setData] = useState(null);
   // const[{data, loading, error}, refetch] = useAxios(
   //   'https://fes-fire-safety-quiz.herokuapp.com/api/quizzes'
   // )
@@ -186,21 +188,36 @@ function QuizPage(props){
     .then(response => {
       setOptions(response.data)
       console.log(menuOptions)
+      //alert(JSON.stringify(menuOptions))
     })
+
+  },[]);
+
+  useLayoutEffect(() => {
+    if(quiz){var getfrom = apiurl+quiz;
+    axios.get((getfrom)).then(response => {
+      setData(response.data)
+      console.log("successful")
+      console.log(quizdata)
+      //alert(getfrom)
+
+      console.log('http://fes-fire-safety-quiz-api-dev.ap-southeast-2.elasticbeanstalk.com/content/quizzes/'+quiz)
+    })}
     //.then(
     // (response) => {console.log(response.data);alert("success");setOptions(response.data)})
     // .catch((err) =>{console.log(err)});  
      
 
-  },[]);
+  }, [quiz]);
   // if (loading) return <p>Loading...</p>
   // else if (error) return <p>Error!</p>
   // console.log(data);
-  const menu = menuOptions.map(option=>ButtonBases(option.filename, option.quizfile,"", setQuiz, classes, "", handleClickOpen, handleClose, selected))
+  const menu = menuOptions.map(option=>ButtonBases(option.filename, option.filename,"", setQuiz, classes, "", handleClickOpen, handleClose, selected))
   //listQuizzes().then(out => {console.log(out)});
   //const menu = quizList.map(option=>ButtonBases(option.quizname, option.quizfile, "", setQuiz))
   //alert(quiz);
-  if(quiz === null){
+  // alert(quizdata)
+  if(quizdata === null){
     return (
       <React.Fragment>
         
@@ -210,6 +227,7 @@ function QuizPage(props){
       </React.Fragment>
     );
    } else {
+    //  alert(quizdata)
      //console.log(JSON.stringify(quiz))
      //setQuiz("test");
      //alert('beep')
@@ -217,7 +235,7 @@ function QuizPage(props){
       //alert(quiz),
       <React.Fragment>
         <h1>asdf</h1>
-        <QuizBee jsonURL = {quiz}/>
+        <QuizBee jsonURL = {quizdata}/>
       </React.Fragment>
       //try using useEffect
     );
