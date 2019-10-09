@@ -26,7 +26,7 @@ class App extends Component {
       media:"",
       media_src:"",
       questionTotal: 0,
-      maxChoices:100 ,
+      maxChoices:1 ,
       rendered: false,
 
     };
@@ -101,7 +101,7 @@ class App extends Component {
   setNextQuestion() {
     const counter = this.state.counter + 1;
     const questionId = this.state.questionId + 1;
-    var maxChoices = 100;
+    var maxChoices = 1;
     if (this.quizQuestions[counter].max_choices !== undefined){
       maxChoices = this.quizQuestions[counter].max_choices;
  
@@ -121,7 +121,7 @@ class App extends Component {
   setPreviousQuestion() {
     const counter = this.state.counter - 1;
     const questionId = this.state.questionId - 1;
-    var maxChoices = 100;
+    var maxChoices = 1;
     if (this.quizQuestions[counter].max_choices!== undefined){
       maxChoices = this.quizQuestions[counter].max_choices;
     }
@@ -191,8 +191,8 @@ class App extends Component {
       //this.quizQuestions = QuizAPI;
       this.quizQuestions = this.props.jsonURL //require(""+this.props.jsonURL);
 
-    //this.quizQuestions = QuizAPI;
-    var maxChoices = 100;
+    //set default max number of choices
+    var maxChoices = 1;
     if (this.quizQuestions[0].max_choices !== undefined){
       maxChoices = this.quizQuestions[0].max_choices;
     }

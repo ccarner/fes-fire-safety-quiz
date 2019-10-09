@@ -25,11 +25,11 @@
       },
         {
         "question": "Should you use the extinguisher when the arrow is not inside the green section of the dial?",
-        "answerindex" : [1,2],
+        "answerindex" : [1],
         "media": "text",
         "media_src": "",
         "answers": [
-          "yes", "no"
+          "yes"
         ]
       
 
