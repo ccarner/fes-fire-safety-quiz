@@ -78,7 +78,7 @@ function ButtonBases(name, link, url, callback, classes, popuptext, handleClickO
                 <DialogTitle id={name}>{"test"}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        {text}
+                        {text} {name}
                     </DialogContentText>
 
                 </DialogContent>
