@@ -172,6 +172,7 @@ class App extends Component {
         onAnswerSelected = {this.handleAnswerSelected}
         media = {this.state.media}
         media_src = {this.state.media_src}
+        maxChoices = {this.state.maxChoices}
       />
     );
   }
