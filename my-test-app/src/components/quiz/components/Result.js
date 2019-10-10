@@ -1,4 +1,5 @@
 import React from 'react';
+import Button from "@material-ui/core/Button";
 /**
  * renders elements on the result page consisting of all questions in the quiz,
  *  the user's answers vs the correct answers and the user's overall score .
@@ -7,6 +8,7 @@ class Result extends React.Component {
   constructor(props){
     super(props);
   }
+  
   renderQuestions(ticks){
     
      
@@ -36,7 +38,7 @@ class Result extends React.Component {
       }
       )
   }
-
+  
   
 
   render (){
@@ -67,13 +69,25 @@ class Result extends React.Component {
       }
 
     }
+
+    function backToQuizzes(){
+      window.location.href = "/quizzes";
+    }
     
+      const score_style = { fontSize: "20px"};
+
     return (
     <div  className="quiz-story">
       <div>
         <b>Results</b>
         <div>{this.renderQuestions(ticks)}</div>
-      <div>Your overall score: {ticks.reduce((a, b) => a + b, 0)}/{total}</div>
+      <br/>
+      <div>Your Score : &nbsp;<span style = {score_style}> {ticks.reduce((a, b) => a + b, 0)}/{total}</span></div>
+      <br/>
+      <br/>
+      <div><Button
+      variant = 'outlined'
+      onClick = {backToQuizzes}>More quizzes</Button></div>
 
 
      
