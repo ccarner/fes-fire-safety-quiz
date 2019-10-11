@@ -1,8 +1,17 @@
 import React, { Component } from "react";
 import ReactDOM from "react-dom";
+//import fs from 'fs'
+// import testtext from './test.txt'
+//import htmlfile from './intro_to_fire_safety.html'
+// var fs = require('fs')
 
+// const testtext = fs.readFile('./test.txt')
 
 class Module extends Component {
+  // htmlfile = require(
+  //   './intro_to_fire_safety.html'
+  // )
+  //htmlfile = fs.readFile('./intro_to_fire_safety.html')
 
   
   state = {};
@@ -24,8 +33,10 @@ class Module extends Component {
       </html>`;
       //function createMarkup() { return {__html: '<b> ＦＩＲＥ　is dangerous!!!'}; };
       function createMarkup() { return {__html: sample_html}; };
+      //console.log(testtext)
     return (
       <React.Fragment>
+        asdf
       
     < div dangerouslySetInnerHTML={createMarkup()} />
 
