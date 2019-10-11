@@ -15,8 +15,9 @@ class Checklisting extends Component {
   // setting up the initial states, noting the summary mode is off initially
   constructor(props) {
     super(props);
+    //alert(props.questions)
     this.state = {
-      checklistBank: [],
+      checklistBank: this.props.questions,
       summaryOn: false,
       isSafe: false,
       safety: 1
@@ -47,7 +48,7 @@ class Checklisting extends Component {
 
   // Add all checklist materials to checklistBank
   componentDidMount() {
-    this.getQuestions();
+    //this.getQuestions();
   }
 
 
@@ -77,6 +78,15 @@ class Checklisting extends Component {
   // If the user clicks on the summary butoon, feedback summary will be displayed, and the user can tell 
   // whether the building is safe from the result.
   render() {
+    alert(JSON.stringify(this.props.questions))
+    if (this.props.questions !== undefined && this.state.rendered === false ) {
+      //this.quizQuestions = QuizAPI;
+      //this.checklistBank = this.props.questions //require(""+this.props.jsonURL);
+      alert(JSON.stringify(this.props.questions))
+      this.setState({
+        checklistBank: this.props.questions
+      });
+    }
     if (this.state.summaryOn === false) {
       return (
         <Fragment>
