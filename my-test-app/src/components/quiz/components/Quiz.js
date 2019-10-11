@@ -39,6 +39,7 @@ function Quiz(props) {
             <div><video src={props.media_src} type="video/mp4" controls className ="quizVideo"/></div>)}
         </div>
         <Question  content={props.question} />
+        {props.maxChoices>1?<div><br/><b>Select at most {props.maxChoices} options</b></div>:<div></div>}
         <div>
         <div className="answerOptions">
           {props.answerOptions.map(renderAnswerOptions)}
