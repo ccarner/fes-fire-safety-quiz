@@ -65,7 +65,7 @@ function ButtonBases(name, link, url, callback, classes, popuptext, handleClickO
               color="inherit"
               className={classes.imageTitle}np
             >
-              {name}
+              {stripped}
               <span className={classes.imageMarked} />
             </Typography>
           </span>
