@@ -55,8 +55,8 @@ function QuizPage(props){
     if(quiz!==null){var getfrom = apiurl+quiz;
     axios.get((getfrom)).then(response => {
       setData(response.data)
-      console.log("successful")
-      console.log(JSON.stringify(quizdata))
+      // console.log("successful")
+      // console.log(JSON.stringify(quizdata))
       //alert(getfrom)
 
       console.log('http://fes-fire-safety-quiz-api-dev.ap-southeast-2.elasticbeanstalk.com/content/checklists/'+quiz)
@@ -70,7 +70,7 @@ function QuizPage(props){
   // if (loading) return <p>Loading...</p>
   // else if (error) return <p>Error!</p>
   // console.log(data);
-  const menu = menuOptions.map(option=>ButtonBases(option.filename, option.filename,"", setQuiz, classes, "", handleClickOpen, handleClose, selected))
+  const menu = menuOptions.filter(option => option.filename.split('.')[0]!=="index").map(option=>ButtonBases(option.filename, option.filename,"", setQuiz, classes, "", handleClickOpen, handleClose, selected))
   //listQuizzes().then(out => {console.log(out)});
   //const menu = quizList.map(option=>ButtonBases(option.quizname, option.quizfile, "", setQuiz))
   //alert(quiz);

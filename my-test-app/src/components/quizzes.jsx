@@ -68,7 +68,7 @@ function QuizPage(props){
   // if (loading) return <p>Loading...</p>
   // else if (error) return <p>Error!</p>
   // console.log(data);
-  const menu = menuOptions.map(option=>ButtonBases(option.filename, option.filename,"", setQuiz, classes, "", handleClickOpen, handleClose, selected))
+  const menu = menuOptions.filter(option => option.filename.split('.')[0]!=="index").map(option=>ButtonBases(option.filename, option.filename,"", setQuiz, classes, "", handleClickOpen, handleClose, selected))
   //listQuizzes().then(out => {console.log(out)});
   //const menu = quizList.map(option=>ButtonBases(option.quizname, option.quizfile, "", setQuiz))
   //alert(quiz);

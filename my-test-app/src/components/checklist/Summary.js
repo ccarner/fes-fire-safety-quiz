@@ -1,12 +1,17 @@
 // commented.
 
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
+
+import Button from '@material-ui/core/Button'
 import PopUps from "./contact_FES_Popup";
 import PropTypes from 'prop-types';
+//import useStyles from '../menustyle'
 
-
+//const classes = useStyles();
 // This class displaye the checklist outcome depending on whether the building meets the safety standards
 class Summary extends Component {
+  
 
 
 
@@ -52,7 +57,13 @@ class Summary extends Component {
           <div>
             <h1 style={{ color: 'green' }}>Congradulations!</h1>
             <div>{this.renderSafe()}</div>
-            < PopUps ></PopUps>
+            <Button component = {Link} to="./information" variant= 'contained' color="primary" text-transform = "none"
+                    classes = {{
+                        //label: classes.label,
+                      }}>
+                        Contact FES
+          </Button>
+            {/* < PopUps ></PopUps> */}
           </div>
         </div >
       )
@@ -63,7 +74,13 @@ class Summary extends Component {
           <div>
             <h1>Summary</h1>
             <div>{this.renderSummary()}</div>
-            < PopUps ></PopUps>
+            <Button component = {Link} to="./information" variant= 'contained' color="primary" textTransform= 'none'
+                    classes = {{
+                        //label: classes.label,
+                      }}>
+                        Contact FES
+          </Button>
+            {/* < PopUps ></PopUps> */}
           </div>
         </div >
       );

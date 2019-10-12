@@ -7,6 +7,11 @@ import CheckListAPI from "./checklist_questions";
 import Summary from "./Summary";
 import OneChecklist from './eachChecklist';
 import PropTypes from 'prop-types';
+// import useStyles from '../menustyle'
+import Button from '@material-ui/core/Button';
+
+
+// const classes = useStyles();
 
 
 // Main class starts here
@@ -78,11 +83,11 @@ class Checklisting extends Component {
   // If the user clicks on the summary butoon, feedback summary will be displayed, and the user can tell 
   // whether the building is safe from the result.
   render() {
-    alert(JSON.stringify(this.props.questions))
+    //alert(JSON.stringify(this.props.questions))
     if (this.props.questions !== undefined && this.state.rendered === false ) {
       //this.quizQuestions = QuizAPI;
       //this.checklistBank = this.props.questions //require(""+this.props.jsonURL);
-      alert(JSON.stringify(this.props.questions))
+      //alert(JSON.stringify(this.props.questions))
       this.setState({
         checklistBank: this.props.questions
       });
@@ -104,7 +109,14 @@ class Checklisting extends Component {
           </div>
 
           <div>
-            <button type="button" className="summary-btn" onClick={() => this.renderSummary()}>See Feedback</button>
+          <Button onClick={() => this.renderSummary()} variant= 'contained' color="primary" text_transform = "none"
+                    classes = {{
+                        //label: classes.label,
+                        textTransform: 'none'
+                      }}>
+                        See Feedback
+          </Button>
+            {/* <button type="button" className="summary-btn" onClick={() => this.renderSummary()}>See Feedback</button> */}
           </div>
         </Fragment>
       );
