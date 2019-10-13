@@ -14,17 +14,17 @@ function ChecklistMain(props) {
     const [selected, setselected] = useState(null);
 
 
-    function handleClickOpen(name){
+    function handleClickOpen(name) {
         setselected(name)
-      }
-      function handleClose(){
+    }
+    function handleClose() {
         setselected(null);
-      }
+    }
 
     function myFunction() {
         //alert("you just clicked start");
         //window.location.href= '/intro_to_fire_safety.html' ;
-        window.location.href= '/informationModule' ;
+        window.location.href = '/informationModule';
         //document.getElementById('body').innerHTML = 
         //              loadPage('intro_to_fire_safety.html');
     }
@@ -40,7 +40,7 @@ function ChecklistMain(props) {
 
 
     return (
-        ButtonBases(props.question, props.question,"", myFunction, classes, "", handleClickOpen, handleClose, selected)
+        ButtonBases(props.question, props.question, "", myFunction, classes, "", handleClickOpen, handleClose, selected)
 
 
         // <div key={props.questionId} className="quiz-story">

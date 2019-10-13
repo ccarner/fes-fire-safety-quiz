@@ -12,37 +12,24 @@ import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 
-function popup(popuptext, buttonfunc, classes){
-
-}
 
 function ButtonBases(name, link, url, callback, classes, popuptext, handleClickOpen, handleClose, selected) {
-    //const [open, setOpen] = React.useState(false);
+  //a placeholder text for when no description is included
     var text = "Click the start module button to begin"
+    // a stripped down version of the filename
     var stripped = (name.split(".")[0]).split("-")[1];
+    //if a description is included, replace the default
     if(popuptext!==""){
         text = popuptext;
     }
-
-    // function handleClickOpen() {
-    //     setOpen(true);
-    // }
-
-
-
-    // function handleClose() {
-    //     setOpen(false);
-    // }
   
   return (
     <div className={classes.root}>
         <ButtonBase
           focusRipple
           key={name}
-          //component = {Link} to={`${link}`}
+          //when clicked, open the dialog popup box
           onClick={function() {handleClickOpen(name)}}
-          //onClick={function() { callback(link);}}
-         // onClick={(link) => { callback(link) }}
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
           style={{
@@ -71,6 +58,7 @@ function ButtonBases(name, link, url, callback, classes, popuptext, handleClickO
           </span>
         </ButtonBase>
         <Dialog
+        //this checks if the menu option has been selected, and if it is then open the corresponding dialog box
                 open={selected==name}
                 onClose={handleClose}
                 aria-labelledby="alert-dialog-title"
@@ -90,8 +78,10 @@ function ButtonBases(name, link, url, callback, classes, popuptext, handleClickO
                       }}>
                         Close
           </Button>
-                    <Button onClick={function() {callback(link)}
-                     //() => {alert(link)}
+                    <Button 
+                    //when the button is clicked execute the callback function
+                    onClick={
+                      function() {callback(link)} 
                     } variant= 'contained' color="primary" text_transform = "none"
                     classes = {{
                         label: classes.label,

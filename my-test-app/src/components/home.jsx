@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect } from "react";
-import { Link, Redirect} from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Typography from "@material-ui/core/Typography";
@@ -16,14 +16,14 @@ import useStyles from './menustyle'
 
 
 
-function doLink(thing){
+function doLink(thing) {
   return window.location = thing;
- //return <Redirect to={`${thing}`} />
+  //return <Redirect to={`${thing}`} />
 }
 
 function HomePage(props) {
   const classes = useStyles();
-
+  //the static homepage menu options
   const [mainMenu, setMenu] = useState([
     {
       name: "Information Modules",
@@ -35,9 +35,21 @@ function HomePage(props) {
       link: "./buildingCheck",
       url: background4
     },
-    { name: "Quizzes", link: "./quizzes", url: background1 },
-    { name: "About FES", link: "./information", url: background2 },
-    { name: "HELP", link: "./helppage", url: "" },
+    {
+      name: "Quizzes",
+      link: "./quizzes",
+      url: background1
+    },
+    {
+      name: "About FES",
+      link: "./information",
+      url: background2
+    },
+    {
+      name: "HELP",
+      link: "./helppage",
+      url: ""
+    },
 
   ]);
   //const classes = useStyles();
@@ -53,11 +65,4 @@ function HomePage(props) {
   );
 }
 
-function renderMenuOption(name, link) {
-  return (
-    <div>
-      <Link to={`${link}`}>{name}</Link>
-    </div>
-  );
-}
 export default HomePage;

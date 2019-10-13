@@ -6,7 +6,6 @@ import InformationPage from "./components/information";
 import NavBar from "./components/navbar";
 import QuizPage from "./components/quizzes";
 import HomePage from "./components/home";
-import SafetyPage from "./components/safetyHome";
 import CheckListPage from "./components/buildingCheck";
 import InfoModulePage from "./components/infoModule";
 import Module from "./components/infoModules/module";
@@ -32,7 +31,6 @@ function App() {
           <Route path="/" exact component={HomePage} />
           <Route path="/information" exact component={InformationPage} />
           <Route path="/quizzes" exact component={QuizPage} />
-          <Route path="/safetyHome" exact component={SafetyPage} />
           <Route path="/buildingCheck" exact component={CheckListPage} />
           <Route path="/infoModule" exact component={InfoModulePage} />
           <Route path="/informationModule" exact component={Module} />
