@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-
+//a styling sheet for menu components using react hooks, only call this in top level and only call it once, then pass it down
 const useStyles = makeStyles(theme => ({
     button: {
       margin: theme.spacing(1),

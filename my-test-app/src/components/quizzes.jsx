@@ -25,54 +25,34 @@ function QuizPage(props){
 
   const [quiz, setQuiz] = useState(null);
   const [quizdata, setData] = useState(null);
-  // const[{data, loading, error}, refetch] = useAxios(
-  //   'https://fes-fire-safety-quiz.herokuapp.com/api/quizzes'
-  // )
+
   const [menuOptions, setOptions] = useState([]);
-  //const menu = axios.get('https://fes-fire-safety-quiz.herokuapp.com/api/quizzes').then(response => response.map(option=>ButtonBases(option.quizname, option.quizfile, "", setQuiz)));
-  // const menu = listQuizzes.then(function(resp) {
-  //   if (typeof resp == 'undefined'){
-  //     console.log("quizapi not loading");
-
-  //   } else {
-  //     console.log("success");
-  //   }
-
-  // })
+//this useEffect only runs on first loading, and pulls the menu options from the api
   useEffect(() => {
     axios.get('http://fes-fire-safety-quiz-api-dev.ap-southeast-2.elasticbeanstalk.com/content/quizzes/index.json')
     .then(response => {
       setOptions(response.data)
       console.log(menuOptions)
       //alert(JSON.stringify(menuOptions))
-    })
+    }).catch((err) =>{console.log(err)})
 
   },[]);
-
+//this option runs after a quiz has been selected and start module has been pressed, and pulls the quiz questions from the api
   useLayoutEffect(() => {
     if(quiz){var getfrom = apiurl+quiz;
     axios.get((getfrom)).then(response => {
       setData(response.data)
       console.log("successful")
-      console.log(quizdata)
-      //alert(getfrom)
+      //console.log(quizdata)
+      //console.log('http://fes-fire-safety-quiz-api-dev.ap-southeast-2.elasticbeanstalk.com/content/quizzes/'+quiz)
+    }).catch((err) =>{console.log(err)})}
 
-      console.log('http://fes-fire-safety-quiz-api-dev.ap-southeast-2.elasticbeanstalk.com/content/quizzes/'+quiz)
-    })}
-    //.then(
-    // (response) => {console.log(response.data);alert("success");setOptions(response.data)})
-    // .catch((err) =>{console.log(err)});  
      
 
   }, [quiz]);
-  // if (loading) return <p>Loading...</p>
-  // else if (error) return <p>Error!</p>
-  // console.log(data);
+//renders a menu based on options from the api, and filters out the index.json file
   const menu = menuOptions.filter(option => option.filename.split('.')[0]!=="index").map(option=>ButtonBases(option.filename, option.filename,"", setQuiz, classes, "", handleClickOpen, handleClose, selected))
-  //listQuizzes().then(out => {console.log(out)});
-  //const menu = quizList.map(option=>ButtonBases(option.quizname, option.quizfile, "", setQuiz))
-  //alert(quiz);
-  // alert(quizdata)
+//if a quiz has not yet been selected render the menu, otherwise render the quiz
   if(quizdata === null){
     return (
       <React.Fragment>
@@ -83,32 +63,15 @@ function QuizPage(props){
       </React.Fragment>
     );
    } else {
-    //  alert(quizdata)
-     //console.log(JSON.stringify(quiz))
-     //setQuiz("test");
-     //alert('beep')
+
       return (
-      //alert(quiz),
       <React.Fragment>
         <h1>asdf</h1>
         <QuizBee jsonURL = {quizdata}/>
       </React.Fragment>
-      //try using useEffect
     );
    }
   
-}
-
-function quickmenu(quizname, quizfile, setQuiz){
-  return (
-    <div>
-    <Button
-    variant = "contained"
-     onClick = {() => setQuiz(quizfile)}
-    > 
-    {quizname}</Button>
-    </div>
-  )
 }
 
 export default QuizPage;

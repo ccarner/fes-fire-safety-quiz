@@ -23,7 +23,7 @@ function doLink(thing){
 
 function HomePage(props) {
   const classes = useStyles();
-
+  //the static homepage menu options
   const [mainMenu, setMenu] = useState([
     {
       name: "Information Modules",
@@ -35,9 +35,18 @@ function HomePage(props) {
       link: "./buildingCheck",
       url: background4
     },
-    { name: "Quizzes", link: "./quizzes", url: background1 },
-    { name: "About FES", link: "./information", url: background2 },
-    { name: "HELP", link: "./helppage", url: "" },
+    { 
+      name: "Quizzes", 
+      link: "./quizzes", 
+      url: background1 },
+    { 
+      name: "About FES", 
+      link: "./information", 
+      url: background2 },
+    {
+       name: "HELP", 
+       link: "./helppage", 
+       url: "" },
 
   ]);
   //const classes = useStyles();
@@ -53,11 +62,4 @@ function HomePage(props) {
   );
 }
 
-function renderMenuOption(name, link) {
-  return (
-    <div>
-      <Link to={`${link}`}>{name}</Link>
-    </div>
-  );
-}
 export default HomePage;

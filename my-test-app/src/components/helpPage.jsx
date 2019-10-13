@@ -12,6 +12,7 @@ class InformationPage extends Component {
     <div><b>INSERT DIAGRAM EXPLAINING USE HERE</b></div>
     {/* <Button variant="contained"
     onClick = {() => window.location.assign('https://www.fes.com.au/www/')}>TO FES</Button> */}
+    {/* each of these headers should have id's that correspond to different pages, in order to use anchors to scroll down */}
     <h1 id="S1">HOMEPAGE</h1>
     <img src= {homepage} alt="Fire" class="quizImage"/>
     <h1 id="buildingCheck">CHECKLIST</h1>

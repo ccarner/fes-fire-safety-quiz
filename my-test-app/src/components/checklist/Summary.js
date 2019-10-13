@@ -11,9 +11,6 @@ import PropTypes from 'prop-types';
 //const classes = useStyles();
 // This class displaye the checklist outcome depending on whether the building meets the safety standards
 class Summary extends Component {
-  
-
-
 
   // If the building fails to meet the safety standars, alert the user
   renderSummary() {
@@ -22,7 +19,7 @@ class Summary extends Component {
         <h2 style={{ color: 'red' }}>Your building might not be completely fire safe!!!</h2>
         <h5>
           Fortunately, Fire Equipment Services (FES) are capable of getting your
-          building and personell fire safe.
+          building and personnel fire safe.
         </h5>
         <h5> </h5>
         <img style={{ width: 150, height: 100 }} src="https://bit.ly/2lEO3o5" alt='FES_LOGO' />
@@ -55,8 +52,9 @@ class Summary extends Component {
       return (
         <div>
           <div>
-            <h1 style={{ color: 'green' }}>Congradulations!</h1>
+            <h1 style={{ color: 'green' }}>Congratulations!</h1>
             <div>{this.renderSafe()}</div>
+            {/* this button links to the About FES page */}
             <Button component = {Link} to="./information" variant= 'contained' color="primary" text-transform = "none"
                     classes = {{
                         //label: classes.label,
@@ -74,6 +72,7 @@ class Summary extends Component {
           <div>
             <h1>Summary</h1>
             <div>{this.renderSummary()}</div>
+            {/* this button links to the About FES page */}
             <Button component = {Link} to="./information" variant= 'contained' color="primary" textTransform= 'none'
                     classes = {{
                         //label: classes.label,
