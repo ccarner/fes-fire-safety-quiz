@@ -21,8 +21,16 @@ const useStyles = makeStyles(theme => ({
 const theme = createMuiTheme({
   palette: {
     //primary: { main: purple[500] }, // Purple and green play nicely together.
-    secondary: { main: '#fcfc4c' }, // This is just green.A700 as hex.
+    secondary: {main: green['A700']}
+    // secondary: { main: '#fcfc4c' }, // This is just green.A700 as hex.
   },
+  overrides: {
+    Button: {
+      secondary: {
+        color: green['A700'],
+      },
+    },
+  }
 });
 
 /**
@@ -56,7 +64,7 @@ function AnswerOption(props) {
         type="button"
         style = {style}
         component="span" 
-        disableRipple
+        //disableRipple
         classes = {{
           label: classes.label,
         }}
