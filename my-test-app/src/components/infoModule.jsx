@@ -29,7 +29,7 @@ function QuizPage(props){
   const [menuOptions, setOptions] = useState([]);
 //this useEffect only runs on first loading, and pulls the menu options from the api
   useEffect(() => {
-    axios.get('http://fes-fire-safety-quiz-api-dev.ap-southeast-2.elasticbeanstalk.com/content/modules/index.json')
+    axios.get(apiurl + 'index.json')
     .then(response => {
       setOptions(response.data)
       console.log(menuOptions)
