@@ -13,10 +13,9 @@ class Module extends Component {
   // )
   //htmlfile = fs.readFile('./intro_to_fire_safety.html')
 
-  
   state = {};
   render() {
-      var sample_html = `<!DOCTYPE html>
+    var sample_html = `<!DOCTYPE html>
       <html>
       <body>
       
@@ -31,19 +30,18 @@ class Module extends Component {
       
       </body>
       </html>`;
-      //function createMarkup() { return {__html: '<b> ＦＩＲＥ　is dangerous!!!'}; };
-      function createMarkup() { return {__html: sample_html}; };
-      //console.log(testtext)
+    //function createMarkup() { return {__html: '<b> ＦＩＲＥ　is dangerous!!!'}; };
+    function createMarkup() {
+      return { __html: sample_html };
+    }
+    //console.log(testtext)
     return (
       <React.Fragment>
         asdf
-      
-    < div dangerouslySetInnerHTML={createMarkup()} />
-
+        <div dangerouslySetInnerHTML={createMarkup()} />
       </React.Fragment>
     );
   }
 }
-
 
 export default Module;
