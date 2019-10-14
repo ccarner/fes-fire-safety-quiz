@@ -51,7 +51,7 @@ function QuizPage(props){
 
   }, [quiz]);
 //renders a menu based on options from the api, and filters out the index.json file
-  const menu = menuOptions.filter(option => option.filename.split('.')[0]!=="index").map(option=>ButtonBases(option.filename, option.filename,"", setQuiz, classes, "", handleClickOpen, handleClose, selected))
+  const menu = menuOptions.filter(option => option.filename.split('.')[0]!=="index").map(option=>ButtonBases(option.title, option.filename,"", setQuiz, classes, option.description, handleClickOpen, handleClose, selected))
 //if a quiz has not yet been selected render the menu, otherwise render the quiz
   if(quizdata === null){
     return (
@@ -67,7 +67,7 @@ function QuizPage(props){
       return (
       <React.Fragment>
         <h1>asdf</h1>
-        <QuizBee jsonURL = {quizdata}/>
+        <QuizBee jsonURL = {quizdata.quiz_questions}/>
       </React.Fragment>
     );
    }

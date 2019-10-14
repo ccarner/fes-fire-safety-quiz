@@ -14,7 +14,7 @@ const useStyles = makeStyles(theme => ({
     display: 'none',
   },
   label: {
-    textTransform: 'capitalize',
+    textTransform: 'none',
   },
 }));
 
