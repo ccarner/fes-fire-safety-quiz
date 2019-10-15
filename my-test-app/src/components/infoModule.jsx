@@ -3,7 +3,7 @@ import Modulepage from "./infoModules/module";
 //import test from './quiz/api/newquestions.json';
 import { makeStyles } from "@material-ui/core/styles";
 
-import quizList from "./quiz/api/quizList";
+
 import axios from 'axios';
 //import useAxios from 'axios-hooks';
 import ButtonBases from "./newMenu";
