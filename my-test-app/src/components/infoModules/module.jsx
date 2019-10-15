@@ -8,59 +8,30 @@ import ReactDOM from "react-dom";
 // const testtext = fs.readFile('./test.txt')
 
 class Module extends Component {
-
-  constructor(props){
-    super(props)
-    this.state={
+  constructor(props) {
+    super(props);
+    this.state = {
       htmlstring: this.props.htmlstring
-    }
-    this.createMarkup = this.createMarkup.bind(this)
+    };
+    this.createMarkup = this.createMarkup.bind(this);
     // this.props.htmlstring=this.props.htmlstring.bind(this)
     //this.handleDelete = this.handleDelete.bind(this)
-
   }
-  createMarkup(htmlstring){
-    return {__html: htmlstring};
+  createMarkup(htmlstring) {
+    return { __html: htmlstring };
   }
 
   state = {};
   render() {
-<<<<<<< HEAD
-    var sample_html = `<!DOCTYPE html>
-      <html>
-      <body>
-      
-      <h1>Intro</h1>
-      <p>Fire is dangerous.</p>
-      <p>Fire is dangerous.</p>
-      <p>Fire is dangerous.</p>
-
-      <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/fb11fc85-17fe-47b7-aeb2-c9e005709fe7/d4hc3gz-554fb94a-0db6-42e9-a266-7d31566db1da.jpg/v1/fill/w_400,h_737,q_75,strp/evil_fire_element_by_amorphisss_d4hc3gz-fullview.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7ImhlaWdodCI6Ijw9NzM3IiwicGF0aCI6IlwvZlwvZmIxMWZjODUtMTdmZS00N2I3LWFlYjItYzllMDA1NzA5ZmU3XC9kNGhjM2d6LTU1NGZiOTRhLTBkYjYtNDJlOS1hMjY2LTdkMzE1NjZkYjFkYS5qcGciLCJ3aWR0aCI6Ijw9NDAwIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmltYWdlLm9wZXJhdGlvbnMiXX0.Odj7XrhYqtLV-bdjC-fHDVKtR-Tl4DIF0Z6sfVQa2rQ" alt="Fire" class="quizImage">
-      <br/>
-      <video src="https://media.istockphoto.com/videos/seemless-and-loopable-flames-slow-motion-video-id493922248" type="video/mp4" controls class ="quizVideo">
-      
-      </body>
-      </html>`;
+    //alert(this.props.htmlstring)
     //function createMarkup() { return {__html: '<b> ＦＩＲＥ　is dangerous!!!'}; };
-    function createMarkup() {
-      return { __html: sample_html };
-    }
+    // function createMarkup() { return {__html: this.state.htmlstring}; };
     //console.log(testtext)
     return (
       <React.Fragment>
-        asdf
-        <div dangerouslySetInnerHTML={createMarkup()} />
-=======
-    //alert(this.props.htmlstring)
-      //function createMarkup() { return {__html: '<b> ＦＩＲＥ　is dangerous!!!'}; };
-      // function createMarkup() { return {__html: this.state.htmlstring}; };
-      //console.log(testtext)
-    return (
-      <React.Fragment>
-      
-    < div dangerouslySetInnerHTML={this.createMarkup(this.state.htmlstring)} />
-
->>>>>>> dde4707111419dd2d609201bfb7f1911c7cd6079
+        <div
+          dangerouslySetInnerHTML={this.createMarkup(this.state.htmlstring)}
+        />
       </React.Fragment>
     );
   }

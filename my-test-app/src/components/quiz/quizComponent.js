@@ -31,17 +31,7 @@ class App extends Component {
     this.setNextQuestion = this.setNextQuestion.bind(this);
     this.setPreviousQuestion = this.setPreviousQuestion.bind(this);
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
-<<<<<<< HEAD
-    this.viewreults = this.viewreults.bind(this);
-=======
     this.viewresults = this.viewresults.bind(this);
-
-
-    
-
-
-
->>>>>>> dde4707111419dd2d609201bfb7f1911c7cd6079
   }
   handleAnswerSelected(e, value) {
     var _self = this;
@@ -155,12 +145,8 @@ class App extends Component {
 
   renderQuiz() {
     return (
-<<<<<<< HEAD
       <Quiz
-        viewreults={this.viewreults}
-=======
-      <Quiz viewresults={this.viewresults}
->>>>>>> dde4707111419dd2d609201bfb7f1911c7cd6079
+        viewresults={this.viewresults}
         setNextQuestion={this.setNextQuestion}
         counter={this.state.counter}
         setPreviousQuestion={this.setPreviousQuestion}
@@ -186,24 +172,18 @@ class App extends Component {
       />
     );
   }
-<<<<<<< HEAD
-  viewreults(e) {
-    e.preventDefault();
-    this.setState({ result: true });
-=======
-  viewresults(e){
+  viewresults(e) {
     e.preventDefault();
     var i;
-    for (i=0;i<this.quizQuestions.length;i++){
-      if(this.state.selectedAnswers[i]===undefined){
-        alert("You have not answered all questions. Please go back and finish the quiz.")
+    for (i = 0; i < this.quizQuestions.length; i++) {
+      if (this.state.selectedAnswers[i] === undefined) {
+        alert(
+          "You have not answered all questions. Please go back and finish the quiz."
+        );
         return 0;
       }
-      this.setState({result : true})
+      this.setState({ result: true });
     }
-   
-    
->>>>>>> dde4707111419dd2d609201bfb7f1911c7cd6079
   }
   // decide to render result or quiz
   render() {

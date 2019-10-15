@@ -5,12 +5,7 @@ import QuizBee from "./quiz/quizComponent";
 //import test from './quiz/api/newquestions.json';
 import { makeStyles } from "@material-ui/core/styles";
 
-<<<<<<< HEAD
-import quizList from "./quiz/api/quizList";
 import axios from "axios";
-=======
-import axios from 'axios';
->>>>>>> dde4707111419dd2d609201bfb7f1911c7cd6079
 //import useAxios from 'axios-hooks';
 import ButtonBases from "./newMenu";
 import Button from "@material-ui/core/Button";
