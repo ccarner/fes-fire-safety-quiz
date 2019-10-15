@@ -33,7 +33,7 @@ class App extends Component {
     this.setNextQuestion = this.setNextQuestion.bind(this);
     this.setPreviousQuestion = this.setPreviousQuestion.bind(this);
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
-    this.viewreults = this.viewreults.bind(this);
+    this.viewresults = this.viewresults.bind(this);
 
 
     
@@ -159,7 +159,7 @@ class App extends Component {
   renderQuiz() {
     
     return (
-      <Quiz viewreults={this.viewreults}
+      <Quiz viewresults={this.viewresults}
         setNextQuestion={this.setNextQuestion}
         counter={this.state.counter}
         setPreviousQuestion={this.setPreviousQuestion}
@@ -182,9 +182,18 @@ class App extends Component {
       <Result quizQuestions={this.state.allQuestions} answers={this.state.selectedAnswers} />
     );
   }
-  viewreults(e){
+  viewresults(e){
     e.preventDefault();
-    this.setState({result : true})
+    var i;
+    for (i=0;i<this.quizQuestions.length;i++){
+      if(this.state.selectedAnswers[i]===undefined){
+        alert("You have not answered all questions. Please go back and finish the quiz.")
+        return 0;
+      }
+      this.setState({result : true})
+    }
+   
+    
   }
  // decide to render result or quiz
   render() {
