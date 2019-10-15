@@ -21,6 +21,9 @@ function QuizPage(props){
   function handleClose(){
     setselected(null);
   }
+  function capitalise(input){
+    return input[0].toUpperCase() + input.slice(1)
+  }
 
   const [quiz, setQuiz] = useState(null);
   const [quizdata, setData] = useState(null);
@@ -65,7 +68,7 @@ function QuizPage(props){
 
       return (
       <React.Fragment>
-        <h1>asdf</h1>
+        <h1>{capitalise(quizdata.title)}</h1>
         <QuizBee jsonURL = {quizdata.quiz_questions}/>
       </React.Fragment>
     );

@@ -9,6 +9,12 @@ import ButtonBases from './ButtonBases';
 import background1 from "./pictures/questionmarks.png";
 import background2 from "./pictures/FESlogo.jpg";
 import background3 from "./pictures/building.jpg";
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import HomeIcon from '@material-ui/icons/Home';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
 
 import background5 from "./pictures/textbooks.jpg";
 import background4 from "./pictures/Man-filling-up-checklist.jpg";
@@ -53,10 +59,37 @@ function HomePage(props) {
 
   ]);
   //const classes = useStyles();
+  function FormRow(option) {
+    return (
+      <React.Fragment>
+        <Grid item xs={4}>
+          <IconButton color='primary'><HelpOutlineIcon fontSize="large" enableBackground="true"/></IconButton>
+
+          {/* <Paper className={classes.paper}>item</Paper> */}
+        </Grid>
+        <Grid item xs={4}>
+          <Paper className={classes.paper}>item</Paper>
+        </Grid>
+      </React.Fragment>
+    );
+  }
 
   return (
     <React.Fragment>
       <h1>Home</h1>
+      <div className={classes.root}>
+      <Grid container spacing={1} alignItems="center">
+        <Grid container item xs={12} spacing={3}alignItems="center" justify="center">
+          <FormRow />
+        </Grid>
+        <Grid container item xs={12} spacing={3}>
+          <FormRow />
+        </Grid>
+        <Grid container item xs={12} spacing={3}>
+          <FormRow />
+        </Grid>
+      </Grid>
+    </div>
       {mainMenu.map(option =>
         ButtonBases(option.name, option.link, option.url, doLink, classes)
       )}

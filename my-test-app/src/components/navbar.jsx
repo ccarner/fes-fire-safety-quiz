@@ -42,7 +42,7 @@ const NavBar = props => {
       </Link> */}
       <IconButton
         //className={classes.button} 
-        aria-label="delete"
+        aria-label="help"
         component={HashLink} to={("/helppage#" + page)}
       >
 
