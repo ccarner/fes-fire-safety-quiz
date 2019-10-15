@@ -29,7 +29,7 @@ function Quiz(props) {
                               "color": "green"};
   return (
       <div key={props.questionId} className="quiz-story">
-        <QuestionCount counter={props.counter} viewreults={props.viewreults}
+        <QuestionCount counter={props.counter} viewresults={props.viewresults}
           counter={props.questionId}
           total={props.questionTotal}
         />
@@ -49,7 +49,7 @@ function Quiz(props) {
           {props.counter > 0 ? (<Button variant='outlined' className="Previous-btn" onClick={props.setPreviousQuestion} >Prev</Button>) : (<div></div>)}
 
           {props.counter < props.questionTotal-1 ? (<Button variant='outlined' className="next-btn" onClick={props.setNextQuestion} >Next</Button>) : (<div></div>)}
-          {props.counter == props.questionTotal-1 ? (<div><Button variant='outlined' style={result_link_style} className="result-link" onClick={props.viewreults} >View Results</Button></div>) : (<div></div>)}
+          {props.counter == props.questionTotal-1 ? (<div><Button variant='outlined' style={result_link_style} className="result-link" onClick={props.viewresults} >View Results</Button></div>) : (<div></div>)}
 
       </div>
       </div>
