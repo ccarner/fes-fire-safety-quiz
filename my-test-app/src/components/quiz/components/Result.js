@@ -60,7 +60,7 @@ class Result extends React.Component {
 
     for (var i = 0; i < total; i++) {
       // indices of actual solutions (they start at 1 rather than 0)
-      var solutions = this.props.quizQuestions[i].answer_index.slice(0);
+      var solutions = this.props.quiz_questions[i].answer_index.slice(0);
       for (var j = 0; j < solutions.length; j++) {
         solutions[j] -= 1;
       }

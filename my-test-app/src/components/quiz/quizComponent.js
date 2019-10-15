@@ -175,7 +175,7 @@ class App extends Component {
   viewresults(e) {
     e.preventDefault();
     var i;
-    for (i = 0; i < this.quizQuestions.length; i++) {
+    for (i = 0; i < this.quiz_questions.length; i++) {
       if (this.state.selectedAnswers[i] === undefined) {
         alert(
           "You have not answered all questions. Please go back and finish the quiz."
