@@ -49,7 +49,7 @@ function HomePage(props) {
       url: background4
     },
     {
-      name: "Quizzes",
+      name: "Test Your Knowledge",
       link: "./quizzes",
       url: background1
     },
@@ -70,7 +70,7 @@ function HomePage(props) {
     return (
       <React.Fragment>
         <Grid item xs={4}>
-          <IconButton size="large" color='primary'><DescriptionIcon fontSize="large" enableBackground="true"/></IconButton>
+          <IconButton classes = {classes.iconstyle} size="large" color='primary'><DescriptionIcon fontSize="large" enableBackground="true"/></IconButton>
 
           {/* <Paper className={classes.paper}>item</Paper> */}
         </Grid>
@@ -88,28 +88,28 @@ function HomePage(props) {
       <Grid container spacing={1} alignItems="center">
         <Grid container item xs={12} spacing={3}alignItems="center" justify="center">
           <Grid item xs={4}>
-            <IconButton size="large" color='primary'enableBackground><DescriptionIcon fontSize="large" enableBackground="true"/></IconButton>
-            <div></div><FormLabel>Infomodules</FormLabel>
-
-            {/* <Paper className={classes.paper}>item</Paper> */}
+            <IconButton size="medium" className = {classes.iconstyle} color='secondary'enableBackground><DescriptionIcon fontSize="large" enableBackground="true"/></IconButton>
+            <div></div><FormLabel>Information Modules</FormLabel>
           </Grid>
           <Grid item xs={4}>
-            <IconButton color='primary'><AssignmentIcon fontSize="large" enableBackground="true"/></IconButton>
+            <IconButton color='primary' className = {classes.iconstyle}><AssignmentIcon fontSize="large" enableBackground="true"/></IconButton>
+            <div></div><FormLabel>Building Safety Checklists</FormLabel>
           </Grid>
         </Grid>
-        <Grid container item xs={12} spacing={3} alignItems="center" justify="center">
+        <Grid container item xs={12} spacing={3} alignItems="center" justify="center" >
           <Grid item xs={4}>
-            <IconButton color='primary'><AssignmentTurnedInIcon fontSize="large" enableBackground="true"/></IconButton>
-
-           {/* <Paper className={classes.paper}>item</Paper> */}
+            <IconButton color='primary' className = {classes.iconstyle}><AssignmentTurnedInIcon fontSize="large" enableBackground="true"/></IconButton>
+            <div></div><FormLabel>Test Your Knowledge</FormLabel>
           </Grid>
           <Grid item xs={4}>
-           <IconButton color='primary'><InfoIcon fontSize="large" enableBackground="true"/></IconButton>
+           <IconButton color='primary' className = {classes.iconstyle}><InfoIcon fontSize="large" enableBackground="true"/></IconButton>
+           <div></div><FormLabel>About FES</FormLabel>
           </Grid>
         </Grid>
         <Grid container item xs={12} spacing={3} alignItems="center" justify="center">
         <Grid item xs={4}>
-           <IconButton color='primary'><HelpOutlineIcon fontSize="large" enableBackground="true"/></IconButton>
+           <IconButton color='primary' className = {classes.iconstyle}><HelpOutlineIcon fontSize="large" enableBackground="true"/></IconButton>
+           <div></div><FormLabel>How to Use</FormLabel>
           </Grid>
         </Grid>
       </Grid>

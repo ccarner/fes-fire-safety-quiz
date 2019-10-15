@@ -5,12 +5,22 @@ import { red } from "@material-ui/core/colors";
 const useStyles = makeStyles(theme => ({
     button: {
       margin: theme.spacing(1),
+      primary: "red"
     },
     input: {
       display: 'none',
     },
     label: {
       textTransform: 'none',
+    },
+    iconstyle: {
+      background: 'linear-gradient(to right bottom, #bfbfbf, #808080)',
+      //backgroundColor: "#bfbfbf",
+      color: '#ed1e1a'
+    },
+    navbarStyle: {
+      //background: 'linear-gradient(to right, #bfbfbf, #808080)',
+      color: '#ed1e1a'
     },
     root: {
         display: 'flex',
