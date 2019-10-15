@@ -4,6 +4,8 @@ import { makeStyles } from "@material-ui/core/styles";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Typography from "@material-ui/core/Typography";
 import ImageDatabase from "../db.js";
+import FormLabel from '@material-ui/core/FormLabel';
+
 import Button from "@material-ui/core/Button";
 import ButtonBases from './ButtonBases';
 import background1 from "./pictures/questionmarks.png";
@@ -15,10 +17,15 @@ import Icon from '@material-ui/core/Icon';
 import IconButton from '@material-ui/core/IconButton';
 import HomeIcon from '@material-ui/icons/Home';
 import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
-
+import AssignmentIcon from '@material-ui/icons/Assignment';
+import DescriptionIcon from '@material-ui/icons/Description';
+import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
+import InfoIcon from '@material-ui/icons/Info';
 import background5 from "./pictures/textbooks.jpg";
 import background4 from "./pictures/Man-filling-up-checklist.jpg";
 import useStyles from './menustyle'
+import { red } from "@material-ui/core/colors";
+
 
 
 
@@ -63,7 +70,7 @@ function HomePage(props) {
     return (
       <React.Fragment>
         <Grid item xs={4}>
-          <IconButton color='primary'><HelpOutlineIcon fontSize="large" enableBackground="true"/></IconButton>
+          <IconButton size="large" color='primary'><DescriptionIcon fontSize="large" enableBackground="true"/></IconButton>
 
           {/* <Paper className={classes.paper}>item</Paper> */}
         </Grid>
@@ -80,13 +87,30 @@ function HomePage(props) {
       <div className={classes.root}>
       <Grid container spacing={1} alignItems="center">
         <Grid container item xs={12} spacing={3}alignItems="center" justify="center">
-          <FormRow />
+          <Grid item xs={4}>
+            <IconButton size="large" color='primary'enableBackground><DescriptionIcon fontSize="large" enableBackground="true"/></IconButton>
+            <div></div><FormLabel>Infomodules</FormLabel>
+
+            {/* <Paper className={classes.paper}>item</Paper> */}
+          </Grid>
+          <Grid item xs={4}>
+            <IconButton color='primary'><AssignmentIcon fontSize="large" enableBackground="true"/></IconButton>
+          </Grid>
         </Grid>
-        <Grid container item xs={12} spacing={3}>
-          <FormRow />
+        <Grid container item xs={12} spacing={3} alignItems="center" justify="center">
+          <Grid item xs={4}>
+            <IconButton color='primary'><AssignmentTurnedInIcon fontSize="large" enableBackground="true"/></IconButton>
+
+           {/* <Paper className={classes.paper}>item</Paper> */}
+          </Grid>
+          <Grid item xs={4}>
+           <IconButton color='primary'><InfoIcon fontSize="large" enableBackground="true"/></IconButton>
+          </Grid>
         </Grid>
-        <Grid container item xs={12} spacing={3}>
-          <FormRow />
+        <Grid container item xs={12} spacing={3} alignItems="center" justify="center">
+        <Grid item xs={4}>
+           <IconButton color='primary'><HelpOutlineIcon fontSize="large" enableBackground="true"/></IconButton>
+          </Grid>
         </Grid>
       </Grid>
     </div>
