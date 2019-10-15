@@ -17,7 +17,7 @@ function ButtonBases(name, link, url, callback, classes, popuptext, handleClickO
   //a placeholder text for when no description is included
     var text = "Click the start module button to begin"
     // a stripped down version of the filename
-    var stripped = (name.split(".")[0]).split("-")[1];
+    //var stripped = (name.split(".")[0]).split("-")[1];
     //if a description is included, replace the default
     if(popuptext!==""){
         text = popuptext;
@@ -29,7 +29,7 @@ function ButtonBases(name, link, url, callback, classes, popuptext, handleClickO
           focusRipple
           key={name}
           //when clicked, open the dialog popup box
-          onClick={function() {handleClickOpen(name)}}
+          onClick={function() {handleClickOpen(link)}}
           className={classes.image}
           focusVisibleClassName={classes.focusVisible}
           style={{
@@ -59,7 +59,7 @@ function ButtonBases(name, link, url, callback, classes, popuptext, handleClickO
         </ButtonBase>
         <Dialog
         //this checks if the menu option has been selected, and if it is then open the corresponding dialog box
-                open={selected==name}
+                open={selected==link}
                 onClose={handleClose}
                 aria-labelledby="alert-dialog-title"
                 aria-describedby="alert-dialog-description"
@@ -67,7 +67,7 @@ function ButtonBases(name, link, url, callback, classes, popuptext, handleClickO
                 <DialogTitle id={name}>{"test"}</DialogTitle>
                 <DialogContent>
                     <DialogContentText id="alert-dialog-description">
-                        {text} {stripped}
+                        {text} {name}
                     </DialogContentText>
 
                 </DialogContent>

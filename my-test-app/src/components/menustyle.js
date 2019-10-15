@@ -1,15 +1,26 @@
 import { makeStyles } from "@material-ui/core/styles";
+import { red } from "@material-ui/core/colors";
 
 //a styling sheet for menu components using react hooks, only call this in top level and only call it once, then pass it down
 const useStyles = makeStyles(theme => ({
     button: {
       margin: theme.spacing(1),
+      primary: "red"
     },
     input: {
       display: 'none',
     },
     label: {
-      textTransform: 'capitalize',
+      textTransform: 'none',
+    },
+    iconstyle: {
+      background: 'linear-gradient(to right bottom, #bfbfbf, #808080)',
+      //backgroundColor: "#bfbfbf",
+      color: '#ed1e1a'
+    },
+    navbarStyle: {
+      //background: 'linear-gradient(to right, #bfbfbf, #808080)',
+      color: '#ed1e1a'
     },
     root: {
         display: 'flex',
@@ -18,6 +29,7 @@ const useStyles = makeStyles(theme => ({
         width: '100%',
       },
       image: {
+        borderTop: '4px solid red',
         position: 'relative',
         minHeight: 100,
         [theme.breakpoints.down('xs')]: {
@@ -25,6 +37,7 @@ const useStyles = makeStyles(theme => ({
           //height: '30vh',
           //height: '25%',
         },
+        background: 'linear-gradient(to right bottom, #ed1e1a, #808080)',
     // root: {
     //   display: 'flex',
     //   flexWrap: 'wrap',
@@ -42,12 +55,14 @@ const useStyles = makeStyles(theme => ({
         zIndex: 1,
         '& $imageBackdrop': {
           opacity: 0.15,
+          //border: '4px solid red'
         },
         '& $imageMarked': {
           opacity: 0,
         },
         '& $imageTitle': {
           border: '4px solid currentColor',
+          backgroundColor: 'red'
         },
       },
     },
@@ -71,8 +86,10 @@ const useStyles = makeStyles(theme => ({
       bottom: 0,
       backgroundSize: 'cover',
       backgroundPosition: 'center 40%',
+      backgroundColor: red
     },
     imageBackdrop: {
+      //color: 'black',
       position: 'absolute',
       left: 0,
       right: 0,

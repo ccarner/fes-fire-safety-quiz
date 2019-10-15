@@ -13,9 +13,15 @@ class Result extends React.Component {
     return this.props.quiz_questions.map((_data, index) => {
       var solutionmessage = [];
       var correct = false;
+<<<<<<< HEAD
       for (var i = 0; i < _data.answer_index.length; i++) {
         solutionmessage.push(_data.answers[_data.answer_index[i] - 1]);
         solutionmessage.push("; ");
+=======
+      for(var i=0; i<_data.answer_index.length; i++){
+        solutionmessage.push(_data.answers[_data.answer_index[i]-1]);
+        solutionmessage.push("; ")
+>>>>>>> dde4707111419dd2d609201bfb7f1911c7cd6079
       }
       var answermessage = [];
       if (this.props.answers[index] !== undefined) {
@@ -60,9 +66,15 @@ class Result extends React.Component {
 
     for (var i = 0; i < total; i++) {
       // indices of actual solutions (they start at 1 rather than 0)
+<<<<<<< HEAD
       var solutions = this.props.quiz_questions[i].answer_index.slice(0);
       for (var j = 0; j < solutions.length; j++) {
         solutions[j] -= 1;
+=======
+      var solutions = (this.props.quizQuestions[i].answer_index).slice(0);
+      for (var j = 0; j<solutions.length; j++){
+        solutions[j]-=1;
+>>>>>>> dde4707111419dd2d609201bfb7f1911c7cd6079
       }
       var solution_set = new Set(solutions);
       // compares the user's answers against the solutions

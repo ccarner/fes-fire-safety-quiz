@@ -3,8 +3,12 @@ import QuizBee from "./quiz/quizComponent";
 //import test from './quiz/api/newquestions.json';
 import { makeStyles } from "@material-ui/core/styles";
 
+<<<<<<< HEAD
 import quizList from "./quiz/api/quizList";
 import axios from "axios";
+=======
+import axios from 'axios';
+>>>>>>> dde4707111419dd2d609201bfb7f1911c7cd6079
 //import useAxios from 'axios-hooks';
 import ButtonBases from "./newMenu";
 import Button from "@material-ui/core/Button";
@@ -21,6 +25,9 @@ function QuizPage(props) {
   }
   function handleClose() {
     setselected(null);
+  }
+  function capitalise(input){
+    return input[0].toUpperCase() + input.slice(1)
   }
 
   const [quiz, setQuiz] = useState(null);
@@ -59,6 +66,7 @@ function QuizPage(props) {
         });
     }
   }, [quiz]);
+<<<<<<< HEAD
   //renders a menu based on options from the api, and filters out the index.json file
   const menu = menuOptions
     .filter(option => option.filename.split(".")[0] !== "index")
@@ -77,6 +85,12 @@ function QuizPage(props) {
     );
   //if a quiz has not yet been selected render the menu, otherwise render the quiz
   if (quizdata === null) {
+=======
+//renders a menu based on options from the api, and filters out the index.json file
+  const menu = menuOptions.filter(option => option.filename.split('.')[0]!=="index").map(option=>ButtonBases(option.title, option.filename,"", setQuiz, classes, option.description, handleClickOpen, handleClose, selected))
+//if a quiz has not yet been selected render the menu, otherwise render the quiz
+  if(quizdata === null){
+>>>>>>> dde4707111419dd2d609201bfb7f1911c7cd6079
     return (
       <React.Fragment>
         <h1>Quiz page</h1>
@@ -86,8 +100,13 @@ function QuizPage(props) {
   } else {
     return (
       <React.Fragment>
+<<<<<<< HEAD
         <h1>asdf</h1>
         <QuizBee jsonURL={quizdata.quiz_questions} />
+=======
+        <h1>{capitalise(quizdata.title)}</h1>
+        <QuizBee jsonURL = {quizdata.quiz_questions}/>
+>>>>>>> dde4707111419dd2d609201bfb7f1911c7cd6079
       </React.Fragment>
     );
   }

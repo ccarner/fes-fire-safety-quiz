@@ -8,13 +8,24 @@ import ReactDOM from "react-dom";
 // const testtext = fs.readFile('./test.txt')
 
 class Module extends Component {
-  // htmlfile = require(
-  //   './intro_to_fire_safety.html'
-  // )
-  //htmlfile = fs.readFile('./intro_to_fire_safety.html')
+
+  constructor(props){
+    super(props)
+    this.state={
+      htmlstring: this.props.htmlstring
+    }
+    this.createMarkup = this.createMarkup.bind(this)
+    // this.props.htmlstring=this.props.htmlstring.bind(this)
+    //this.handleDelete = this.handleDelete.bind(this)
+
+  }
+  createMarkup(htmlstring){
+    return {__html: htmlstring};
+  }
 
   state = {};
   render() {
+<<<<<<< HEAD
     var sample_html = `<!DOCTYPE html>
       <html>
       <body>
@@ -39,6 +50,17 @@ class Module extends Component {
       <React.Fragment>
         asdf
         <div dangerouslySetInnerHTML={createMarkup()} />
+=======
+    //alert(this.props.htmlstring)
+      //function createMarkup() { return {__html: '<b> ＦＩＲＥ　is dangerous!!!'}; };
+      // function createMarkup() { return {__html: this.state.htmlstring}; };
+      //console.log(testtext)
+    return (
+      <React.Fragment>
+      
+    < div dangerouslySetInnerHTML={this.createMarkup(this.state.htmlstring)} />
+
+>>>>>>> dde4707111419dd2d609201bfb7f1911c7cd6079
       </React.Fragment>
     );
   }

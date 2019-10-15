@@ -4,6 +4,7 @@ import { Link, Redirect } from "react-router-dom";
 import { makeStyles } from '@material-ui/core/styles';
 import ButtonBase from '@material-ui/core/ButtonBase';
 import Typography from '@material-ui/core/Typography';
+import { red } from '@material-ui/core/colors';
 
 //the function that returns a screen width image containing menu option
 function ButtonBases(name, link, url, callback, classes) {
@@ -20,6 +21,7 @@ function ButtonBases(name, link, url, callback, classes) {
           focusVisibleClassName={classes.focusVisible}
           style={{
             width: '100%',
+            //color: red,
           }}
           
           
