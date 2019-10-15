@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
           //height: '30vh',
           //height: '25%',
         },
-        background: 'linear-gradient(to right bottom, #430089, #82ffa1)',
+        background: 'linear-gradient(to right bottom, #ed1e1a, #808080)',
     // root: {
     //   display: 'flex',
     //   flexWrap: 'wrap',
