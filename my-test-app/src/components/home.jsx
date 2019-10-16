@@ -84,39 +84,39 @@ function HomePage(props) {
   return (
     <React.Fragment>
       <h1>Home</h1>
-      <div className={classes.root}>
-      <Grid container spacing={1} alignItems="center">
+      <div className={classes.root} height="100%">
+      <Grid container spacing={0} alignItems="center" height="100%">
         <Grid container item xs={12} spacing={3}alignItems="center" justify="center">
-          <Grid item xs={4}>
-            <IconButton size="medium" className = {classes.iconstyle} color='secondary'enableBackground><DescriptionIcon fontSize="large" enableBackground="true"/></IconButton>
+          <Grid item xs={4}height = "100">
+            <IconButton size="medium" className = {classes.iconstyle} onClick = {() => doLink("./infomodule")} color='secondary'enableBackground><DescriptionIcon fontSize="large" enableBackground="true"/></IconButton>
             <div></div><FormLabel>Information Modules</FormLabel>
           </Grid>
           <Grid item xs={4}>
-            <IconButton color='primary' className = {classes.iconstyle}><AssignmentIcon fontSize="large" enableBackground="true"/></IconButton>
+            <IconButton color='primary' className = {classes.iconstyle} onClick = {() => doLink("./buildingCheck")} ><AssignmentIcon fontSize="large" enableBackground="true"/></IconButton>
             <div></div><FormLabel>Building Safety Checklists</FormLabel>
           </Grid>
         </Grid>
         <Grid container item xs={12} spacing={3} alignItems="center" justify="center" >
           <Grid item xs={4}>
-            <IconButton color='primary' className = {classes.iconstyle}><AssignmentTurnedInIcon fontSize="large" enableBackground="true"/></IconButton>
+            <IconButton color='primary' className = {classes.iconstyle} onClick = {() => doLink("./quizzes")} ><AssignmentTurnedInIcon fontSize="large" enableBackground="true"/></IconButton>
             <div></div><FormLabel>Test Your Knowledge</FormLabel>
           </Grid>
           <Grid item xs={4}>
-           <IconButton color='primary' className = {classes.iconstyle}><InfoIcon fontSize="large" enableBackground="true"/></IconButton>
+           <IconButton color='primary' className = {classes.iconstyle} onClick = {() => doLink("./information")} ><InfoIcon fontSize="large" enableBackground="true"/></IconButton>
            <div></div><FormLabel>About FES</FormLabel>
           </Grid>
         </Grid>
         <Grid container item xs={12} spacing={3} alignItems="center" justify="center">
         <Grid item xs={4}>
-           <IconButton color='primary' className = {classes.iconstyle}><HelpOutlineIcon fontSize="large" enableBackground="true"/></IconButton>
+           <IconButton color='primary' className = {classes.iconstyle} onClick = {() => doLink("./helppage")} ><HelpOutlineIcon fontSize="large" enableBackground="true"/></IconButton>
            <div></div><FormLabel>How to Use</FormLabel>
           </Grid>
         </Grid>
       </Grid>
     </div>
-      {mainMenu.map(option =>
+      {/* {mainMenu.map(option =>
         ButtonBases(option.name, option.link, option.url, doLink, classes)
-      )}
+      )} */}
       {/* <button onClick={function() { doLink('./thing'); }} >asdf</button> */}
     </React.Fragment>
   );

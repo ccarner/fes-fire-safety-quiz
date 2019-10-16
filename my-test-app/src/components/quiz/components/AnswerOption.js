@@ -9,6 +9,7 @@ import { ThemeProvider } from '@material-ui/styles';
 const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
+    primary: '#64DD17',
   },
   input: {
     display: 'none',
