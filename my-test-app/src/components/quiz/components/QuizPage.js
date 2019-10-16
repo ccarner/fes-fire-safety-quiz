@@ -1,10 +1,10 @@
 import React from 'react';
-import Question from '../components/Question';
+import Question from './Question';
 import Button from "@material-ui/core/Button";
 
-import QuestionCount from '../components/QuestionCount';
+import QuestionCount from './QuestionCount';
 
-import AnswerOption from '../components/AnswerOption';
+import AnswerOption from './AnswerOption';
 /**
  * renders the quiz component page when the user is answering a specific quiz question
  */

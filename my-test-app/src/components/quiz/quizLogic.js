@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 
 //import QuizAPI from './api/questions.json'
-import Quiz from "./components/Quiz";
-import Result from "./components/Result";
+import Quiz from "./components/QuizPage";
+import Result from "./components/ResultPage";
 import ReactDOM from "react-dom";
 import "./quizLogic.css";
 
