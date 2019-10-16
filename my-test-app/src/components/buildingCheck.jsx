@@ -1,7 +1,6 @@
 import AllChecklists from "./checklist/checklisting";
 
 import React, { Component, useState, useEffect, useLayoutEffect } from "react";
-import QuizBee from "./quiz/quizComponent";
 //import test from './quiz/api/newquestions.json';
 import { makeStyles } from "@material-ui/core/styles";
 

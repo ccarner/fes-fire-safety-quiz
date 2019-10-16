@@ -4,7 +4,7 @@ import React, { Component } from "react";
 import Quiz from "./components/Quiz";
 import Result from "./components/Result";
 import ReactDOM from "react-dom";
-import "./quizComponent.css";
+import "./quizLogic.css";
 
 /**
  * responsible for rendering a quiz module when the user takes a quiz
