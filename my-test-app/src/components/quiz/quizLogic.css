@@ -17,7 +17,7 @@
 }
 .answerOption {
   /*width: 150px;*/
-  display: inherit;
+  display: block;
   margin: 2%;
 
 }
@@ -86,6 +86,7 @@ button {
   /*padding: 20px;*/
   /*border-radius: 8px;*/
   background-color: #ffffff;
+  
 }
 @media (min-width: 769px) {
   .container {
@@ -100,7 +101,7 @@ button {
 
 /* Quiz Component */
 .answerOptions {
-  display: flex;
+ 
   justify-content: center;
   text-align:center
   
@@ -206,8 +207,9 @@ button {
   display: block;
   margin-left: auto;
   margin-right: auto;
-  width: 80%;
   height: auto;
+  max-width: 700px;
+  width: 80%;
   }
 
 .quizVideo{
@@ -215,4 +217,5 @@ button {
   margin-left: auto;
   margin-right: auto;
   width: 80%;
+  max-width: 700px;
   }

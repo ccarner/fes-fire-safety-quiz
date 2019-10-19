@@ -1,10 +1,10 @@
 import React from 'react';
-import Question from '../components/Question';
+import Question from './Question';
 import Button from "@material-ui/core/Button";
 
-import QuestionCount from '../components/QuestionCount';
+import QuestionCount from './QuestionCount';
 
-import AnswerOption from '../components/AnswerOption';
+import AnswerOption from './AnswerOption';
 /**
  * renders the quiz component page when the user is answering a specific quiz question
  */
@@ -25,10 +25,11 @@ function Quiz(props) {
     );
   }
 
-
+  const result_link_style = {"margin-top": "10px",
+                              "color": "green"};
   return (
       <div key={props.questionId} className="quiz-story">
-        <QuestionCount counter={props.counter} viewreults={props.viewreults}
+        <QuestionCount counter={props.counter} viewresults={props.viewresults}
           counter={props.questionId}
           total={props.questionTotal}
         />
@@ -38,15 +39,17 @@ function Quiz(props) {
             <div><video src={props.media_src} type="video/mp4" controls className ="quizVideo"/></div>)}
         </div>
         <Question  content={props.question} />
+        {props.maxChoices>1?<div><br/><b>Select at most {props.maxChoices} options</b></div>:<div></div>}
         <div>
         <div className="answerOptions">
           {props.answerOptions.map(renderAnswerOptions)}
         </div>
         </div>
         <div className="bottom-footer" >
-          {props.counter > 0 ? (<Button variant='outlined' className="Previous-btn" onClick={props.setPreviousQuestion} >Previous</Button>) : (<div></div>)}
+          {props.counter > 0 ? (<Button variant='outlined' className="Previous-btn" onClick={props.setPreviousQuestion} >Prev</Button>) : (<div></div>)}
 
           {props.counter < props.questionTotal-1 ? (<Button variant='outlined' className="next-btn" onClick={props.setNextQuestion} >Next</Button>) : (<div></div>)}
+          {props.counter == props.questionTotal-1 ? (<div><Button variant='outlined' style={result_link_style} className="result-link" onClick={props.viewresults} >View Results</Button></div>) : (<div></div>)}
 
       </div>
       </div>

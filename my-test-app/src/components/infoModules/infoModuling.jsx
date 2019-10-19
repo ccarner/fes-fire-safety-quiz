@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from "react";
+import React, { Component, Fragment, useState, useEffect } from "react";
 import infoModuleAPI from "./module_questions";
 import InfoModuleFormat from "./infoModule_format";
 
@@ -7,43 +7,36 @@ import InfoModuleFormat from "./infoModule_format";
 // import "./checkComponent.css";
 
 
-class App extends Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            moduleBank: [],
-            questionTotal: infoModuleAPI.length,
-            summaryOn: false
-        };
-    }
+function App(props) {
+    const [moduleBank, setBank] = useState([]);
+    const [questiontotal, setTotal] = useState(infoModuleAPI.length);
+    const [summaryOn, setSummary] = useState(false);
+    
 
-    getQuestions = () => {
+    const getQuestions = () => {
         infoModuleAPI().then(question => {
-            this.setState({
-                moduleBank: question
-            });
+            setBank(
+                question
+            );
         });
     };
 
 
-    renderSummary() {
-        this.setState(
+    function renderSummary() {
+        setSummary(
             {
                 summaryOn: true
             }
         );
     }
+    useEffect(() => {getQuestions()},[])
 
-    componentDidMount() {
-        this.getQuestions();
-    }
 
-    render() {
 
         return (
             <Fragment>
                 <div className="App">
-                    {this.state.moduleBank.map(
+                    {moduleBank.map(
                         ({ question }) => (
                             <InfoModuleFormat question={question} />
                         )
@@ -53,7 +46,7 @@ class App extends Component {
             </Fragment>
         );
 
-    }
+    
 }
 
 // ReactDOM.render(<App />, document.getElementById("root"));

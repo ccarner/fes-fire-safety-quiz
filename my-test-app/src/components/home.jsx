@@ -1,101 +1,42 @@
 import React, { Component, useState, useEffect } from "react";
-import { Link, Redirect} from "react-router-dom";
+import { Link, Redirect } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Typography from "@material-ui/core/Typography";
 import ImageDatabase from "../db.js";
+import FormLabel from '@material-ui/core/FormLabel';
+
 import Button from "@material-ui/core/Button";
 import ButtonBases from './ButtonBases';
 import background1 from "./pictures/questionmarks.png";
 import background2 from "./pictures/FESlogo.jpg";
 import background3 from "./pictures/building.jpg";
-
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+import Icon from '@material-ui/core/Icon';
+import IconButton from '@material-ui/core/IconButton';
+import HomeIcon from '@material-ui/icons/Home';
+import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
+import AssignmentIcon from '@material-ui/icons/Assignment';
+import DescriptionIcon from '@material-ui/icons/Description';
+import AssignmentTurnedInIcon from '@material-ui/icons/AssignmentTurnedIn';
+import InfoIcon from '@material-ui/icons/Info';
 import background5 from "./pictures/textbooks.jpg";
 import background4 from "./pictures/Man-filling-up-checklist.jpg";
+import useStyles from './menustyle'
+import { red } from "@material-ui/core/colors";
 
 
-const useStyles = makeStyles(theme => ({
-  root: {
-    display: 'flex',
-    flexWrap: 'wrap',
-    minWidth: 300,
-    width: '100%',
-  },
-  image: {
-    position: 'relative',
-    minHeight: 100,
-    [theme.breakpoints.down('xs')]: {
-      width: '100% !important', // Overrides inline-style
-      height: '30vh',
-      //height: '25%',
-    },
-    '&:hover, &$focusVisible': {
-      zIndex: 1,
-      '& $imageBackdrop': {
-        opacity: 0.15,
-      },
-      '& $imageMarked': {
-        opacity: 0,
-      },
-      '& $imageTitle': {
-        border: '4px solid currentColor',
-      },
-    },
-  },
-  focusVisible: {},
-  imageButton: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: theme.palette.common.white,
-  },
-  imageSrc: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    backgroundSize: 'cover',
-    backgroundPosition: 'center 40%',
-  },
-  imageBackdrop: {
-    position: 'absolute',
-    left: 0,
-    right: 0,
-    top: 0,
-    bottom: 0,
-    backgroundColor: theme.palette.common.black,
-    opacity: 0.7,
-    transition: theme.transitions.create('opacity'),
-  },
-  imageTitle: {
-    position: 'relative',
-    padding: `${theme.spacing(2)}px ${theme.spacing(4)}px ${theme.spacing(1) + 6}px`,
-  },
-  imageMarked: {
-    height: 3,
-    width: 18,
-    backgroundColor: theme.palette.common.white,
-    position: 'absolute',
-    bottom: -2,
-    left: 'calc(50% - 9px)',
-    transition: theme.transitions.create('opacity'),
-  },
-}));
 
-function doLink(thing){
+
+function doLink(thing) {
   return window.location = thing;
- //return <Redirect to={`${thing}`} />
+  //return <Redirect to={`${thing}`} />
 }
 
 function HomePage(props) {
   const classes = useStyles();
-
+  //the static homepage menu options
   const [mainMenu, setMenu] = useState([
     {
       name: "Information Modules",
@@ -107,29 +48,78 @@ function HomePage(props) {
       link: "./buildingCheck",
       url: background4
     },
-    { name: "Quizzes", link: "./quizzes", url: background1 },
-    { name: "About FES", link: "./information", url: background2 },
-    { name: "HELP", link: "./helppage", url: "" },
+    {
+      name: "Test Your Knowledge",
+      link: "./quizzes",
+      url: background1
+    },
+    {
+      name: "About FES",
+      link: "./information",
+      url: background2
+    },
+    {
+      name: "HELP",
+      link: "./helppage",
+      url: ""
+    },
 
   ]);
   //const classes = useStyles();
+  function FormRow(option) {
+    return (
+      <React.Fragment>
+        <Grid item xs={4}>
+          <IconButton classes = {classes.iconstyle} size="large" color='primary'><DescriptionIcon fontSize="large" enableBackground="true"/></IconButton>
+
+          {/* <Paper className={classes.paper}>item</Paper> */}
+        </Grid>
+        <Grid item xs={4}>
+          <Paper className={classes.paper}>item</Paper>
+        </Grid>
+      </React.Fragment>
+    );
+  }
 
   return (
     <React.Fragment>
       <h1>Home</h1>
-      {mainMenu.map(option =>
+      <div className={classes.root} height="100%">
+      <Grid container spacing={0} alignItems="center" height="100%">
+        <Grid container item xs={12} spacing={3}alignItems="center" justify="center">
+          <Grid item xs={4}height = "100">
+            <IconButton size="medium" className = {classes.iconstyle} onClick = {() => doLink("./infomodule")} color='secondary'enableBackground><DescriptionIcon fontSize="large" enableBackground="true"/></IconButton>
+            <div></div><FormLabel>Information Modules</FormLabel>
+          </Grid>
+          <Grid item xs={4}>
+            <IconButton color='primary' className = {classes.iconstyle} onClick = {() => doLink("./buildingCheck")} ><AssignmentIcon fontSize="large" enableBackground="true"/></IconButton>
+            <div></div><FormLabel>Building Safety Checklists</FormLabel>
+          </Grid>
+        </Grid>
+        <Grid container item xs={12} spacing={3} alignItems="center" justify="center" >
+          <Grid item xs={4}>
+            <IconButton color='primary' className = {classes.iconstyle} onClick = {() => doLink("./quizzes")} ><AssignmentTurnedInIcon fontSize="large" enableBackground="true"/></IconButton>
+            <div></div><FormLabel>Test Your Knowledge</FormLabel>
+          </Grid>
+          <Grid item xs={4}>
+           <IconButton color='primary' className = {classes.iconstyle} onClick = {() => doLink("./information")} ><InfoIcon fontSize="large" enableBackground="true"/></IconButton>
+           <div></div><FormLabel>About FES</FormLabel>
+          </Grid>
+        </Grid>
+        <Grid container item xs={12} spacing={3} alignItems="center" justify="center">
+        <Grid item xs={4}>
+           <IconButton color='primary' className = {classes.iconstyle} onClick = {() => doLink("./helppage")} ><HelpOutlineIcon fontSize="large" enableBackground="true"/></IconButton>
+           <div></div><FormLabel>How to Use</FormLabel>
+          </Grid>
+        </Grid>
+      </Grid>
+    </div>
+      {/* {mainMenu.map(option =>
         ButtonBases(option.name, option.link, option.url, doLink, classes)
-      )}
+      )} */}
       {/* <button onClick={function() { doLink('./thing'); }} >asdf</button> */}
     </React.Fragment>
   );
 }
 
-function renderMenuOption(name, link) {
-  return (
-    <div>
-      <Link to={`${link}`}>{name}</Link>
-    </div>
-  );
-}
 export default HomePage;

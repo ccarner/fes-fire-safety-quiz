@@ -9,20 +9,29 @@ import { ThemeProvider } from '@material-ui/styles';
 const useStyles = makeStyles(theme => ({
   button: {
     margin: theme.spacing(1),
+    primary: '#64DD17',
   },
   input: {
     display: 'none',
   },
   label: {
-    textTransform: 'capitalize',
+    textTransform: 'none',
   },
 }));
 
 const theme = createMuiTheme({
   palette: {
     //primary: { main: purple[500] }, // Purple and green play nicely together.
-    secondary: { main: '#fcfc4c' }, // This is just green.A700 as hex.
+    secondary: {main: green['A700']}
+    // secondary: { main: '#fcfc4c' }, // This is just green.A700 as hex.
   },
+  overrides: {
+    Button: {
+      secondary: {
+        color: green['A700'],
+      },
+    },
+  }
 });
 
 /**
@@ -35,12 +44,12 @@ function AnswerOption(props) {
   if(!(typeof props.selectedAnswer == 'undefined')){
      selected = props.selectedAnswer.has(props.index);
   }
-
+  const style = {display: "block"};
   return (
     
     <React.Fragment>
 
-    <li className="answerOption">
+    <div className="answerOption">
       {/* <button id="horizontal-list"
         type="button"
         value={props.index}
@@ -54,8 +63,9 @@ function AnswerOption(props) {
         text_transform= "none"
         //value={props.index}
         type="button"
+        style = {style}
         component="span" 
-        disableRipple
+        //disableRipple
         classes = {{
           label: classes.label,
         }}
@@ -66,7 +76,7 @@ function AnswerOption(props) {
           {/* {props.index} */}
         </Button>
       </ThemeProvider>
-    </li>
+    </div>
     </React.Fragment>
 
   );
