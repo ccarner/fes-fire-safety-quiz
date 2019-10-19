@@ -11,7 +11,6 @@ import InfoModulePage from "./components/infoModule";
 import Module from "./components/infoModules/module";
 import helpPage from "./components/helpPage";
 
-
 // import background1 from "./components/pictures/questionmarks.png";
 
 // this is the basic component that's responsible for rendering the default
@@ -23,7 +22,7 @@ import helpPage from "./components/helpPage";
 
 function App() {
   return (
-    <BrowserRouter basename="/app">
+    <BrowserRouter>
       <div className="App">
         <NavBar />
         <Switch>
