@@ -2,7 +2,6 @@
 
 // import relevent modules
 import React, { Component, Fragment } from "react";
-import CheckListAPI from "./checklist_questions";
 import Summary from "./Summary";
 import OneChecklist from "./eachChecklist";
 import PropTypes from "prop-types";
@@ -25,15 +24,16 @@ class Checklisting extends Component {
     };
   }
 
+  //NO LONGER NEEDED: pass in checklist as a prop
   // ChecklistAPI() automatically formatted the checklists, so this function set the cheklistBank
   // to the checklists we have in the database
-  getQuestions = () => {
-    CheckListAPI().then(question => {
-      this.setState({
-        checklistBank: question
-      });
-    });
-  };
+  // getQuestions = () => {
+  //   CheckListAPI().then(question => {
+  //     this.setState({
+  //       checklistBank: question
+  //     });
+  //   });
+  // };
 
   // If the user choose to see the feedback, summary mode is turned on
   renderSummary() {

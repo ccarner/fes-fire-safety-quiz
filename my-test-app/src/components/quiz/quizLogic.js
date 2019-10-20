@@ -21,31 +21,39 @@ class App extends Component {
       allQuestions: [],
       answer: "",
       selectedAnswers: {},
-      result: "",
+      result: false,
       media: "",
       media_src: "",
       questionTotal: 0,
       maxChoices: 1,
       rendered: false
     };
+
+    //for viewing already completed quizzes
+    if (this.props.result === true) {
+      this.state.result = true;
+      this.state.selectedAnswers = this.props.selections;
+    }
+
     this.setNextQuestion = this.setNextQuestion.bind(this);
     this.setPreviousQuestion = this.setPreviousQuestion.bind(this);
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
     this.viewresults = this.viewresults.bind(this);
   }
+
   handleAnswerSelected(e, value) {
-    var _self = this;
-    var obj = _self.state.selectedAnswers;
+    var obj = this.state.selectedAnswers;
     var index = parseInt(value);
     console.log(
       "for selected question number " +
-        (_self.state.counter + 1) +
+        (this.state.counter + 1) +
         " answer is " +
         index +
         " selected"
     );
-    var Qindex = _self.state.counter;
-    // create map and store all selecred answers with quiz Questions
+
+    var Qindex = this.state.counter;
+    // create map and store all selected answers with quiz Questions
     if (obj[Qindex] === undefined) {
       var answerSet = new Set();
       answerSet.add(index);
@@ -66,7 +74,7 @@ class App extends Component {
         }
       }
     }
-    _self.setState({ selectedAnswers: obj });
+    this.setState({ selectedAnswers: obj });
   }
   /*getQuestions = ()=> {
     QuizAPI().then(question => {
@@ -106,6 +114,7 @@ class App extends Component {
       maxChoices: maxChoices
     });
   }
+
   setPreviousQuestion() {
     const counter = this.state.counter - 1;
     const questionId = this.state.questionId - 1;
@@ -172,17 +181,21 @@ class App extends Component {
       />
     );
   }
+
   viewresults(e) {
     e.preventDefault();
-    var i;
-    for (i = 0; i < this.quiz_questions.length; i++) {
+    for (var i = 0; i < this.quiz_questions.length; i++) {
       if (this.state.selectedAnswers[i] === undefined) {
         alert(
           "You have not answered all questions. Please go back and finish the quiz."
         );
         return 0;
       }
-      this.setState({ result: true });
+    }
+    this.setState({ result: true });
+    //if passed in a method to save the results, use it now.
+    if (this.props.handleSave) {
+      this.props.handleSave(this.state.selectedAnswers);
     }
   }
   // decide to render result or quiz

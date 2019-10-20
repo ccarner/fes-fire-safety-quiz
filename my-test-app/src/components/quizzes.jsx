@@ -8,6 +8,14 @@ import axios from "axios";
 import ButtonBases from "./newMenu";
 import Button from "@material-ui/core/Button";
 import useStyles from "./menustyle";
+import { Link, Redirect } from "react-router-dom";
+
+import Dialog from "@material-ui/core/Dialog";
+import DialogActions from "@material-ui/core/DialogActions";
+import DialogContent from "@material-ui/core/DialogContent";
+import DialogContentText from "@material-ui/core/DialogContentText";
+import DialogTitle from "@material-ui/core/DialogTitle";
+import IndexedDataBase from "../dataStorage.js";
 
 function QuizPage(props) {
   const classes = useStyles();
@@ -27,6 +35,7 @@ function QuizPage(props) {
 
   const [quiz, setQuiz] = useState(null);
   const [quizdata, setData] = useState(null);
+  const [quizToRestore, setQuizToRestore] = useState(null);
 
   const [menuOptions, setOptions] = useState([]);
   //this useEffect only runs on first loading, and pulls the menu options from the api
@@ -87,6 +96,50 @@ function QuizPage(props) {
       <React.Fragment>
         <h1>Quiz page</h1>
         {menu}
+        {selected && (
+          // TODO: move this dialog to the separate 'popup' component, which isn't finished!
+          <Dialog
+            //this checks if the menu option has been selected, and if it is then open the corresponding dialog box
+            open={selected}
+            onClose={handleClose}
+            aria-labelledby="alert-dialog-title"
+            aria-describedby="alert-dialog-description"
+          >
+            <DialogTitle id="MenuDialog">{"Checklist"}</DialogTitle>
+            <DialogContent>
+              <DialogContentText id="alert-dialog-description">
+                {"test for now"}
+              </DialogContentText>
+            </DialogContent>
+            <DialogActions>
+              <Button
+                onClick={handleClose}
+                variant="contained"
+                color="primary"
+                text_transform="none"
+                classes={{
+                  label: classes.label
+                }}
+              >
+                Close
+              </Button>
+              <Button
+                //when the button is clicked execute the callback function
+                onClick={() => {
+                  setQuiz(selected);
+                }}
+                variant="contained"
+                color="primary"
+                text_transform="none"
+                classes={{
+                  label: classes.label
+                }}
+              >
+                Start Module
+              </Button>
+            </DialogActions>
+          </Dialog>
+        )}
       </React.Fragment>
     );
   } else {
