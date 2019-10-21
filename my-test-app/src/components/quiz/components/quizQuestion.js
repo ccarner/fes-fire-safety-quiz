@@ -42,6 +42,7 @@ function Quiz(props) {
             <video
               src={props.media_src}
               type="video/mp4"
+              style={{ padding: 8 }}
               controls
               className="quizVideo"
             />

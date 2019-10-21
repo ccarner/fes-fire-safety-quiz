@@ -1,17 +1,12 @@
 import React, { Component } from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
-import Typography from "@material-ui/core/Typography";
 import ChecklistSection from "./checklistSection";
-import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import Dialog from "@material-ui/core/Dialog";
 import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-
-import ThemeProvider from "@material-ui/core/styles/MuiThemeProvider";
+import SubmitButton from "../uiComponents/submitButton.jsx";
 
 class Checklist extends Component {
   constructor(props) {
@@ -107,9 +102,9 @@ class Checklist extends Component {
             value={this.state.submissionComment || ""}
             onChange={this.handleSubmissionCommentUpdate}
           />
-          <Button onClick={this.handleSubmit} color="primary">
+          <SubmitButton onClick={this.handleSubmit} color="primary">
             Submit
-          </Button>
+          </SubmitButton>
         </React.Fragment>
       );
     }

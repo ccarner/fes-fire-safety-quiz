@@ -4,10 +4,11 @@ import React, { Component } from "react";
 import QuizQuestion from "./components/quizQuestion";
 import Result from "./components/resultPage.jsx";
 import "./quizLogic.css";
-import Paper from "@material-ui/core/Paper";
+import StandardPaper from "../uiComponents/standardPaper.jsx";
 import Grid from "@material-ui/core/Grid";
-import QuestionCount from "./components/questionCount";
-import Button from "@material-ui/core/Button";
+import QuestionCount from "./components/questionCount.js";
+import SubmitButton from "../uiComponents/submitButton.jsx";
+import StandardButton from "../uiComponents/standardButton.jsx";
 
 /**
  * responsible for rendering a quiz module when the user takes a quiz
@@ -196,37 +197,23 @@ class Quiz extends Component {
       <React.Fragment>
         <div style={{ backgroundColor: "#eeeeee" }}>
           {this.state.counter > 0 ? (
-            <Button
-              variant="outlined"
-              className="Previous-btn"
-              onClick={this.setPreviousQuestion}
-            >
-              Prev
-            </Button>
+            <StandardButton onClick={this.setPreviousQuestion}>
+              {"🡨 Prev"}
+            </StandardButton>
           ) : (
             <div></div>
           )}
 
           {this.state.counter < this.state.questionTotal - 1 ? (
-            <Button
-              variant="outlined"
-              className="next-btn"
-              onClick={this.setNextQuestion}
-            >
-              Next
-            </Button>
+            <StandardButton onClick={this.setNextQuestion}>
+              {"Next 🡪"}
+            </StandardButton>
           ) : (
             <div></div>
           )}
           {this.state.counter === this.state.questionTotal - 1 ? (
             <div>
-              <Button
-                variant="outlined"
-                className="result-link"
-                onClick={this.viewresults}
-              >
-                View Results
-              </Button>
+              <SubmitButton onClick={this.viewresults}>Submit</SubmitButton>
             </div>
           ) : (
             <div></div>
@@ -240,9 +227,9 @@ class Quiz extends Component {
   render() {
     return (
       <Grid>
-        <Paper style={{ padding: 8, margin: 8 }}>
+        <StandardPaper>
           {this.state.result ? this.renderResult() : this.renderQuiz()}
-        </Paper>
+        </StandardPaper>
       </Grid>
     );
   }

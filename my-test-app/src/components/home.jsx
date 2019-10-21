@@ -5,6 +5,8 @@ import ButtonBase from "@material-ui/core/ButtonBase";
 import Typography from "@material-ui/core/Typography";
 import ImageDatabase from "../db.js";
 import FormLabel from "@material-ui/core/FormLabel";
+import StandardButton from "./uiComponents/standardButton.jsx";
+import SubmitButton from "./uiComponents/submitButton.jsx";
 
 import Button from "@material-ui/core/Button";
 import ButtonBases from "./ButtonBases";
@@ -69,8 +71,6 @@ function HomePage(props) {
           <IconButton classes={classes.iconstyle} size="large" color="primary">
             <DescriptionIcon fontSize="large" enableBackground="true" />
           </IconButton>
-
-          {/* <Paper className={classes.paper}>item</Paper> */}
         </Grid>
         <Grid item xs={4}>
           <Paper className={classes.paper}>item</Paper>
@@ -182,6 +182,10 @@ function HomePage(props) {
         ButtonBases(option.name, option.link, option.url, doLink, classes)
       )} */}
       {/* <button onClick={function() { doLink('./thing'); }} >asdf</button> */}
+      <StandardButton component={Link} to="/modules">
+        See Results
+      </StandardButton>{" "}
+      <SubmitButton> test</SubmitButton>
     </React.Fragment>
   );
 }

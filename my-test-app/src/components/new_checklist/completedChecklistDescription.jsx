@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Paper from "@material-ui/core/Paper";
+import StandardPaper from "../uiComponents/standardPaper.jsx";
 
 class CompletedChecklistDescription extends Component {
   constructor(props) {
@@ -9,11 +9,11 @@ class CompletedChecklistDescription extends Component {
   render() {
     return (
       <div onClick={this.props.handleView}>
-        <Paper style={{ padding: 8, margin: 8 }}>
+        <StandardPaper>
           {this.props.name}
           {this.props.time}
           {this.props.comment}
-        </Paper>
+        </StandardPaper>
       </div>
     );
   }
