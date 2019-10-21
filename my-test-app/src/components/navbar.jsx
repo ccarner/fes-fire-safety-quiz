@@ -1,17 +1,13 @@
 //import React from "react";
 import React, { Component, useState, useEffect, useLayoutEffect } from "react";
-import Icon from '@material-ui/core/Icon';
-import IconButton from '@material-ui/core/IconButton';
-import HomeIcon from '@material-ui/icons/Home';
-import HelpOutlineIcon from '@material-ui/icons/HelpOutline';
-import { HashLink } from 'react-router-hash-link';
-import FES_LOGO from './pictures/FESlogo2.jpg';
-import useStyles from './menustyle'
-
-
-
+import Icon from "@material-ui/core/Icon";
+import IconButton from "@material-ui/core/IconButton";
+import HomeIcon from "@material-ui/icons/Home";
+import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
+import { HashLink } from "react-router-hash-link";
+import FES_LOGO from "./pictures/FESlogo2.jpg";
+import useStyles from "./menustyle";
 import { Link } from "react-router-dom";
-
 
 // a stateless functional component in react... since only from props etc
 // pass props as arg and don't use 'this'
@@ -20,21 +16,22 @@ const NavBar = props => {
   const classes = useStyles();
 
   useEffect(() => {
-    setpage(window.location.href.toString().split(window.location.host + "/app/")[1])
-
+    setpage(
+      window.location.href.toString().split(window.location.host + "/app/")[1]
+    );
   });
   return (
-    <nav className={"navbar navbar-dark bg-dark"} > 
+    <nav className={"navbar navbar-dark bg-dark"}>
       <IconButton
-        //className={classes.button} 
-        className={classes.navbarStyle} 
-
+        //className={classes.button}
+        className={classes.navbarStyle}
         aria-label="delete"
-        component={Link} to='/'
+        component={Link}
+        to="/"
       >
-        <HomeIcon 
+        <HomeIcon
         //color='secondary'
-         />
+        />
       </IconButton>
       {/* <HomeIcon //component = {Link} to= '/'
       color = "secondary"
@@ -48,13 +45,13 @@ const NavBar = props => {
         Help{" "}
       </Link> */}
       <IconButton
-        className={classes.navbarStyle} 
+        className={classes.navbarStyle}
         aria-label="help"
-        component={HashLink} to={("/helppage#" + page)}
+        component={HashLink}
+        to={"/helppage#" + page}
       >
-
-        <HelpOutlineIcon 
-        //color='secondary' 
+        <HelpOutlineIcon
+        //color='secondary'
         //className="classes.iconstyle"
         />
       </IconButton>

@@ -35,6 +35,7 @@ export default function AlertDialog() {
                         <h3> </h3>
                         Address:    2/5 Lakeside Dr, Burwood East VIC 3151
                     </DialogContentText>
+                    <img style={{ width: 250, height: 200 }} src={"https://cdn11.bigcommerce.com/s-se335tdcoh/products/93158/images/173983/V-AN407-2__36188.1461808671.500.750.jpg"} alt='FES_LOGO' />
 
                 </DialogContent>
                 <DialogActions>

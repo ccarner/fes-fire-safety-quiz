@@ -1,5 +1,7 @@
 import React from "react";
 import Button from "@material-ui/core/Button";
+import Typography from "@material-ui/core/Typography";
+import Card from "@material-ui/core/Card";
 /**
  * renders elements on the result page consisting of all questions in the quiz,
  *  the user's answers vs the correct answers and the user's overall score .
@@ -30,18 +32,21 @@ class Result extends React.Component {
       }
 
       return (
-        <div className="list-grp">
-          <span className="question-text">{_data.question}</span>
-          <br />
-          <span className="correct-status">
-            Correct answer: {solutionmessage}{" "}
-          </span>
-          <br />
-          <span className={correct ? "correct-status" : "incorrect-status"}>
-            Your answer: {answermessage}
-          </span>
-          &nbsp;{" "}
-        </div>
+        <React.Fragment>
+          <Card style={{ margin: 8, padding: 8 }}>
+            <Typography variant="h5" component="h2">
+              {_data.question}
+            </Typography>
+            <span className="correct-status">
+              Correct answer: {solutionmessage}{" "}
+            </span>
+            <br />
+            <span className={correct ? "correct-status" : "incorrect-status"}>
+              Your answer: {answermessage}
+            </span>
+            <br />
+          </Card>
+        </React.Fragment>
       );
     });
   }

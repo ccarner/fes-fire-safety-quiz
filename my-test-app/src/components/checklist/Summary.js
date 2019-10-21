@@ -62,7 +62,7 @@ class Summary extends Component {
               }}>
               Contact FES
           </Button>
-            {/* < PopUps ></PopUps> */}
+           < PopUps ></PopUps> 
           </div>
         </div >
       )
@@ -80,7 +80,7 @@ class Summary extends Component {
               }}>
               Contact FES
           </Button>
-            {/* < PopUps ></PopUps> */}
+           < PopUps ></PopUps>
           </div>
         </div >
       );
