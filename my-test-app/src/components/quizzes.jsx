@@ -1,5 +1,5 @@
 import React, { Component, useState, useEffect, useLayoutEffect } from "react";
-import QuizBee from "./quiz/quizLogic";
+import Quiz from "./quiz/quiz";
 //import test from './quiz/api/newquestions.json';
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -143,7 +143,7 @@ function QuizPage(props) {
     return (
       <React.Fragment>
         <h1>{capitalise(quizdata.title)}</h1>
-        <QuizBee jsonURL={quizdata.quiz_questions} />
+        <Quiz jsonURL={quizdata.quiz_questions} />
       </React.Fragment>
     );
   }

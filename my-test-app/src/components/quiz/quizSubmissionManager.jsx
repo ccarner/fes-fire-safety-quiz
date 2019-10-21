@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Quiz from "./quizLogic.js";
+import Quiz from "./quiz.js";
 import IndexedDataBase from "../../dataStorage.js";
 import { withRouter } from "react-router";
 

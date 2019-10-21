@@ -21,19 +21,6 @@ function ContentMenu(props) {
           )}
     </React.Fragment>
   );
-  // (checklistToRestore === null) {
-  //   return (
-  //     <Redirect
-  //       push
-  //       to={{
-  //         pathname: "/completeChecklist",
-  //         state: {
-  //           submitted: false,
-  //           filename: selected,
-  //           questions: checklistdata
-  //         }
-  //       }}
-  //     />
 }
 
 export default ContentMenu;

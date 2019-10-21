@@ -17,8 +17,6 @@ class AbstractSelection extends Component {
     this.handleSelectOption = this.handleSelectOption.bind(this);
     this.handleRestore = this.handleRestore.bind(this);
     this.handleDialogClose = this.handleDialogClose.bind(this);
-    this.apiUrl =
-      "http://fes-fire-safety-quiz-api-dev.ap-southeast-2.elasticbeanstalk.com/content/checklists/";
   }
 
   // get the index to display what content exists
@@ -44,12 +42,20 @@ class AbstractSelection extends Component {
 
   //when choosing a checklist from the menu
   //not getting content yet, just a preliminary popup or other.
-  handleSelectOption(option) {
-    console.log("what is this.getsaves", this.getSaves);
-    this.getSaves(this.state.selectedFilename).then(results => {
-      this.setState({ previousCompletions: results });
-      this.setState({ selectedFilename: option });
-    });
+  handleSelectOption(filename) {
+    // if we don't want to save, won't have a save function
+    if (this.getSaves) {
+      this.getSaves(filename).then(results => {
+        this.setState({
+          previousCompletions: results,
+          selectedFilename: filename
+        });
+      });
+    } else {
+      this.setState({
+        selectedFilename: filename
+      });
+    }
   }
 
   // values which we need to restore are set here

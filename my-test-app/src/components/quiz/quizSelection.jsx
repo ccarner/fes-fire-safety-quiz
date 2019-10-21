@@ -1,6 +1,6 @@
 import React from "react";
 import IndexedDataBase from "../../dataStorage.js";
-import QuizCompletionPopup from "./quizCompletionPopup.jsx";
+import QuizSelectedPopup from "./quizSelectedPopup.jsx";
 import AbstractSelection from "../abstractSelection.jsx";
 
 class QuizSelection extends AbstractSelection {
@@ -14,7 +14,7 @@ class QuizSelection extends AbstractSelection {
 
   renderContentSelected() {
     return (
-      <QuizCompletionPopup
+      <QuizSelectedPopup
         previousCompletions={this.state.previousCompletions}
         handleClose={this.handleDialogClose}
         handleRestore={this.handleRestore}

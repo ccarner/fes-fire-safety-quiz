@@ -66,6 +66,7 @@ export default class IndexedDataBase {
         selections: selections
       };
       quiz.add(componentsToAdd);
+
       return tx.complete;
     });
   }

@@ -1,6 +1,6 @@
 import React from "react";
 import IndexedDataBase from "../../dataStorage.js";
-import ChecklistCompletionPopup from "./checklistCompletionPopup.jsx";
+import ChecklistSelectedPopup from "./checklistSelectedPopup.jsx";
 import AbstractSelection from "../abstractSelection.jsx";
 
 class ChecklistSelection extends AbstractSelection {
@@ -14,7 +14,7 @@ class ChecklistSelection extends AbstractSelection {
 
   renderContentSelected() {
     return (
-      <ChecklistCompletionPopup
+      <ChecklistSelectedPopup
         previousCompletions={this.state.previousCompletions}
         handleClose={this.handleDialogClose}
         handleRestore={this.handleRestore}
