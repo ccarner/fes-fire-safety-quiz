@@ -1,20 +1,20 @@
 import React from "react";
 import IndexedDataBase from "../../dataStorage.js";
-import ChecklistCompletionPopup from "./checklistCompletionPopup.jsx";
+import QuizCompletionPopup from "./quizCompletionPopup.jsx";
 import AbstractSelection from "../abstractSelection.jsx";
 
-class ChecklistSelection extends AbstractSelection {
+class QuizSelection extends AbstractSelection {
   constructor(props) {
     super(props);
     this.apiUrl =
-      "http://fes-fire-safety-quiz-api-dev.ap-southeast-2.elasticbeanstalk.com/content/checklists/";
-    this.getSaves = IndexedDataBase.getChecklistSaves;
-    this.contentForwardUrl = "/completeChecklist";
+      "http://fes-fire-safety-quiz-api-dev.ap-southeast-2.elasticbeanstalk.com/content/quizzes/";
+    this.getSaves = IndexedDataBase.getQuizSaves;
+    this.contentForwardUrl = "/completeQuiz";
   }
 
   renderContentSelected() {
     return (
-      <ChecklistCompletionPopup
+      <QuizCompletionPopup
         previousCompletions={this.state.previousCompletions}
         handleClose={this.handleDialogClose}
         handleRestore={this.handleRestore}
@@ -24,4 +24,4 @@ class ChecklistSelection extends AbstractSelection {
   }
 }
 
-export default ChecklistSelection;
+export default QuizSelection;

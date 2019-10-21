@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Quiz from "./quizLogic.jsx";
+import Quiz from "./quizLogic.js";
 import IndexedDataBase from "../../dataStorage.js";
 import { withRouter } from "react-router";
 
@@ -11,46 +11,41 @@ class QuizSubmissionManager extends Component {
     try {
       // should always be able to get these, whether submitted or fresh...
       this.state = {
-        submitted: this.props.location.state.submitted,
         filename: this.props.location.state.filename,
-        questions: this.props.location.state.questions
+        questions: this.props.location.state.content.quiz_questions
       };
     } catch (err) {
-      console.log(
-        "checklist manager couldn't get details from location prop..."
-      );
-      this.state = { submitted: false };
+      console.log("quiz manager couldn't get details from location prop...");
     }
 
-    //now, set other vars based on whether this is a NEW or PREVIOUSLY SUBMITTED Quiz
-    if (this.state.submitted) {
-      this.state.selections = this.props.location.state.selections;
+    //now, set other vars based on whether this is a NEW or PREVIOUSLY SUBMITTED checklist
+    if (this.props.location.state.restoredValues) {
+      this.state.comment = this.props.location.state.restoredValues.comment;
+      this.state.selections = this.props.location.state.restoredValues.selections;
+      this.state.submitted = true;
     } else {
       this.state.selections = undefined;
+      this.state.submitted = false;
     }
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
-  async handleSave(selections) {
+  async handleSubmit(selections) {
     this.setState({ submitted: true });
 
     var today = new Date();
     var time =
       today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
 
-    await IndexedDataBase.addQuizSave(
-      this.state.filename,
-      this.state.questions,
-      selections,
-      time
-    );
+    await IndexedDataBase.addQuizSave(this.state.filename, selections, time);
   }
 
   render() {
+    console.log(this.state);
     return (
       <Quiz
         questions={this.state.questions}
-        handleSave={this.handleSubmit}
+        handleSubmit={this.handleSubmit}
         selections={this.state.selections}
         submitted={this.state.submitted}
       ></Quiz>

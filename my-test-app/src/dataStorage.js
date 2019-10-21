@@ -9,7 +9,7 @@ export default class IndexedDataBase {
       return;
     }
 
-    return openDB("FesAppStorage", 5, {
+    return openDB("FesAppStorage", 6, {
       upgrade(db, oldVersion, newVersion, transaction) {
         if (!db.objectStoreNames.contains("checklistSaves")) {
           console.log("Upgrading the DB, creating new Object stores");
@@ -28,20 +28,13 @@ export default class IndexedDataBase {
 
   //filename is the name of the checklsit on the server (a unique value which is
   // used as the ID for retrieval)
-  static async addChecklistSave(
-    filename,
-    checklistFile,
-    selections,
-    comment,
-    completionTime
-  ) {
-    return this.initialise().then(function(db) {
+  static async addChecklistSave(filename, selections, comment, completionTime) {
+    return IndexedDataBase.initialise().then(function(db) {
       var tx = db.transaction(["checklistSaves"], "readwrite");
       var chklst = tx.objectStore("checklistSaves");
       var componentsToAdd = {
         filename: filename,
         completionTime,
-        checklistFile: checklistFile,
         selections: selections,
         comment: comment
       };
@@ -50,8 +43,8 @@ export default class IndexedDataBase {
     });
   }
 
-  static async getChecklistSave(filename) {
-    return this.initialise()
+  static async getChecklistSaves(filename) {
+    return IndexedDataBase.initialise()
       .then(function(db) {
         var tx = db.transaction("checklistSaves", "readonly");
         var chklst = tx.objectStore("checklistSaves");
@@ -63,14 +56,13 @@ export default class IndexedDataBase {
       });
   }
 
-  static async addQuizSave(filename, quizFile, selections, completionTime) {
-    return this.initialise().then(function(db) {
+  static async addQuizSave(filename, selections, completionTime) {
+    return IndexedDataBase.initialise().then(function(db) {
       var tx = db.transaction(["quizSaves"], "readwrite");
       var quiz = tx.objectStore("quizSaves");
       var componentsToAdd = {
         filename: filename,
         completionTime,
-        quizFile: quizFile,
         selections: selections
       };
       quiz.add(componentsToAdd);
@@ -78,8 +70,8 @@ export default class IndexedDataBase {
     });
   }
 
-  static async getQuizSave(filename) {
-    return this.initialise()
+  static async getQuizSaves(filename) {
+    return IndexedDataBase.initialise()
       .then(function(db) {
         var tx = db.transaction("quizSaves", "readonly");
         var quiz = tx.objectStore("quizSaves");

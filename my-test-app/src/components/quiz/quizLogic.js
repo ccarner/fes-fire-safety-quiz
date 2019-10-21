@@ -13,7 +13,7 @@ class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      quiz_questions: [],
+      quiz_questions: this.props.questions,
       counter: 0,
       questionId: 1,
       question: "",
@@ -28,13 +28,13 @@ class App extends Component {
       maxChoices: 1,
       rendered: false
     };
+    console.log("in quiz:", this.state.quiz_questions);
 
     //for viewing already completed quizzes
     if (this.props.result === true) {
       this.state.result = true;
       this.state.selectedAnswers = this.props.selections;
     }
-
     this.setNextQuestion = this.setNextQuestion.bind(this);
     this.setPreviousQuestion = this.setPreviousQuestion.bind(this);
     this.handleAnswerSelected = this.handleAnswerSelected.bind(this);
@@ -194,10 +194,11 @@ class App extends Component {
     }
     this.setState({ result: true });
     //if passed in a method to save the results, use it now.
-    if (this.props.handleSave) {
-      this.props.handleSave(this.state.selectedAnswers);
+    if (this.props.handleSubmit) {
+      this.props.handleSubmit(this.state.selectedAnswers);
     }
   }
+
   // decide to render result or quiz
   render() {
     if (this.props.jsonURL !== undefined && this.state.rendered === false) {

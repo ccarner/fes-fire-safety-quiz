@@ -12,7 +12,9 @@ import Module from "./components/infoModules/module";
 import helpPage from "./components/helpPage";
 import AppBar from "@material-ui/core/AppBar";
 import ChecklistSubmissionManager from "./components/new_checklist/checklistSubmissionManager.jsx";
+import QuizSubmissionManager from "./components/quiz/quizSubmissionManager.jsx";
 import ChecklistSelection from "./components/new_checklist/checklistSelection.jsx";
+import QuizSelection from "./components/quiz/quizSelection.jsx";
 // import background1 from "./components/pictures/questionmarks.png";
 
 // this is the basic component that's responsible for rendering the default
@@ -39,7 +41,7 @@ function App() {
           {/* use a switch so we only render max of ONE of these pages */}
           <Route path="/" exact component={HomePage} />
           <Route path="/information" exact component={InformationPage} />
-          <Route path="/quizzes" exact component={QuizPage} />
+          <Route path="/quizzes" exact component={QuizSelection} />
           <Route path="/buildingCheck" exact component={ChecklistSelection} />
           <Route
             path="/completeChecklist"
@@ -47,7 +49,7 @@ function App() {
           />
           <Route
             path="/completeQuiz"
-            render={routeProps => <ChecklistSubmissionManager />}
+            render={routeProps => <QuizSubmissionManager />}
           />
           <Route path="/infoModule" exact component={InfoModulePage} />
           <Route path="/informationModule" exact component={Module} />

@@ -22,7 +22,6 @@ class ChecklistSubmissionManager extends Component {
     }
 
     //now, set other vars based on whether this is a NEW or PREVIOUSLY SUBMITTED checklist
-    console.log("locationstate", this.props.location.state.restoredValues);
     if (this.props.location.state.restoredValues) {
       this.state.comment = this.props.location.state.restoredValues.comment;
       this.state.selections = this.props.location.state.restoredValues.selections;
@@ -32,7 +31,6 @@ class ChecklistSubmissionManager extends Component {
       this.state.selections = undefined;
     }
     this.handleSubmit = this.handleSubmit.bind(this);
-    console.log("state of the manager", this.state);
   }
 
   async handleSubmit(selections, comment) {
@@ -52,7 +50,6 @@ class ChecklistSubmissionManager extends Component {
     );
     await IndexedDataBase.addChecklistSave(
       this.state.filename,
-      this.state.questions,
       selections,
       comment,
       time
@@ -63,7 +60,7 @@ class ChecklistSubmissionManager extends Component {
     console.log("submission mamanger", this.state, this.props);
     return (
       <Checklist
-        questions={this.state.questions}
+        questions={this.props.location.state.content}
         handleSubmit={this.handleSubmit}
         selections={this.state.selections}
         submitted={this.state.submitted}

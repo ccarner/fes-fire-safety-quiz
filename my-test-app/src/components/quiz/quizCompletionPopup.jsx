@@ -4,11 +4,10 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import IndexedDataBase from "../../dataStorage.js";
-import CompletedChecklistDescription from "./completedChecklistDescription.jsx";
+import CompletedQuizDescription from "./completedQuizDescription.jsx";
 import Button from "@material-ui/core/Button";
 
-class ChecklistCompletionPopup extends Component {
+class QuizCompletionPopup extends Component {
   constructor(props) {
     super(props);
   }
@@ -20,17 +19,15 @@ class ChecklistCompletionPopup extends Component {
         open={true}
         onClose={this.props.handleClose}
       >
-        <DialogTitle id="MenuDialog">{"Checklist"}</DialogTitle>
+        <DialogTitle id="MenuDialog">{"Quiz"}</DialogTitle>
         <DialogContent>
           <DialogContentText>{"test for now"}</DialogContentText>
-          {console.log("prevcompletion", this.props.previousCompletions)}
           {this.props.previousCompletions &&
             this.props.previousCompletions.map(completion => {
               return (
-                <CompletedChecklistDescription
-                  name={"add 'name' to checklists..."}
+                <CompletedQuizDescription
+                  name={"add 'name' to quizzes..."}
                   time={completion.completionTime}
-                  comment={completion.comment}
                   handleView={() => {
                     this.props.handleRestore(completion);
                   }}
@@ -64,4 +61,4 @@ class ChecklistCompletionPopup extends Component {
   }
 }
 
-export default ChecklistCompletionPopup;
+export default QuizCompletionPopup;

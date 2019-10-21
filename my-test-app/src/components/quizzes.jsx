@@ -84,9 +84,6 @@ function QuizPage(props) {
         "",
         setQuiz,
         classes,
-        "",
-        handleClickOpen,
-        handleClose,
         selected
       )
     );
