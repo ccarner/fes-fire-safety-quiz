@@ -11,7 +11,7 @@ import PropTypes from 'prop-types';
 // When a user makes a selection, the value will be passed to the parent class.
 function Checklist_Format(props) {
 
-    const [value, setValue] = React.useState('female');
+    const [value, setValue] = React.useState(0);
     function handleChange(event) {
         props.answerFeedback(event.target.value);
         setValue(event.target.value);
