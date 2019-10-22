@@ -3,11 +3,11 @@ import { exportAllDeclaration } from "@babel/types"
 describe('test cases', function() {
   it('views information', function() {
       cy.visit('http://localhost:3000/')
-      cy.get('button').eq(0).click()
-      cy.url().should('include', '/infomodule')
-      cy.get('button').eq(0).click()
+      cy.get('#button-modules').click()
+      cy.url().should('include', '/modules')
+      cy.get('button').contains("testing").click()
       cy.contains('Start Module').click()
-      cy.url().should('include', '/infomodule')
+      cy.url().should('include', '/completeModule')
 
 
    // expect(true).to.equal(true)
@@ -15,13 +15,15 @@ describe('test cases', function() {
    it('takes quiz by skipping questions', function() {
     cy.visit('http://localhost:3000/')
     //cy.contains('Quizzes').click()
-    cy.get('button').eq(2).click()
+    cy.get('#button-quizzes').click()
     cy.url().should('include', '/quizzes')
-    cy.get('button').eq(0).click()
-    cy.contains('Start Module').click()
+    cy.contains('test_quiz').click()
+  
+    cy.contains('Start Quiz').click()
     // cy.contains('quiz 1').click()
      cy.contains('Next').click()
     // cy.get('video').click()
+     cy.contains('Next').click()
      cy.contains('Next').click()
      cy.contains('View Results').click()
      cy.on('window:alert', (str) => {
@@ -71,7 +73,7 @@ describe('test cases', function() {
  // expect(true).to.equal(true)
   it('has working home button', function() {
     cy.visit('http://localhost:3000/')
-    cy.get('button').eq(2).click()
+    cy.get('#button-quizzes').click()
     cy.url().should('include', '/quizzes')
     cy.get("nav").click(40,40)
     cy.url().should('eq', 'http://localhost:3000/')
@@ -79,7 +81,7 @@ describe('test cases', function() {
 })
 it('has information about FES and redirects to fes webpage', function() {
   cy.visit('http://localhost:3000/')
-  cy.get('button').eq(3).click()
+  cy.get('#button-information').click()
   cy.url().should('include', '/information')
   expect(cy.contains('Phone'))
   cy.contains('TO FES').click()
@@ -89,7 +91,7 @@ it('has information about FES and redirects to fes webpage', function() {
 })
 it('has help information', function() {
   cy.visit('http://localhost:3000/')
-  cy.get('button').eq(3).click()
+  cy.get('#button-information').click()
   cy.url().should('include', '/information')
   cy.get("nav").click("center")
   cy.url().should('include',"/helppage")
