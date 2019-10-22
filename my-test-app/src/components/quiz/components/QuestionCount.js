@@ -8,7 +8,7 @@ function QuestionCount(props) {
     </div>
   );
 }
-
+//adding this comment so that git recognises filename change
 QuestionCount.propTypes = {
   counter: PropTypes.number.isRequired,
   total: PropTypes.number.isRequired
