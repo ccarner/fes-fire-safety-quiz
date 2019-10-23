@@ -16,12 +16,13 @@ class ModuleSelection extends AbstractSelection {
 
   renderContentSelected() {
     return (
-      <ModuleSelectedPopup
-        previousCompletions={this.state.previousCompletions}
-        handleClose={this.handleDialogClose}
-        handleRestore={undefined}
-        handleNewContent={this.getContent}
-      />
+      this.getContent()
+      // <ModuleSelectedPopup
+      //   previousCompletions={this.state.previousCompletions}
+      //   handleClose={this.handleDialogClose}
+      //   handleRestore={undefined}
+      //   handleNewContent={this.getContent}
+      // />
     );
   }
 }

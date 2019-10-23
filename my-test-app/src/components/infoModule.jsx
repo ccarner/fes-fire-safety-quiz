@@ -4,7 +4,7 @@ import Modulepage from "./infoModules/module";
 import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
 //import useAxios from 'axios-hooks';
-import ButtonBases from "./newMenu";
+import ButtonBases from "./ButtonBases";
 import Button from "@material-ui/core/Button";
 import useStyles from "./menustyle";
 
@@ -66,10 +66,6 @@ function QuizPage(props) {
         "",
         setModule,
         classes,
-        option.description,
-        handleClickOpen,
-        handleClose,
-        selected
       )
     );
   //if a quiz has not yet been selected render the menu, otherwise render the quiz
