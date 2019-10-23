@@ -5,7 +5,7 @@ import App from './module';
 it('renders without crashing', () => {
   //const quiz = require('./test');
   const div = document.createElement('div');
-  const htmlstring = <!DOCTYPE html>
+  const htmlstring = `<!DOCTYPE html>
   <html>
   <body>
   
@@ -19,8 +19,8 @@ it('renders without crashing', () => {
   <video src="https://media.istockphoto.com/videos/seemless-and-loopable-flames-slow-motion-video-id493922248" type="video/mp4" controls class ="quizVideo">
   
   </body>
-  </html>
-  console.log(quiz.quiz_questions);
+  </html>`
+//   console.log(quiz.quiz_questions);
   //ReactDOM.render(<App/>, div);
-  ReactDOM.render(<App jsonURL={quiz.quiz_questions} />, div);
+  ReactDOM.render(<App htmlstring={htmlstring} />, div);
 });
