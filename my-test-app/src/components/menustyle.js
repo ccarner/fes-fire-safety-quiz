@@ -27,7 +27,11 @@ const useStyles = makeStyles(theme => ({
   },
   navbarStyle: {
     //background: 'linear-gradient(to right, #bfbfbf, #808080)',
-    color: "#ed1e1a"
+    color: "#ed1e1a",
+    "&:hover":{
+      backgroundColor: "transparent",
+      color: "#ed1e1a"
+    }
   },
   root: {
     display: "flex",
