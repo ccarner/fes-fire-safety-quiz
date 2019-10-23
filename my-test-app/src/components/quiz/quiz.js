@@ -6,7 +6,7 @@ import Result from "./components/resultPage.jsx";
 import "./quizLogic.css";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import QuestionCount from "./components/QuestionCount";
+import QuestionCount from "./components/QuestionCounter";
 import Button from "@material-ui/core/Button";
 
 /**
