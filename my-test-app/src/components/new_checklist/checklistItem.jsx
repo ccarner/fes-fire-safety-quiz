@@ -8,7 +8,7 @@ import {
   FormControlLabel,
   FormLabel
 } from "@material-ui/core";
-import Paper from "@material-ui/core/Paper";
+import StandardPaper from "../uiComponents/standardPaper.jsx";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import IconButton from "@material-ui/core/IconButton";
@@ -26,7 +26,7 @@ class ChecklistItem extends Component {
 
   render() {
     return (
-      <Paper style={{ padding: 8, margin: 8 }}>
+      <StandardPaper>
         <Grid
           container
           spacing={1}
@@ -70,7 +70,7 @@ class ChecklistItem extends Component {
             </IconButton>
           </Grid>
         </Grid>
-      </Paper>
+      </StandardPaper>
     );
   }
 }

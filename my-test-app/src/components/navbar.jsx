@@ -8,12 +8,37 @@ import { HashLink } from "react-router-hash-link";
 import FES_LOGO from "./pictures/FESlogo2.jpg";
 import useStyles from "./menustyle";
 import { Link } from "react-router-dom";
+import AppBar from "@material-ui/core/AppBar";
+import { withRouter } from "react-router-dom";
+import { Typography } from "@material-ui/core";
+import Grid from "@material-ui/core/Grid";
+import Button from "@material-ui/core/Button";
 
 // a stateless functional component in react... since only from props etc
 // pass props as arg and don't use 'this'
+
 const NavBar = props => {
   const [page, setpage] = useState(null);
   const classes = useStyles();
+
+  function getTitletoDisplay() {
+    let location = props.location.pathname.toLowerCase();
+    if (location === "/") {
+      return "Home";
+    } else if (location.includes("quiz")) {
+      return "Quiz";
+    } else if (location.includes("checklist")) {
+      return "Checklist";
+    } else if (location.includes("module")) {
+      return "Learn";
+    } else if (location.includes("about")) {
+      return "About FES";
+    } else if (location.includes("help")) {
+      return "Help";
+    } else {
+      return "";
+    }
+  }
 
   useEffect(() => {
     setpage(
@@ -21,46 +46,47 @@ const NavBar = props => {
     );
   });
   return (
-    <nav className={"navbar navbar-dark bg-dark"}>
-      <IconButton
-        //className={classes.button}
-        className={classes.navbarStyle}
-        aria-label="delete"
-        component={Link}
-        to="/"
+    <React.Fragment>
+      <AppBar
+        position="static"
+        style={{
+          position: "fixed",
+          backgroundColor: "#383838",
+          padding: 1,
+          height: 50
+        }}
       >
-        <HomeIcon
-        //color='secondary'
-        />
-      </IconButton>
-      {/* <HomeIcon //component = {Link} to= '/'
-      color = "secondary"
-      >
-
-      </HomeIcon> */}
-      {/* <Link className="navbar-brand" to="/">
-        Home{" "}
-      </Link> */}
-      {/* <Link className="navbar-brand" to={("/helppage#"+page)}>
-        Help{" "}
-      </Link> */}
-      <IconButton
-        className={classes.navbarStyle}
-        aria-label="help"
-        component={HashLink}
-        to={"/helppage#" + page}
-      >
-        <HelpOutlineIcon
-        //color='secondary'
-        //className="classes.iconstyle"
-        />
-      </IconButton>
-      {/* <a href={("/app/helppage#"+page)}>help</a> */}
-      {/* <img alt="" width="75" src={"https://www.fes.com.au/www/wp-content/uploads/2012/08/logo.jpg"} /> */}
-
-      <img alt="" width="85" src={FES_LOGO} />
-    </nav>
+        <Grid
+          container
+          spacing={1}
+          direction="row"
+          justify="space-between"
+          alignItems="center"
+        >
+          <Grid item xs={3}>
+            <Button
+              //className={classes.button}
+              className={classes.navbarStyle}
+              aria-label="delete"
+              component={Link}
+              to="/"
+            >
+              <HomeIcon
+                fontSize="large"
+                //color='secondary'
+              />
+            </Button>
+          </Grid>
+          <Grid item xs={3}>
+            <Typography variant="h5"> {getTitletoDisplay()}</Typography>
+          </Grid>
+          <Grid item xs={3}>
+            <img alt="" width="60" src={FES_LOGO} />
+          </Grid>
+        </Grid>
+      </AppBar>
+    </React.Fragment>
   );
 };
 
-export default NavBar;
+export default withRouter(NavBar);

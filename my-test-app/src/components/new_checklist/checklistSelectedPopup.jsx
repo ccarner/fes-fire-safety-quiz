@@ -4,13 +4,43 @@ import DialogActions from "@material-ui/core/DialogActions";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import IndexedDataBase from "../../dataStorage.js";
 import CompletedChecklistDescription from "./completedChecklistDescription.jsx";
 import Button from "@material-ui/core/Button";
 
 class ChecklistSelectedPopup extends Component {
   constructor(props) {
     super(props);
+  }
+
+  titleToDisplay(option) {
+    let title;
+    try {
+      title = option.metadata.title;
+    } catch (err) {
+      title = option.filename;
+    }
+    return title;
+  }
+
+  renderPreviousSelections() {
+    if (this.props.previousCompletions.length !== 0) {
+      return (
+        <React.Fragment>
+          Previous Completions:
+          {this.props.previousCompletions.map(completion => {
+            return (
+              <CompletedChecklistDescription
+                time={completion.completionTime}
+                comment={completion.comment}
+                handleView={() => {
+                  this.props.handleRestore(completion);
+                }}
+              />
+            );
+          })}
+        </React.Fragment>
+      );
+    }
   }
 
   render() {
@@ -20,23 +50,16 @@ class ChecklistSelectedPopup extends Component {
         open={true}
         onClose={this.props.handleClose}
       >
-        <DialogTitle id="MenuDialog">{"Checklist"}</DialogTitle>
+        <DialogTitle id="MenuDialog">
+          {this.props.fileObject.metadata &&
+            this.props.fileObject.metadata.title}
+        </DialogTitle>
         <DialogContent>
-          <DialogContentText>{"test for now"}</DialogContentText>
-          {console.log("prevcompletion", this.props.previousCompletions)}
-          {this.props.previousCompletions &&
-            this.props.previousCompletions.map(completion => {
-              return (
-                <CompletedChecklistDescription
-                  name={"add 'name' to checklists..."}
-                  time={completion.completionTime}
-                  comment={completion.comment}
-                  handleView={() => {
-                    this.props.handleRestore(completion);
-                  }}
-                />
-              );
-            })}
+          <DialogContentText>
+            {this.props.fileObject.metadata &&
+              this.props.fileObject.metadata.description}
+          </DialogContentText>
+          {this.renderPreviousSelections()}
         </DialogContent>
         <DialogActions>
           <Button

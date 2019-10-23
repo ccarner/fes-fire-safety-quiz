@@ -1,19 +1,29 @@
 import React, { Component } from "react";
-import Paper from "@material-ui/core/Paper";
+import StandardPaper from "../uiComponents/standardPaper.jsx";
 
 class CompletedChecklistDescription extends Component {
   constructor(props) {
     super(props);
     this.state = {};
   }
+
+  renderComment() {
+    if (this.props.comment) {
+      return (
+        <React.Fragment>
+          <br />
+          Comment:{this.props.comment}
+        </React.Fragment>
+      );
+    }
+  }
   render() {
     return (
       <div onClick={this.props.handleView}>
-        <Paper style={{ padding: 8, margin: 8 }}>
-          {this.props.name}
-          {this.props.time}
-          {this.props.comment}
-        </Paper>
+        <StandardPaper>
+          Time: {this.props.time}
+          {this.renderComment()}
+        </StandardPaper>
       </div>
     );
   }

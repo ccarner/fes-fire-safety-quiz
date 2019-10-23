@@ -5,9 +5,7 @@ import { BrowserRouter, Switch, Route } from "react-router-dom";
 import InformationPage from "./components/information";
 import NavBar from "./components/navbar";
 import HomePage from "./components/home";
-import CheckListPage from "./components/ContentMenu";
-import InfoModulePage from "./components/infoModule";
-import Module from "./components/infoModules/module";
+
 import helpPage from "./components/helpPage";
 import AppBar from "@material-ui/core/AppBar";
 import ChecklistSubmissionManager from "./components/new_checklist/checklistSubmissionManager.jsx";
@@ -30,39 +28,40 @@ function App() {
     <BrowserRouter>
       <div className="App">
         <NavBar />
-
-        <AppBar
+        <div className="appBody" style={{ paddingTop: 50 }}>
+          {/* <AppBar
           position="static"
           style={{ position: "fixed", backgroundColor: "red" }}
         >
           New MaterialUI Navbar
-        </AppBar>
+        </AppBar> */}
 
-        <Switch>
-          {/* use a switch so we only render max of ONE of these pages */}
-          <Route path="/" exact component={HomePage} />
+          <Switch>
+            {/* use a switch so we only render max of ONE of these pages */}
+            <Route path="/" exact component={HomePage} />
 
-          <Route path="/quizzes" exact component={QuizSelection} />
-          <Route path="/checklists" exact component={ChecklistSelection} />
-          <Route path="/modules" exact component={ModuleSelection} />
-          <Route
-            path="/completeChecklist"
-            exact
-            render={routeProps => <ChecklistSubmissionManager />}
-          />
-          <Route
-            exact
-            path="/completeQuiz"
-            render={routeProps => <QuizSubmissionManager />}
-          />
-          <Route
-            path="/completeModule"
-            exact
-            render={routeProps => <ModuleSubmissionManager />}
-          />
-          <Route path="/helppage" exact component={helpPage} />
-          <Route path="/information" exact component={InformationPage} />
-        </Switch>
+            <Route path="/quizzes" exact component={QuizSelection} />
+            <Route path="/checklists" exact component={ChecklistSelection} />
+            <Route path="/modules" exact component={ModuleSelection} />
+            <Route
+              path="/completeChecklist"
+              exact
+              render={routeProps => <ChecklistSubmissionManager />}
+            />
+            <Route
+              exact
+              path="/completeQuiz"
+              render={routeProps => <QuizSubmissionManager />}
+            />
+            <Route
+              path="/completeModule"
+              exact
+              render={routeProps => <ModuleSubmissionManager />}
+            />
+            <Route path="/help" exact component={helpPage} />
+            <Route path="/information" exact component={InformationPage} />
+          </Switch>
+        </div>
       </div>
     </BrowserRouter>
   );

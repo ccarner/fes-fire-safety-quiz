@@ -2,7 +2,7 @@ import React from "react";
 
 import Typography from "@material-ui/core/Typography";
 
-import AnswerOption from "./AnswerOption";
+import AnswerOption from "./answerOption";
 /**
  * renders the quiz component page when the user is answering a specific quiz question
  */
@@ -42,6 +42,7 @@ function Quiz(props) {
             <video
               src={props.media_src}
               type="video/mp4"
+              style={{ padding: 8 }}
               controls
               className="quizVideo"
             />

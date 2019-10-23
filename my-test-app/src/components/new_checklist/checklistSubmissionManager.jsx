@@ -60,7 +60,7 @@ class ChecklistSubmissionManager extends Component {
     console.log("submission mamanger", this.state, this.props);
     return (
       <Checklist
-        questions={this.props.location.state.content}
+        checklistFile={this.props.location.state.content}
         handleSubmit={this.handleSubmit}
         selections={this.state.selections}
         submitted={this.state.submitted}

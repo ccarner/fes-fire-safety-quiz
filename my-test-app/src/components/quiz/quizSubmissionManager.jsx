@@ -28,6 +28,7 @@ class QuizSubmissionManager extends Component {
       this.state.submitted = false;
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.render = this.render.bind(this);
   }
 
   async handleSubmit(selections) {
@@ -41,7 +42,7 @@ class QuizSubmissionManager extends Component {
   }
 
   render() {
-    console.log(this.state);
+    console.log("quizManager props", this.props);
     return (
       <Quiz
         questions={this.state.questions}

@@ -16,6 +16,7 @@ class ChecklistSelection extends AbstractSelection {
     return (
       <ChecklistSelectedPopup
         previousCompletions={this.state.previousCompletions}
+        fileObject={this.state.selectedFileObject}
         handleClose={this.handleDialogClose}
         handleRestore={this.handleRestore}
         handleNewContent={this.getContent}
