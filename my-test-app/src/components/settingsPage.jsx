@@ -10,10 +10,12 @@ class SettingsPage extends Component {
     this.state = { showHiddenContent: false };
     this.handleToggleSwitch = this.handleToggleSwitch.bind(this);
 
-    let showHiddenContent = IndexedDataBase.getPreference("showHiddenContent");
-    if (showHiddenContent === true || showHiddenContent === false) {
-      this.state.showHiddenContent = showHiddenContent;
-    }
+    IndexedDataBase.getPreference("showHiddenContent").then(values => {
+      let showHiddenContent = values[0].value;
+      if (showHiddenContent === true || showHiddenContent === false) {
+        this.state.showHiddenContent = showHiddenContent;
+      }
+    });
   }
 
   handleToggleSwitch(preferenceName) {

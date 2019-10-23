@@ -106,14 +106,10 @@ export default class IndexedDataBase {
   }
 
   static async getPreference(preferenceName) {
-    return IndexedDataBase.initialise()
-      .then(function(db) {
-        var tx = db.transaction("preferences", "readonly");
-        var prefs = tx.objectStore("preferences");
-        return prefs.getAll(preferenceName);
-      })
-      .then(function(values) {
-        return values;
-      });
+    return IndexedDataBase.initialise().then(function(db) {
+      var tx = db.transaction("preferences", "readonly");
+      var prefs = tx.objectStore("preferences");
+      return prefs.getAll(preferenceName);
+    });
   }
 }

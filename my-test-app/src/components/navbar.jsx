@@ -36,7 +36,7 @@ const NavBar = props => {
     } else if (location.includes("help")) {
       return "Help";
     } else if (location.includes("setting")) {
-      return "Admin Settings";
+      return "Admin";
     } else {
       return "";
     }
@@ -47,6 +47,7 @@ const NavBar = props => {
       window.location.href.toString().split(window.location.host + "/app/")[1]
     );
   });
+
   return (
     <React.Fragment>
       <AppBar
