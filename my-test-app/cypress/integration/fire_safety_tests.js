@@ -8,16 +8,20 @@ describe('test cases', function() {
       cy.get('button').eq(0).click()
       cy.contains('Start Module').click()
       cy.url().should('include', '/completeModule')
-
-
-   // expect(true).to.equal(true)
+  })
+  it('views checklist', function() {
+    cy.visit('http://localhost:3000/')
+    cy.get('#button-checklists').click()
+    cy.url().should('include', '/checklists')
+    cy.get('button').eq(0).click()
+    cy.contains('Start Checklist').click()
+    cy.url().should('include', '/completeChecklist')
   })
    it('takes quiz by skipping questions', function() {
     cy.visit('http://localhost:3000/')
     cy.get('#button-quizzes').click()
     cy.url().should('include', '/quizzes')
     cy.contains('Quiz For Testing').click()
-  
     cy.contains('Start Quiz').click()
      cy.contains('Next').click()
     // cy.get('video').click()
