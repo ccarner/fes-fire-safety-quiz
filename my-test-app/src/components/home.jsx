@@ -77,7 +77,7 @@ function HomePage(props) {
             {icon}
           </Button>
         </Link>
-        <Typography>{text}</Typography>
+        <Typography style={{ padding: 8 }}>{text}</Typography>
       </GridListTile>
     );
   }
@@ -86,7 +86,7 @@ function HomePage(props) {
     <GridList
       cellHeight={200}
       className={classes.gridList}
-      style={{ paddingTop: 20 }}
+      style={{ paddingTop: 20, width: "100%" }}
     >
       {oneIconGrid(
         <DescriptionIcon

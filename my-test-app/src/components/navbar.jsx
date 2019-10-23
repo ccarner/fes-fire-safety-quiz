@@ -5,7 +5,7 @@ import IconButton from "@material-ui/core/IconButton";
 import HomeIcon from "@material-ui/icons/Home";
 import HelpOutlineIcon from "@material-ui/icons/HelpOutline";
 import { HashLink } from "react-router-hash-link";
-import FES_LOGO from "./pictures/FESlogo2.jpg";
+import FES_LOGO from "./pictures/logo.png";
 import useStyles from "./menustyle";
 import { Link } from "react-router-dom";
 import AppBar from "@material-ui/core/AppBar";
