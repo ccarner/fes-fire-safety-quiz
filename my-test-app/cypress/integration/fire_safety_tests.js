@@ -24,7 +24,7 @@ describe('test cases', function() {
      cy.contains('Next').click()
      cy.contains('Next').click()
      cy.contains('Next').click()
-     cy.contains('View Results').click()
+     cy.contains('Submit').click()
      cy.on('window:alert', (str) => {
       expect(str).to.equal(`You have not answered all questions. Please go back and finish the quiz.`)
     })
@@ -39,7 +39,7 @@ describe('test cases', function() {
     cy.url().should('include', '/quizzes')
     cy.contains('Quiz For Testing').click()
   
-    cy.contains('Start Module').click()
+    cy.contains('Start Quiz').click()
     cy.get('.answerOption').eq(0).click()
     cy.get('.answerOption').eq(1).click()
     cy.get('.answerOption').eq(2).click()
@@ -85,7 +85,7 @@ describe('test cases', function() {
     cy.get('.answerOption').eq(1).click()
     cy.get('.answerOption').eq(1).click()
     cy.get('.answerOption').eq(1).click()
-    cy.contains('View Results').click()
+    cy.contains('Submit').click()
     cy.contains("5/")
 
   })
@@ -112,8 +112,8 @@ describe('test cases', function() {
     cy.get('.answerOption').eq(1).click()
     cy.contains('Next').click()
     cy.get('.answerOption').eq(0).click()
-    cy.contains('View Results').click()
-    cy.contains("5/")
+    cy.contains('Submit').click()
+    cy.contains("0/")
 
   })
 
@@ -139,7 +139,7 @@ describe('test cases', function() {
     cy.get('.answerOption').eq(1).click()
     cy.contains('Next').click()
     cy.get('.answerOption').eq(0).click()
-    cy.contains('View Results').click()
+    cy.contains('Submit').click()
     cy.contains("1/")
 
   })
@@ -168,7 +168,7 @@ describe('test cases', function() {
     cy.get('.answerOption').eq(0).click()
     cy.contains('Next').click()
     cy.get('.answerOption').eq(0).click()
-    cy.contains('View Results').click()
+    cy.contains('Submit').click()
     cy.contains("2/")
 
   })
