@@ -16,7 +16,7 @@ describe('test cases', function() {
     cy.visit('http://localhost:3000/')
     cy.get('#button-quizzes').click()
     cy.url().should('include', '/quizzes')
-    cy.contains('test_quiz').click()
+    cy.contains('Quiz For Testing').click()
   
     cy.contains('Start Quiz').click()
      cy.contains('Next').click()
@@ -37,9 +37,9 @@ describe('test cases', function() {
 
     cy.get('#button-quizzes').click()
     cy.url().should('include', '/quizzes')
-    cy.contains('test_quiz').click()
+    cy.contains('Quiz For Testing').click()
   
-    cy.contains('Start Quiz').click()
+    cy.contains('Start Module').click()
     cy.get('.answerOption').eq(0).click()
     cy.get('.answerOption').eq(1).click()
     cy.get('.answerOption').eq(2).click()
@@ -55,7 +55,7 @@ describe('test cases', function() {
     cy.get('.answerOption').eq(0).click()
     cy.contains('Next').click()
     cy.get('.answerOption').eq(1).click()
-    cy.contains('View Results').click()
+    cy.contains('Submit').click()
     cy.contains("4/")
 
   })
@@ -65,7 +65,7 @@ describe('test cases', function() {
 
     cy.get('#button-quizzes').click()
     cy.url().should('include', '/quizzes')
-    cy.contains('test_quiz').click()
+    cy.contains('Quiz For Testing').click()
     cy.contains('Start Quiz').click()
     cy.get('.answerOption').eq(1).click()
     cy.get('.answerOption').eq(4).click()
@@ -95,7 +95,7 @@ describe('test cases', function() {
 
     cy.get('#button-quizzes').click()
     cy.url().should('include', '/quizzes')
-    cy.contains('test_quiz').click()
+    cy.contains('Quiz For Testing').click()
     cy.contains('Start Quiz').click()
     cy.get('.answerOption').eq(1).click()
     cy.get('.answerOption').eq(2).click()
@@ -122,7 +122,7 @@ describe('test cases', function() {
 
     cy.get('#button-quizzes').click()
     cy.url().should('include', '/quizzes')
-    cy.contains('test_quiz').click()
+    cy.contains('Quiz For Testing').click()
     cy.contains('Start Quiz').click()
     cy.get('.answerOption').eq(1).click()
     cy.get('.answerOption').eq(2).click()
@@ -149,7 +149,7 @@ describe('test cases', function() {
 
     cy.get('#button-quizzes').click()
     cy.url().should('include', '/quizzes')
-    cy.contains('test_quiz').click()
+    cy.contains('Quiz For Testing').click()
     cy.contains('Start Quiz').click()
     cy.get('.answerOption').eq(0).click()
     cy.get('.answerOption').eq(1).click()

@@ -7,17 +7,21 @@ import { Link } from "react-router-dom";
 class ResultsPage extends Component {
   constructor(props) {
     super(props);
-    this.state = { answerCards: this.generateAnswerCards(), correctCounter: 0 };
-    this.generateAnswerCards = this.generateAnswerCards.bind(this);
+    this.state = { answerCards: this.generateAnswerCards(), correctCounter: 0, some: '' };
+ 
   }
+  componentDidMount(){
+    this.generateAnswerCards();
+  }
+
 
   formatSet(set, answerTexts) {
     console.log("set is", set, set.size);
     var outString = "";
-    set.forEach((answer, index) => {
+    Array.from(set).sort().forEach((answer, index) => {
       outString += answerTexts[answer];
       if (index < set.size - 1) {
-        outString += ",";
+        outString += ", ";
       }
     });
     console.log("outstring is", outString);
@@ -53,9 +57,10 @@ class ResultsPage extends Component {
         //answer is correct!
         userAnswerStyle = { color: "green" };
 
+
         //increase the number of correct answers
-        this.setState(prevState => {
-          return { correctCounter: prevState.correctCounter + 1 };
+        this.setState((state) => {
+          return { correctCounter: state.correctCounter + 1 };
         });
       }
 
