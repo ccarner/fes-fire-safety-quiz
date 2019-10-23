@@ -95,6 +95,7 @@ function HomePage(props) {
             <Grid item xs={4} height="100">
               <IconButton
                 size="medium"
+                id = "button-modules"
                 className={classes.iconstyle}
                 component={Link}
                 to="/modules"
@@ -110,6 +111,7 @@ function HomePage(props) {
               <IconButton
                 color="primary"
                 className={classes.iconstyle}
+                id = "button-checklists"
                 component={Link}
                 to="/checklists"
               >
@@ -131,6 +133,7 @@ function HomePage(props) {
               <IconButton
                 color="primary"
                 className={classes.iconstyle}
+                id = "button-quizzes"
                 component={Link}
                 to="/quizzes"
               >
@@ -146,6 +149,7 @@ function HomePage(props) {
               <IconButton
                 color="primary"
                 className={classes.iconstyle}
+                id = "button-information"
                 component={Link}
                 to="/information"
               >
@@ -167,6 +171,7 @@ function HomePage(props) {
               <IconButton
                 color="primary"
                 className={classes.iconstyle}
+                id = "button-help"
                 component={Link}
                 to="/helppage"
               >
