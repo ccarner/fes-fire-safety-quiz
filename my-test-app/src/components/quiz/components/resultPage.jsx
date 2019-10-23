@@ -97,7 +97,7 @@ class ResultsPage extends Component {
         {this.state.answerCards.map(result => {
           return <StandardPaper>{result}</StandardPaper>;
         })}
-        <Typography>
+        <Typography variant = "h6">
           <b> Scored {this.state.correctCounter}/{this.props.quiz_questions.length} </b>
         </Typography>
         <br/>

@@ -72,6 +72,7 @@ const NavBar = props => {
               to="/"
             >
               <HomeIcon
+                id = "button-home"
                 fontSize="large"
                 //color='secondary'
               />

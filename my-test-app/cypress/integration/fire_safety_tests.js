@@ -5,7 +5,7 @@ describe('test cases', function() {
       cy.visit('http://localhost:3000/')
       cy.get('#button-modules').click()
       cy.url().should('include', '/modules')
-      cy.get('button').contains("testing").click()
+      cy.get('button').eq(0).click()
       cy.contains('Start Module').click()
       cy.url().should('include', '/completeModule')
 
@@ -138,7 +138,7 @@ describe('test cases', function() {
     cy.get('.answerOption').eq(0).click()
     cy.get('.answerOption').eq(1).click()
     cy.contains('Next').click()
-    cy.get('.answerOption').eq(0).click()
+    cy.get('.answerOption').eq(1).click()
     cy.contains('Submit').click()
     cy.contains("1/")
 
@@ -177,7 +177,7 @@ describe('test cases', function() {
     cy.visit('http://localhost:3000/')
     cy.get('#button-quizzes').click()
     cy.url().should('include', '/quizzes')
-    cy.get("nav").click(40,40)
+    cy.get("#button-home").click()
     cy.url().should('eq', 'http://localhost:3000/')
   
 })
@@ -191,15 +191,5 @@ it('has information about FES and redirects to fes webpage', function() {
 
 
 })
-it('has help information', function() {
-  cy.visit('http://localhost:3000/')
-  cy.get('#button-information').click()
-  cy.url().should('include', '/information')
-  cy.get("nav").click("center")
-  cy.url().should('include',"/helppage")
-  expect(cy.contains('How to use this app'))
 
-
-
-})
 })
