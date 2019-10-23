@@ -5,7 +5,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import CompletedQuizDescription from "./completedQuizDescription.jsx";
-import Button from "@material-ui/core/Button";
+import StandardButton from "../uiComponents/standardButton.jsx";
 
 class QuizSelectedPopup extends Component {
   constructor(props) {
@@ -49,25 +49,17 @@ class QuizSelectedPopup extends Component {
           {this.renderPreviousSelections()}
         </DialogContent>
         <DialogActions>
-          <Button
-            onClick={this.props.handleClose}
-            variant="contained"
-            color="primary"
-            text_transform="none"
-          >
+          <StandardButton onClick={this.props.handleClose}>
             Close
-          </Button>
-          <Button
+          </StandardButton>
+          <StandardButton
             //when the button is clicked execute the callback function
             onClick={() => {
               this.props.handleNewContent();
             }}
-            variant="contained"
-            color="primary"
-            text_transform="none"
           >
-            Start Module
-          </Button>
+            Start Quiz
+          </StandardButton>
         </DialogActions>
       </Dialog>
     );
