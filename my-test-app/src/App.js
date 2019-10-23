@@ -14,10 +14,8 @@ import ChecklistSelection from "./components/new_checklist/checklistSelection.js
 import ModuleSelection from "./components/infoModules/moduleSelection.jsx";
 import ModuleSubmissionManager from "./components/infoModules/moduleSubmissionManager.jsx";
 import QuizSelection from "./components/quiz/quizSelection.jsx";
+import SettingsPage from "./components/settingsPage.jsx";
 // import background1 from "./components/pictures/questionmarks.png";
-
-// this is the basic component that's responsible for rendering the default
-// starting view with the spinning react logo
 
 // babel can take this JSX (markup+js) into traditional JS for browsers
 // components will always use JSX, and then babel turns that into react.createelement staements
@@ -29,13 +27,6 @@ function App() {
       <div className="App">
         <NavBar />
         <div className="appBody" style={{ paddingTop: 50 }}>
-          {/* <AppBar
-          position="static"
-          style={{ position: "fixed", backgroundColor: "red" }}
-        >
-          New MaterialUI Navbar
-        </AppBar> */}
-
           <Switch>
             {/* use a switch so we only render max of ONE of these pages */}
             <Route path="/" exact component={HomePage} />
@@ -60,6 +51,7 @@ function App() {
             />
             <Route path="/help" exact component={helpPage} />
             <Route path="/information" exact component={InformationPage} />
+            <Route path="/settings" exact component={SettingsPage} />
           </Switch>
         </div>
       </div>

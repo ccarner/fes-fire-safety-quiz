@@ -21,6 +21,9 @@ export default class IndexedDataBase {
             keyPath: ["filename", "completionTime"]
           });
           quizSaves.createIndex("filename", "filename", { unique: false });
+          var preferences = db.createObjectStore("preferences", {
+            keyPath: "preferenceName"
+          });
         }
       }
     });
@@ -78,6 +81,36 @@ export default class IndexedDataBase {
         var quiz = tx.objectStore("quizSaves");
         var index = quiz.index("filename");
         return index.getAll(filename);
+      })
+      .then(function(values) {
+        return values;
+      });
+  }
+
+  static async setPreference(preferenceName, value) {
+    return IndexedDataBase.initialise()
+      .then(function(db) {
+        var tx = db.transaction("preferences", "readwrite");
+        var prefs = tx.objectStore("preferences");
+        var componentsToAdd = {
+          preferenceName: preferenceName,
+          value: value
+        };
+        //use put to overwrite
+        prefs.put(componentsToAdd);
+        return tx.complete;
+      })
+      .catch(err => {
+        console.log(err);
+      });
+  }
+
+  static async getPreference(preferenceName) {
+    return IndexedDataBase.initialise()
+      .then(function(db) {
+        var tx = db.transaction("preferences", "readonly");
+        var prefs = tx.objectStore("preferences");
+        return prefs.getAll(preferenceName);
       })
       .then(function(values) {
         return values;

@@ -35,6 +35,8 @@ const NavBar = props => {
       return "About FES";
     } else if (location.includes("help")) {
       return "Help";
+    } else if (location.includes("setting")) {
+      return "Admin Settings";
     } else {
       return "";
     }
@@ -72,7 +74,7 @@ const NavBar = props => {
               to="/"
             >
               <HomeIcon
-                id = "button-home"
+                id="button-home"
                 fontSize="large"
                 //color='secondary'
               />
