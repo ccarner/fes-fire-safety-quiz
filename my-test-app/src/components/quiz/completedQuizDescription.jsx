@@ -6,13 +6,11 @@ class CompletedQuizDescription extends Component {
     super(props);
     this.state = {};
   }
+
   render() {
     return (
       <div onClick={this.props.handleView}>
-        <StandardPaper>
-          {this.props.name}
-          {this.props.time}
-        </StandardPaper>
+        <StandardPaper>Time: {this.props.time}</StandardPaper>
       </div>
     );
   }

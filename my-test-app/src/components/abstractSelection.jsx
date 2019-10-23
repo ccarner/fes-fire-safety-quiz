@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
-import ContentMenu from "./ContentMenu.jsx";
+import ContentMenu from "./contentMenu.jsx";
 import { Redirect } from "react-router-dom";
 
 class AbstractSelection extends Component {
@@ -8,7 +8,8 @@ class AbstractSelection extends Component {
     super(props);
     this.state = {
       index: undefined,
-      selectedFilename: undefined,
+      // selected File Object is the json whcih contains "filename" and "metadata"
+      selectedFileObject: undefined,
       previousCompletions: undefined,
       contentToDisplay: undefined,
       restoredValues: undefined
@@ -34,7 +35,7 @@ class AbstractSelection extends Component {
   //gets the actual questions or other when actually viewing the content
   //gets the currently selected resource
   getContent() {
-    var contentUrl = this.apiUrl + this.state.selectedFilename;
+    var contentUrl = this.apiUrl + this.state.selectedFileObject.filename;
     axios.get(contentUrl).then(response => {
       this.setState({ contentToDisplay: response.data });
     });
@@ -42,18 +43,18 @@ class AbstractSelection extends Component {
 
   //when choosing a checklist from the menu
   //not getting content yet, just a preliminary popup or other.
-  handleSelectOption(filename) {
+  handleSelectOption(selectedFileObject) {
     // if we don't want to save, won't have a save function
     if (this.getSaves) {
-      this.getSaves(filename).then(results => {
+      this.getSaves(selectedFileObject.filename).then(results => {
         this.setState({
           previousCompletions: results,
-          selectedFilename: filename
+          selectedFileObject: selectedFileObject
         });
       });
     } else {
       this.setState({
-        selectedFilename: filename
+        selectedFileObject: selectedFileObject
       });
     }
   }
@@ -69,7 +70,7 @@ class AbstractSelection extends Component {
   //unselect the content
   handleDialogClose() {
     this.setState({
-      selectedFilename: undefined,
+      selectedFileObject: undefined,
       previousCompletions: undefined
     });
   }
@@ -83,7 +84,7 @@ class AbstractSelection extends Component {
             pathname: this.contentForwardUrl,
             state: {
               content: this.state.contentToDisplay,
-              filename: this.state.selectedFilename,
+              filename: this.state.selectedFileObject.filename,
               restoredValues: this.state.restoredValues
             }
           }}
@@ -96,7 +97,7 @@ class AbstractSelection extends Component {
           menuOptions={this.state.index}
           handleClickOpen={this.handleSelectOption}
         />
-        {this.state.selectedFilename && this.renderContentSelected()}
+        {this.state.selectedFileObject && this.renderContentSelected()}
       </React.Fragment>
     );
   }

@@ -7,9 +7,9 @@ import ImageDatabase from "../db.js";
 import FormLabel from "@material-ui/core/FormLabel";
 import StandardButton from "./uiComponents/standardButton.jsx";
 import SubmitButton from "./uiComponents/submitButton.jsx";
-
+import TouchRipple from "@material-ui/core/ButtonBase/TouchRipple";
 import Button from "@material-ui/core/Button";
-import ButtonBases from "./ButtonBases";
+
 import background1 from "./pictures/questionmarks.png";
 import background2 from "./pictures/FESlogo.jpg";
 import background3 from "./pictures/building.jpg";
@@ -26,12 +26,9 @@ import InfoIcon from "@material-ui/icons/Info";
 import background5 from "./pictures/textbooks.jpg";
 import background4 from "./pictures/Man-filling-up-checklist.jpg";
 import useStyles from "./menustyle";
+import GridList from "@material-ui/core/GridList";
 import { red } from "@material-ui/core/colors";
-
-function doLink(thing) {
-  return (window.location = thing);
-  //return <Redirect to={`${thing}`} />
-}
+import GridListTile from "@material-ui/core/GridListTile";
 
 function HomePage(props) {
   const classes = useStyles();
@@ -64,134 +61,83 @@ function HomePage(props) {
     }
   ]);
   //const classes = useStyles();
-  function FormRow(option) {
+
+  function oneIconGrid(icon, text, link, buttonId) {
     return (
-      <React.Fragment>
-        <Grid item xs={4}>
-          <IconButton classes={classes.iconstyle} size="large" color="primary">
-            <DescriptionIcon fontSize="large" enableBackground="true" />
-          </IconButton>
-        </Grid>
-        <Grid item xs={4}>
-          <Paper className={classes.paper}>item</Paper>
-        </Grid>
-      </React.Fragment>
+      <GridListTile>
+        <Link to={link}>
+          <Button
+            variant="contained"
+            color="primary"
+            id={buttonId}
+            size="large"
+            style={{ borderRadius: 100, width: 130, height: 130, padding: 8 }}
+            className={classes.backgroundButtonStyle}
+          >
+            {icon}
+          </Button>
+        </Link>
+        <Typography>{text}</Typography>
+      </GridListTile>
     );
   }
 
   return (
-    <React.Fragment>
-      <h1>Home</h1>
-      <div className={classes.root} height="100%">
-        <Grid container spacing={0} alignItems="center" height="100%">
-          <Grid
-            container
-            item
-            xs={12}
-            spacing={3}
-            alignItems="center"
-            justify="center"
-          >
-            <Grid item xs={4} height="100">
-              <IconButton
-                size="medium"
-                id = "button-modules"
-                className={classes.iconstyle}
-                component={Link}
-                to="/modules"
-                color="secondary"
-                enableBackground
-              >
-                <DescriptionIcon fontSize="large" enableBackground="true" />
-              </IconButton>
-              <div></div>
-              <FormLabel>Information Modules</FormLabel>
-            </Grid>
-            <Grid item xs={4}>
-              <IconButton
-                color="primary"
-                className={classes.iconstyle}
-                id = "button-checklists"
-                component={Link}
-                to="/checklists"
-              >
-                <AssignmentIcon fontSize="large" enableBackground="true" />
-              </IconButton>
-              <div></div>
-              <FormLabel>Building Safety Checklists</FormLabel>
-            </Grid>
-          </Grid>
-          <Grid
-            container
-            item
-            xs={12}
-            spacing={3}
-            alignItems="center"
-            justify="center"
-          >
-            <Grid item xs={4}>
-              <IconButton
-                color="primary"
-                className={classes.iconstyle}
-                id = "button-quizzes"
-                component={Link}
-                to="/quizzes"
-              >
-                <AssignmentTurnedInIcon
-                  fontSize="large"
-                  enableBackground="true"
-                />
-              </IconButton>
-              <div></div>
-              <FormLabel>Test Your Knowledge</FormLabel>
-            </Grid>
-            <Grid item xs={4}>
-              <IconButton
-                color="primary"
-                className={classes.iconstyle}
-                id = "button-information"
-                component={Link}
-                to="/information"
-              >
-                <InfoIcon fontSize="large" enableBackground="true" />
-              </IconButton>
-              <div></div>
-              <FormLabel>About FES</FormLabel>
-            </Grid>
-          </Grid>
-          <Grid
-            container
-            item
-            xs={12}
-            spacing={3}
-            alignItems="center"
-            justify="center"
-          >
-            <Grid item xs={4}>
-              <IconButton
-                color="primary"
-                className={classes.iconstyle}
-                id = "button-help"
-                component={Link}
-                to="/helppage"
-              >
-                <HelpOutlineIcon fontSize="large" enableBackground="true" />
-              </IconButton>
-              <div></div>
-              <FormLabel>How to Use</FormLabel>
-            </Grid>
-          </Grid>
-        </Grid>
-      </div>
-      {/* {mainMenu.map(option =>
-        ButtonBases(option.name, option.link, option.url, doLink, classes)
-      )} */}
-      {/* <button onClick={function() { doLink('./thing'); }} >asdf</button> */}
-      <StandardButton component={Link} to="/modules">
-        See Results
-      </StandardButton>{" "}
-      <SubmitButton> test</SubmitButton>
-    </React.Fragment>
+    <GridList
+      cellHeight={200}
+      className={classes.gridList}
+      style={{ paddingTop: 20 }}
+    >
+      {oneIconGrid(
+        <DescriptionIcon
+          enableBackground="true"
+          className={classes.iconstyle}
+        />,
+        "Learn about Fire Safety",
+        "/modules",
+        "button-modules"
+      )}
+      {oneIconGrid(
+        <AssignmentTurnedInIcon
+          fontSize="large"
+          enableBackground="true"
+          className={classes.iconstyle}
+        />,
+        "Test Your Knowledge",
+        "/quizzes",
+        "button-quizzes"
+      )}
+      {oneIconGrid(
+        <AssignmentIcon
+          fontSize="large"
+          enableBackground="true"
+          className={classes.iconstyle}
+        />,
+        "Complete a Fire Safety Checklist",
+        "/checklists",
+        "button-checklists"
+      )}
+      {oneIconGrid(
+        <InfoIcon
+          fontSize="large"
+          enableBackground="true"
+          className={classes.iconstyle}
+        />,
+        "Who Are FES?",
+        "/information",
+        "button-information"
+      )}
+      {oneIconGrid(
+        <HelpOutlineIcon
+          fontSize="large"
+          enableBackground="true"
+          className={classes.iconstyle}
+        />,
+        "Learn How To Use This App",
+        "/help",
+        "button-help"
+      )}
+    </GridList>
   );
 }
 

@@ -6,13 +6,23 @@ class CompletedChecklistDescription extends Component {
     super(props);
     this.state = {};
   }
+
+  renderComment() {
+    if (this.props.comment) {
+      return (
+        <React.Fragment>
+          <br />
+          Comment:{this.props.comment}
+        </React.Fragment>
+      );
+    }
+  }
   render() {
     return (
       <div onClick={this.props.handleView}>
         <StandardPaper>
-          {this.props.name}
-          {this.props.time}
-          {this.props.comment}
+          Time: {this.props.time}
+          {this.renderComment()}
         </StandardPaper>
       </div>
     );

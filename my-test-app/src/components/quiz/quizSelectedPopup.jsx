@@ -12,6 +12,26 @@ class QuizSelectedPopup extends Component {
     super(props);
   }
 
+  renderPreviousSelections() {
+    if (this.props.previousCompletions.length !== 0) {
+      return (
+        <React.Fragment>
+          Previous Completions:
+          {this.props.previousCompletions.map(completion => {
+            return (
+              <CompletedQuizDescription
+                time={completion.completionTime}
+                handleView={() => {
+                  this.props.handleRestore(completion);
+                }}
+              />
+            );
+          })}
+        </React.Fragment>
+      );
+    }
+  }
+
   render() {
     return (
       <Dialog
@@ -19,21 +39,14 @@ class QuizSelectedPopup extends Component {
         open={true}
         onClose={this.props.handleClose}
       >
-        <DialogTitle id="MenuDialog">{"Quiz"}</DialogTitle>
+        <DialogTitle id="MenuDialog">
+          {this.props.fileObject.metadata.title}
+        </DialogTitle>
         <DialogContent>
-          <DialogContentText>{"test for now"}</DialogContentText>
-          {this.props.previousCompletions &&
-            this.props.previousCompletions.map(completion => {
-              return (
-                <CompletedQuizDescription
-                  name={"add 'name' to quizzes..."}
-                  time={completion.completionTime}
-                  handleView={() => {
-                    this.props.handleRestore(completion);
-                  }}
-                />
-              );
-            })}
+          <DialogContentText>
+            {this.props.fileObject.metadata.description}
+          </DialogContentText>
+          {this.renderPreviousSelections()}
         </DialogContent>
         <DialogActions>
           <Button
@@ -53,7 +66,7 @@ class QuizSelectedPopup extends Component {
             color="primary"
             text_transform="none"
           >
-            Start Quiz
+            Start Module
           </Button>
         </DialogActions>
       </Dialog>

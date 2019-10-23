@@ -111,9 +111,9 @@ class Checklist extends Component {
   }
 
   renderMediaInfo() {
-    var q = this.props.questions[this.state.infoSelected.sectionNum].questions[
-      this.state.infoSelected.questionNum
-    ];
+    var q = this.props.checklistFile.checklist_questions[
+      this.state.infoSelected.sectionNum
+    ].questions[this.state.infoSelected.questionNum];
     if (q.media === "img") {
       return (
         <img
@@ -150,8 +150,9 @@ class Checklist extends Component {
             <DialogContent>
               <DialogContentText>
                 {this.state.infoSelected &&
-                  this.props.questions[this.state.infoSelected.sectionNum]
-                    .questions[this.state.infoSelected.questionNum].help_text}
+                  this.props.checklistFile.checklist_questions[
+                    this.state.infoSelected.sectionNum
+                  ].questions[this.state.infoSelected.questionNum].help_text}
               </DialogContentText>
               {this.state.infoSelected && this.renderMediaInfo()}
             </DialogContent>
@@ -167,7 +168,7 @@ class Checklist extends Component {
           </Dialog>
         )}
         {console.log("inside of checklist", this.state, this.props)}
-        {this.props.questions.map((section, index) => {
+        {this.props.checklistFile.checklist_questions.map((section, index) => {
           return (
             <ChecklistSection
               sectionNum={index}
