@@ -16,6 +16,7 @@ class QuizSelection extends AbstractSelection {
     return (
       <QuizSelectedPopup
         previousCompletions={this.state.previousCompletions}
+        fileObject={this.state.selectedFileObject}
         handleClose={this.handleDialogClose}
         handleRestore={this.handleRestore}
         handleNewContent={this.getContent}

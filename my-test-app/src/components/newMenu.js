@@ -3,7 +3,7 @@ import React from "react";
 import ButtonBase from "@material-ui/core/ButtonBase";
 import Typography from "@material-ui/core/Typography";
 
-function ButtonBases(name, fileName, url, classes, handleClickOpen) {
+function ButtonBases(name, objectPerMenuItem, url, classes, handleClickOpen) {
   return (
     <div className={classes.root}>
       <ButtonBase
@@ -11,7 +11,7 @@ function ButtonBases(name, fileName, url, classes, handleClickOpen) {
         key={name}
         //when clicked, open the dialog popup box
         onClick={() => {
-          handleClickOpen(fileName);
+          handleClickOpen(objectPerMenuItem);
         }}
         className={classes.image}
         focusVisibleClassName={classes.focusVisible}

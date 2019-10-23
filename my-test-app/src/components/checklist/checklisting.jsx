@@ -24,17 +24,6 @@ class Checklisting extends Component {
     };
   }
 
-  //NO LONGER NEEDED: pass in checklist as a prop
-  // ChecklistAPI() automatically formatted the checklists, so this function set the cheklistBank
-  // to the checklists we have in the database
-  // getQuestions = () => {
-  //   CheckListAPI().then(question => {
-  //     this.setState({
-  //       checklistBank: question
-  //     });
-  //   });
-  // };
-
   // If the user choose to see the feedback, summary mode is turned on
   renderSummary() {
     this.setState({
