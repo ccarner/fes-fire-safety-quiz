@@ -11,13 +11,19 @@ const useStyles = makeStyles(() => ({
     backgroundColor: "orange",
     textTransform: "none",
     display: "block",
-    color: "white"
+    color: "white",
+    "&:hover":{
+      backgroundColor: "orange"
+    }
   },
   unselectedButton: {
     backgroundColor: "red",
     textTransform: "none",
     display: "block",
-    color: "white"
+    color: "white",
+    "&:hover":{
+      backgroundColor: "red"
+    }
   }
 }));
 
