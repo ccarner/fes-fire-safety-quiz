@@ -93,12 +93,15 @@ class ResultsPage extends Component {
         <Typography variant="h5" component="h2">
           Results
         </Typography>
-        <Typography>
-          Scored {this.state.correctCounter}/{this.props.quiz_questions.length}
-        </Typography>
+        
         {this.state.answerCards.map(result => {
           return <StandardPaper>{result}</StandardPaper>;
         })}
+        <Typography>
+          <b> Scored {this.state.correctCounter}/{this.props.quiz_questions.length} </b>
+        </Typography>
+        <br/>
+      
         <Button variant="contained" component={Link} to="/quizzes">
           More quizzes
         </Button>
